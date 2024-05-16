@@ -5,6 +5,8 @@
 #include <fstream>
 #include <string>
 
+#include "Lorem/Import.h"
+
 int main(int argc, char* argv[]) {
   if (argc < 2) {
     std::cout << "Usage: " << argv[0] << " filename" << std::endl;
@@ -12,19 +14,8 @@ int main(int argc, char* argv[]) {
   }
 
   std::string filename = argv[1];
-  std::ifstream file(filename);
-
-  if (!file.is_open()) {
-    std::cout << "Unable to open file: " << filename << std::endl;
-    return 1;
-  }
-
-  std::string line;
-  while (std::getline(file, line)) {
-    std::cout << line << std::endl;
-  }
-
-  file.close();
+  auto Import = Lorem::Import(filename);
+  std::cout << Import.Dump() << std::endl;
 
   return 0;
 }
