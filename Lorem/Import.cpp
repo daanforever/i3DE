@@ -1,6 +1,6 @@
 #include "Import.h"
 #include <bit>
-#include <sstream>   
+#include <sstream>
 
 Lorem::Import::Import(const std::string& filename) : Filename(filename) {
   Load();

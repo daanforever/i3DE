@@ -73,6 +73,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>Build\Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir);$(SolutionDir)\libs\zip\src</IncludePath>
+    <PublicIncludeDirectories>$(SolutionDir)\libs\zip\src</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -133,15 +135,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="i3DE.cpp" />
+    <ClCompile Include="libs\zip\src\zip.c" />
     <ClCompile Include="Lorem\Import.cpp" />
+    <ClCompile Include="Lorem\Unzip.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="libs\zip\src\miniz.h" />
+    <ClInclude Include="libs\zip\src\zip.h" />
     <ClInclude Include="Lorem\Import.h" />
+    <ClInclude Include="Lorem\Logger.h" />
+    <ClInclude Include="Lorem\Unzip.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

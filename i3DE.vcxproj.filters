@@ -21,9 +21,27 @@
     <ClCompile Include="Lorem\Import.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lorem\Unzip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\zip\src\zip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lorem\Import.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\Unzip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\zip\src\miniz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\zip\src\zip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

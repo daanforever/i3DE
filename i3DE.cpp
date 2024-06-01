@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 
+#include "Lorem/Logger.h"
 #include "Lorem/Import.h"
 
 int main(int argc, char* argv[]) {
@@ -13,9 +14,10 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
-  std::string filename = argv[1];
-  auto Import = Lorem::Import(filename);
-  std::cout << Import.Dump() << std::endl;
+  // @SuppressWarnings("cpp:S125")
+  //std::string filename = argv[1];
+  //auto Import = Lorem::Import(filename);
+  //std::cout << Import.Dump() << std::endl;
 
   return 0;
 }
