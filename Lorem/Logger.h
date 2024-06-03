@@ -2,12 +2,22 @@
 
 #include <iostream>
 #include <source_location>
+#include <list>
 
 namespace Lorem {
   class Logger {
   public:
-    Lorem::Logger operator<< (const char* text) const {
+    template<typename T>
+    Lorem::Logger operator<< (T text) const {
       std::cout << text << std::endl;
+      return *this;
+    };
+
+    Lorem::Logger operator<< (const std::list<std::string>& list) const {
+      for (const auto& text : list) {
+        std::cout << text;
+      }
+      std::cout << std::endl;
       return *this;
     };
 

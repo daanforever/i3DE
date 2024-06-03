@@ -7,11 +7,23 @@
 
 #include "Lorem/Logger.h"
 #include "Lorem/Import.h"
+#include "Lorem/Unzip.h"
 
 int main(int argc, char* argv[]) {
   if (argc < 2) {
     std::cout << "Usage: " << argv[0] << " filename" << std::endl;
     return 1;
+  }
+
+  
+  const auto unzip = std::make_unique<Lorem::Unzip>(argv[1]);
+  auto a = unzip->ToMemory();
+
+  if (unzip->Errors.All.empty()) {
+    LINFO << "Extract ok";
+  }
+  else {
+    LERROR << "Errors on extract: " << unzip->Errors.All;
   }
 
   // @SuppressWarnings("cpp:S125")

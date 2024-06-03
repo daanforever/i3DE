@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>Build\Intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir);$(SolutionDir)\libs\zip\src</IncludePath>
     <PublicIncludeDirectories>$(SolutionDir)\libs\zip\src</PublicIncludeDirectories>
   </PropertyGroup>
@@ -142,6 +142,8 @@
   <ItemGroup>
     <ClInclude Include="libs\zip\src\miniz.h" />
     <ClInclude Include="libs\zip\src\zip.h" />
+    <ClInclude Include="Lorem\Error.h" />
+    <ClInclude Include="Lorem\IError.h" />
     <ClInclude Include="Lorem\Import.h" />
     <ClInclude Include="Lorem\Logger.h" />
     <ClInclude Include="Lorem\Unzip.h" />
