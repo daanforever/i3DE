@@ -6,7 +6,12 @@
 #include "zip.h"
 #include "Lorem/IError.h"
 
-using t_zip_entry = std::shared_ptr<std::vector<unsigned char>>;
+struct t_zip_entry {
+  std::string filename = {};
+  bool directory = false;
+  std::vector<unsigned char> content = {};
+};
+
 using t_zip_content = std::vector<t_zip_entry>;
 
 namespace Lorem {

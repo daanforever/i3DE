@@ -38,9 +38,7 @@ t_zip_content Lorem::Unzip::ExtractFiles(zip_t* zip)
 
     for (int i = 0; i < zip_entries; i++) {
 
-      if (entry = ExtractFileByIndex(zip, i); entry) {
-        content.push_back(entry);
-      }
+      content.push_back(ExtractFileByIndex(zip, i) );
 
     }
 
@@ -52,6 +50,7 @@ t_zip_entry Lorem::Unzip::ExtractFileByIndex(zip_t* zip, size_t index)
 {
   void* buffer = nullptr;
   size_t bufsize = 0;
+  t_zip_entry entry = {};
 
   if (int err = zip_entry_openbyindex(zip, index); err < 0) {
     Errors << zip_strerror(err);
@@ -60,8 +59,12 @@ t_zip_entry Lorem::Unzip::ExtractFileByIndex(zip_t* zip, size_t index)
     bufsize = zip_entry_size(zip);
 
     zip_entry_read(zip, &buffer, &bufsize);
+    entry.content.assign((unsigned char*)buffer, (unsigned char*)buffer + bufsize);
+    entry.filename = zip_entry_name(zip);
+    entry.directory = zip_entry_isdir(zip);
+
     zip_entry_close(zip);
   }
 
-  return std::make_shared<std::vector<unsigned char>>((unsigned char*)buffer, (unsigned char*)buffer + bufsize);
+  return entry;
 }

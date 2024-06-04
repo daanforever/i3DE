@@ -1,35 +1,48 @@
-#include "Import.h"
-#include <bit>
 #include <sstream>
+#include "Import.h"
 
 Lorem::Import::Import(const std::string& filename) : Filename(filename) {
-  Load();
-}
-
-void Lorem::Import::Load()
-{
-  std::ifstream file(Filename, std::ios::binary | std::ios::ate);
-
-  if (!file.is_open()) {
-    std::cout << "Unable to open file '" << Filename << "'" << std::endl;
-    return;
+  //@SuppressWarnings("cpp:S125")
+  const auto unzip = std::make_unique<Lorem::Unzip>(Filename);
+  Content = unzip->ToMemory();
+   
+  if (unzip->Errors.All.empty()) {
+    LINFO << "Extract ok" << std::endl;
+  }
+  else {
+    LERROR << "Errors on extract: " << unzip->Errors.All;
   }
 
-  std::streampos fileSize = file.tellg();
-  file.seekg(0, std::ios::beg);
+#ifndef NDEBUG
+  DebugPrint();
+#endif // !NDEBUG
 
-  Content = make_unique<std::vector<std::uint8_t>>(fileSize);
-  
-  file.read(std::bit_cast<char*>(Content->data()), fileSize);
-  file.close();
 }
 
-std::shared_ptr<std::vector<uint8_t>> Lorem::Import::Get(const unsigned long int Pos, const unsigned long int Length)
+void Lorem::Import::DebugPrint() const
 {
-  auto p1 = Content->begin() + Pos;
-  auto p2 = p1 + Length;
+  LDEBUG << DumpZipContent();
+}
 
-  return std::make_shared< std::vector<uint8_t> >(p1, p2);
+std::stringstream Lorem::Import::DumpZipContent() const
+{
+  std::stringstream buffer;
+
+  buffer << Filename << " content:" << std::endl;
+  std::string tab = "";
+
+  for (auto& entry : Content) {
+    if (entry.filename.ends_with('/') || entry.filename.find('/') == std::string::npos) {
+      tab = "  ";
+    }
+    else {
+      tab = "    ";
+    }
+
+    buffer << tab << entry.filename << std::endl << std::endl;
+  }
+
+  return buffer;
 }
 
 std::string Lorem::Import::Dump()

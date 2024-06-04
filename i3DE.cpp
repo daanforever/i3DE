@@ -15,21 +15,9 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
-  
-  const auto unzip = std::make_unique<Lorem::Unzip>(argv[1]);
-  auto a = unzip->ToMemory();
-
-  if (unzip->Errors.All.empty()) {
-    LINFO << "Extract ok";
-  }
-  else {
-    LERROR << "Errors on extract: " << unzip->Errors.All;
-  }
-
-  // @SuppressWarnings("cpp:S125")
-  //std::string filename = argv[1];
-  //auto Import = Lorem::Import(filename);
-  //std::cout << Import.Dump() << std::endl;
+  std::string filename = argv[1];
+  auto Import = Lorem::Import(filename);
+  std::cout << Import.Dump() << std::endl;
 
   return 0;
 }

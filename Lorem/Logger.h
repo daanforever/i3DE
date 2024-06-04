@@ -1,23 +1,35 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
+
 #include <source_location>
 #include <list>
+#include <functional>
 
 namespace Lorem {
   class Logger {
   public:
-    template<typename T>
-    Lorem::Logger operator<< (T text) const {
-      std::cout << text << std::endl;
+    template<class T>
+    Lorem::Logger operator<<(T& text) const {
+      std::cout << text;
       return *this;
     };
 
-    Lorem::Logger operator<< (const std::list<std::string>& list) const {
+    Lorem::Logger operator<<(std::stringstream const& ss) const {
+      std::cout << ss.str();
+      return *this;
+    };
+
+    Lorem::Logger operator<<(std::ostream& (*OStreamMani)(std::ostream&)) {
+      std::cout << OStreamMani;
+      return *this;
+    };
+
+    Lorem::Logger operator<<(std::list<std::string>& list) const {
       for (const auto& text : list) {
         std::cout << text;
       }
-      std::cout << std::endl;
       return *this;
     };
 

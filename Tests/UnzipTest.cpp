@@ -6,28 +6,42 @@
 
 namespace Unzip {
 
-  const auto ZipFileName = "../../../Tests/Sample/file.zip";
-  const auto unzip = std::make_unique<Lorem::Unzip>(ZipFileName);
+  const auto ZipFileName = "../../../../Tests/Sample/file.zip";
 
   TEST(ConstructorTestCase, ConstructorTest) {
-    EXPECT_EQ(unzip->Filename, ZipFileName);
+    auto unzip = Lorem::Unzip(ZipFileName);
+    EXPECT_EQ(unzip.Filename, ZipFileName);
   }
 
   TEST(ToMemoryTestCase, SizeTest) {
-    const auto content = unzip->ToMemory();
-    EXPECT_EQ(unzip->Errors.All.size(), 0);
+    auto unzip = Lorem::Unzip(ZipFileName);
+    auto content = unzip.ToMemory();
+    EXPECT_EQ(unzip.Errors.All.size(), 0);
     EXPECT_EQ(content.size(), 1);
   }
 
+  TEST(ToMemoryTestCase, FilenameTest) {
+    auto unzip = Lorem::Unzip(ZipFileName);
+    auto name = "file.txt";
+    auto content = unzip.ToMemory();
+
+    ASSERT_EQ(content.size(), 1);
+
+    auto entry = &content[0];
+    EXPECT_EQ(name, entry->filename);
+  }
+
   TEST(ToMemoryTestCase, ContentTest) {
-    const auto expected_string = "123";
-    const auto content = unzip->ToMemory();
-    EXPECT_EQ(content.size(), 1);
+    auto expected_string = "123";
+    auto unzip = Lorem::Unzip(ZipFileName);
+    auto content = unzip.ToMemory();
 
-    auto unzipped = *content[0].get();
+    ASSERT_EQ(content.size(), 1);
 
-    for (int i = 0; i < unzipped.size(); i++) {
-      EXPECT_EQ(expected_string[i], unzipped[i]);
+    auto entry = &content[0];
+
+    for (int i = 0; i < entry->content.size(); i++) {
+      EXPECT_EQ(expected_string[i], entry->content[i]);
     }
   }
 

@@ -4,6 +4,8 @@
 #include <fstream>
 #include <vector>
 
+#include "Lorem/Unzip.h"
+
 namespace Lorem {
   struct FileHeader {
     uint16_t Version = 0;
@@ -18,12 +20,12 @@ namespace Lorem {
 
   private:
     std::string Filename = "";
-    std::shared_ptr<std::vector<uint8_t>> Content = nullptr;
+    t_zip_content Content = {};
     FileHeader Header = {};
 
   public:
-    void Load();
-    virtual std::shared_ptr<std::vector<uint8_t>> Get(const unsigned long int Pos, const unsigned long int Length);
+    void DebugPrint() const;
+    virtual std::stringstream DumpZipContent() const;
     virtual std::string Dump();
   };
 };
