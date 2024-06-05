@@ -6,8 +6,7 @@
 #include <string>
 
 #include "Lorem/Logger.h"
-#include "Lorem/Import.h"
-#include "Lorem/Unzip.h"
+#include "Lorem/Importer.h"
 
 int main(int argc, char* argv[]) {
   if (argc < 2) {
@@ -16,8 +15,8 @@ int main(int argc, char* argv[]) {
   }
 
   std::string filename = argv[1];
-  auto Import = Lorem::Import(filename);
-  std::cout << Import.Dump() << std::endl;
+  auto importer = Lorem::Importer(filename);
+  std::cout << importer.Dump();
 
   return 0;
 }

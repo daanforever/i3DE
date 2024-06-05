@@ -1,8 +1,5 @@
 #include "pch.h"
-
-#include  <stdlib.h>
 #include "Lorem/Unzip.h"
-#include "zip.h"
 
 namespace Unzip {
 
@@ -17,7 +14,7 @@ namespace Unzip {
     auto unzip = Lorem::Unzip(ZipFileName);
     auto content = unzip.ToMemory();
     EXPECT_EQ(unzip.Errors.All.size(), 0);
-    EXPECT_EQ(content.size(), 1);
+    EXPECT_EQ(content->files.size(), 1);
   }
 
   TEST(ToMemoryTestCase, FilenameTest) {
@@ -25,10 +22,10 @@ namespace Unzip {
     auto name = "file.txt";
     auto content = unzip.ToMemory();
 
-    ASSERT_EQ(content.size(), 1);
+    ASSERT_EQ(content->files.size(), 1);
 
-    auto entry = &content[0];
-    EXPECT_EQ(name, entry->filename);
+    auto entry = &content->files[0];
+    EXPECT_EQ(name, entry->name);
   }
 
   TEST(ToMemoryTestCase, ContentTest) {
@@ -36,9 +33,9 @@ namespace Unzip {
     auto unzip = Lorem::Unzip(ZipFileName);
     auto content = unzip.ToMemory();
 
-    ASSERT_EQ(content.size(), 1);
+    ASSERT_EQ(content->files.size(), 1);
 
-    auto entry = &content[0];
+    auto entry = &content->files[0];
 
     for (int i = 0; i < entry->content.size(); i++) {
       EXPECT_EQ(expected_string[i], entry->content[i]);

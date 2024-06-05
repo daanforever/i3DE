@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Lorem/Logger.h"
 
-namespace Lorem {
+namespace Logger {
   TEST(LoggerTestCase, DEBUG) {
     LDEBUG << "Hello";
     EXPECT_TRUE(true);

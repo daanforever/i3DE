@@ -37,8 +37,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\$(MSBuildProjectName)\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\$(MSBuildProjectName)\$(Platform)\$(Configuration)\</IntDir>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir);$(SolutionDir)\libs\zip\src</IncludePath>
+    <IntDir>$(SolutionDir)Build\$(MSBuildProjectName)\Intermediate\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir);$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <PublicIncludeDirectories>$(SolutionDir)\libs\zip\src</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup />
@@ -65,16 +65,19 @@
       <PreprocessorDefinitions>X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);Unzip.obj;zip.obj</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Build\i3DE\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>../Build/Lorem/x64/Debug/lorem.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Build\Test\$(Platform)\$(Configuration);$(SolutionDir)Build\Lorem\Intermediate\$(Configuration);$(SolutionDir)Build\Lorem\$(Platform)\$(Configuration);$(SolutionDir)Build\i3DE\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <ProjectReference />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -112,6 +115,8 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ConvertTest.cpp" />
+    <ClCompile Include="ImporterTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
