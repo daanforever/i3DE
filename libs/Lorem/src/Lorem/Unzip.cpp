@@ -8,7 +8,7 @@ Lorem::Unzip::Unzip(const std::string& file) : Filename(file) {}
 
 t_directory_ptr Lorem::Unzip::ToMemory()
 {
-  t_directory_ptr ptr;
+  t_directory_ptr ptr = {};
   int errnum = 0;
 
   if (zip_t* zip = zip_openwitherror(Filename.c_str(), 0, 'r', &errnum); zip) {
@@ -18,8 +18,8 @@ t_directory_ptr Lorem::Unzip::ToMemory()
   else {
     
     std::string cwd{ std::filesystem::current_path().generic_string() };
-    Errors << "Error occuried while openning " << Filename << zip_strerror(errnum);
-    Errors << "Current path is " << cwd;
+    Errors.add("Error occuried while openning file '" + Filename + "': " + zip_strerror(errnum));
+    Errors.add("Current path is " + cwd);
   }
 
   return ptr;

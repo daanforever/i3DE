@@ -16,6 +16,8 @@ int main(int argc, char* argv[]) {
   }
 
   std::string filename = argv[1];
+  //std::string filename = "not_found";
+
   auto importer = Lorem::Importer(filename);
   auto converter = Lorem::Convert(importer.Content);
   LDEBUG << converter.modDesc();

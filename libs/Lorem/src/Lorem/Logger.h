@@ -28,7 +28,7 @@ namespace Lorem {
 
     Lorem::Logger operator<<(std::list<std::string>& list) const {
       for (const auto& text : list) {
-        std::cout << text;
+        std::cout << text << std::endl;
       }
       return *this;
     };

@@ -14,8 +14,8 @@ struct t_file {
 using t_file_ptr = std::shared_ptr<t_file>;
 
 struct t_directory {
-  std::vector<t_file_ptr> files;
-  std::map<std::string, t_file_ptr, std::less<>> names;
+  std::vector<t_file_ptr> files = {};
+  std::map<std::string, t_file_ptr, std::less<>> names = {};
 };
 
 using t_directory_ptr = std::shared_ptr<t_directory>;

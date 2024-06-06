@@ -7,8 +7,10 @@ std::shared_ptr<std::string> Lorem::Convert::modDesc() const
 {
   std::string result = "";
 
-  for (auto content = Imported->names.find("modDesc.xml")->second->content; auto c : content) {
-    result += (const char)c;
+  if (Imported) {
+    for (auto content = Imported->names.find("modDesc.xml")->second->content; auto c : content) {
+      result += (const char)c;
+    }
   }
 
   return std::make_shared<std::string>(result);

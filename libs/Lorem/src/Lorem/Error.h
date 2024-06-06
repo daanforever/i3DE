@@ -15,10 +15,13 @@ namespace Lorem {
     // Add new error
     template<typename T>
     Lorem::Error operator<< (T text) {
-      LERROR << text;
       All.emplace_back(text);
-      
       return *this;
     };
+
+    void add(const std::string& message) {
+      All.push_back(message);
+    }
+
   };
 }
