@@ -15,8 +15,8 @@ namespace Lorem {
 
     const std::string Filename = {};
 
-    virtual std::unique_ptr<t_directory> ToMemory();
-    virtual t_directory ExtractFiles(zip_t* zip);
-    virtual t_file ExtractFileByIndex(zip_t* zip, size_t index);
+    virtual t_directory_ptr ToMemory();
+    virtual t_directory_ptr ExtractFiles(zip_t* zip);
+    virtual t_file_ptr ExtractFileByIndex(zip_t* zip, size_t index);
   };
 }

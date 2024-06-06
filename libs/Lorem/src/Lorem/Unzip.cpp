@@ -6,13 +6,13 @@
 
 Lorem::Unzip::Unzip(const std::string& file) : Filename(file) {}
 
-std::unique_ptr<t_directory> Lorem::Unzip::ToMemory()
+t_directory_ptr Lorem::Unzip::ToMemory()
 {
-  t_directory buffer;
+  t_directory_ptr ptr;
   int errnum = 0;
 
   if (zip_t* zip = zip_openwitherror(Filename.c_str(), 0, 'r', &errnum); zip) {
-    buffer = ExtractFiles(zip);
+    ptr = ExtractFiles(zip);
     zip_close(zip);
   }
   else {
@@ -22,12 +22,12 @@ std::unique_ptr<t_directory> Lorem::Unzip::ToMemory()
     Errors << "Current path is " << cwd;
   }
 
-  return std::make_unique<t_directory>(buffer);
+  return ptr;
 }
 
-t_directory Lorem::Unzip::ExtractFiles(zip_t* zip)
+t_directory_ptr Lorem::Unzip::ExtractFiles(zip_t* zip)
 {
-  t_file entry = {};
+  t_file_ptr entry_ptr = {};
   t_directory content = {};
 
   if (ssize_t zip_entries = zip_entries_total(zip); zip_entries < 0) {
@@ -39,17 +39,17 @@ t_directory Lorem::Unzip::ExtractFiles(zip_t* zip)
 
     for (int i = 0; i < zip_entries; i++) {
 
-      entry = ExtractFileByIndex(zip, i);
-      content.files.push_back( entry );
-      content.names.try_emplace(entry.name, &entry);
+      entry_ptr = ExtractFileByIndex(zip, i);
+      content.files.push_back(entry_ptr);
+      content.names.try_emplace(entry_ptr->name, entry_ptr);
 
     }
 
   }
-  return content;
+  return std::make_shared<t_directory>(content);
 }
 
-t_file Lorem::Unzip::ExtractFileByIndex(zip_t* zip, size_t index)
+t_file_ptr Lorem::Unzip::ExtractFileByIndex(zip_t* zip, size_t index)
 {
   void* buffer = nullptr;
   size_t bufsize = 0;
@@ -69,5 +69,5 @@ t_file Lorem::Unzip::ExtractFileByIndex(zip_t* zip, size_t index)
     zip_entry_close(zip);
   }
 
-  return entry;
+  return std::make_shared<t_file>(entry);
 }

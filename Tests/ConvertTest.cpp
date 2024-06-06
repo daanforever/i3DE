@@ -3,6 +3,8 @@
 
 
 namespace Convert {
+  const std::string ZipFileName = "../../../../Tests/Sample/file.zip";
+
   TEST(ConvertCaseName, TestName) {
     auto converter = Lorem::Convert();
 

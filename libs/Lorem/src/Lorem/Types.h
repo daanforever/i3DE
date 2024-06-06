@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 
 struct t_file {
   std::string name = {};
@@ -10,7 +11,11 @@ struct t_file {
   std::vector<unsigned char> content = {};
 };
 
+using t_file_ptr = std::shared_ptr<t_file>;
+
 struct t_directory {
-  std::vector<t_file> files;
-  std::map<std::string, t_file*, std::less<>> names;
+  std::vector<t_file_ptr> files;
+  std::map<std::string, t_file_ptr, std::less<>> names;
 };
+
+using t_directory_ptr = std::shared_ptr<t_directory>;

@@ -33,10 +33,10 @@ namespace Lorem {
       return *this;
     };
 
-    //Lorem::Logger position(std::source_location location = std::source_location::current()) const {
-    //  std::cout << "[" << location.file_name() << ":" << location.line() << "] ";
-    //  return *this;
-    //}
+    Lorem::Logger operator<<(std::shared_ptr<std::string> text_ptr) const {
+      std::cout << *text_ptr.get();
+      return *this;
+    };
 
     Lorem::Logger prefix(const std::string& level) const {
       std::cout << "[" << level << "] ";

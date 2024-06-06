@@ -22,14 +22,14 @@ std::string Lorem::Importer::Dump() const
   buffer << Filename << " content:" << std::endl;
   
   for (const auto& entry : Content->files) {
-    if (entry.name.ends_with('/') || entry.name.find('/') == std::string::npos) {
+    if (entry->name.ends_with('/') || entry->name.find('/') == std::string::npos) {
       tab = "  ";
     }
     else {
       tab = "    ";
     }
 
-    buffer << tab << entry.name << std::endl;
+    buffer << tab << entry->name << std::endl;
   }
 
   buffer << std::endl;

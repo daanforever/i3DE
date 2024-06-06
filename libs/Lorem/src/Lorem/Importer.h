@@ -12,7 +12,7 @@ namespace Lorem {
     virtual ~Importer() = default;
 
     std::string Filename = "";
-    std::unique_ptr<t_directory> Content = nullptr;
+    t_directory_ptr Content = nullptr;
 
     virtual std::string Dump() const;
   };

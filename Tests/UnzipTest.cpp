@@ -24,8 +24,8 @@ namespace Unzip {
 
     ASSERT_EQ(content->files.size(), 1);
 
-    auto entry = &content->files[0];
-    EXPECT_EQ(name, entry->name);
+    auto entry_ptr = &content->files[0];
+    EXPECT_EQ(name, entry_ptr->get()->name);
   }
 
   TEST(ToMemoryTestCase, ContentTest) {
@@ -35,7 +35,7 @@ namespace Unzip {
 
     ASSERT_EQ(content->files.size(), 1);
 
-    auto entry = &content->files[0];
+    auto entry = content->files[0].get();
 
     for (int i = 0; i < entry->content.size(); i++) {
       EXPECT_EQ(expected_string[i], entry->content[i]);
