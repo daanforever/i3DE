@@ -15,45 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\framework.h">
+    <ClInclude Include="Lorem\src\framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pch.h">
+    <ClInclude Include="Lorem\src\Lorem\Convert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\Convert.h">
+    <ClInclude Include="Lorem\src\Lorem\Error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\Error.h">
+    <ClInclude Include="Lorem\src\Lorem\IError.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\IError.h">
+    <ClInclude Include="Lorem\src\Lorem\Importer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\Importer.h">
+    <ClInclude Include="Lorem\src\Lorem\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\Logger.h">
+    <ClInclude Include="Lorem\src\Lorem\Types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\Types.h">
+    <ClInclude Include="Lorem\src\Lorem\Unzip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Lorem\Unzip.h">
+    <ClInclude Include="Lorem\src\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\pch.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Convert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Lorem\Convert.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Importer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Lorem\Importer.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Unzip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Lorem\Unzip.cpp">
+    <ClCompile Include="Lorem\src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
