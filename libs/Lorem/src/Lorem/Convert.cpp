@@ -3,15 +3,42 @@
 #include <sstream>
 #include "Convert.h"
 
-std::shared_ptr<std::string> Lorem::Convert::modDesc() const
+Lorem::Convert::Convert(t_directory_ptr imported) : Imported(imported)
+{
+  if (!imported) {
+    throw Lorem::Error::EmptyInputError();
+  }
+}
+
+std::string Lorem::Convert::modDesc() const
 {
   std::string result = "";
+  auto modDesc = Imported->names.find("modDesc.xml");
 
-  if (Imported) {
-    for (auto content = Imported->names.find("modDesc.xml")->second->content; auto c : content) {
-      result += (const char)c;
-    }
+  if (modDesc == Imported->names.end()) {
+    throw Lorem::Error::NotFoundError("modDesc.xml");
   }
 
-  return std::make_shared<std::string>(result);
+  for (auto content = modDesc->second->content; auto c : content) {
+    result += (const char)c;
+  }
+  
+  return result;
+}
+
+pugi::xml_document Lorem::Convert::modDescXML()
+{
+  pugi::xml_document doc = {};
+  pugi::xml_parse_result result = doc.load_string( modDesc().c_str() );
+
+  return doc;
+}
+
+std::vector<std::string> Lorem::Convert::storeItems()
+{
+  std::vector<std::string> result = {};
+
+  pugi::xpath_node_set storeItems = modDescXML().select_nodes("/Profile/Tools/Tool[@Timeout > 0]");
+
+  return result;
 }

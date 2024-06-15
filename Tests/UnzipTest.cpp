@@ -3,7 +3,7 @@
 
 namespace Unzip {
 
-  const auto ZipFileName = "../../../../Tests/Sample/file.zip";
+  const auto ZipFileName = "../../../../Tests/Samples/file.zip";
 
   TEST(ConstructorTestCase, ConstructorTest) {
     auto unzip = Lorem::Unzip(ZipFileName);

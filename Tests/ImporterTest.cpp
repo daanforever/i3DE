@@ -2,7 +2,7 @@
 #include "Lorem/Importer.cpp"
 
 namespace Importer {
-  const std::string ZipFileName = "../../../../Tests/Sample/file.zip";
+  const std::string ZipFileName = "../../../../Tests/Samples/file.zip";
 
   TEST(ImporterCaseName, DumpTest) {
     auto importer = Lorem::Importer(ZipFileName);

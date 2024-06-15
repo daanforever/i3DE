@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="61">
+    <author>FarmAndrei,Krystian</author>
+	<contributors>
+	    - DiZik - (3dModels, textures)
+	    - FarmAndrei - (in Game FS19)
+	    - Krystian - (FS22 Convert)
+	</contributors>	
+    <version>1.0.0.0</version>
+    
+    <title>
+        <en>PLN Plows Pack</en>
+        <de>PLN Pflugpack</de>		
+        <ru>Плуги ПЛН Пак</ru>		
+    </title>
+	
+    <description>
+        <en>
+<![CDATA[Price: 1.940, 2.130, 2.320€
+Max. working speed: 9 kph
+Required power: 80, 130, 150 HP
+Working Width: 1.05, 1.4, 1.7 m
+Plowing depth: 20-30 cm (mouse control)
+
+Configuration parts:
+- Mount selection: default/for MTZ tractors
+- Coulter On/Off
+]]>
+        </en>
+        <de>
+<![CDATA[Preise: 1940 €, 2130 €, 2320 €
+Arbeitsgeschwindigkeit: 9 km/h
+Benötigte Leistung: 80 bis 150 PS
+Arbeitsbreite: 1.05 m, 1.4 m, 1.7 m
+Pflugtiefeneinstellung: 20-30 cm (Maussteuerung)
+
+Teile der Konfiguration:
+- Auswahl der Halterung: Standard/für MTZ-Traktoren
+- Auswahl von Zusatzscharen
+]]>
+        </de>
+        <ru>
+<![CDATA[Цена: 1.940, 2.130, 2.320€
+Рабочая скорость: 9 км/ч
+Требуемая мощность: 80, 130, 150 л/с
+Рабочая ширина: 1.05, 1.4, 1.7 м
+Глубина вспашки: 20-30 см (управление мышью)
+
+Конфигурация деталей:
+- Выбор крепления: обычное/под тракторы МТЗ
+- Установление предплужников
+]]>
+        </ru>		
+    </description>
+
+    <iconFilename>icon.png</iconFilename>
+    <multiplayer supported="true" />
+
+    <storeItems>
+        <storeItem xmlFilename="pln_3_35.xml"/>
+        <storeItem xmlFilename="pln_4_35.xml"/>		
+        <storeItem xmlFilename="pln_5_35.xml"/>
+    </storeItems>
+	
+    <brands>
+        <brand name="PLN" title="PLN" image="store/brand_pln.dds"/>
+    </brands>	
+	
+<l10n>
+<!-- attacher -->
+<text name="configuration_frameNormal">
+<en>Universal</en>
+<de>Universal</de>
+<ru>Обычное</ru>
+</text>
+<text name="configuration_frameUnderMtz">
+<en>MTZ</en>
+<de>MTZ</de>
+<ru>МТЗ</ru>
+</text>
+<!-- coulter -->
+<text name="configuration_coulterOff">
+<en>Coulter Off</en>
+<de>Ohne Zusatzschare</de>
+<ru>Без предплужников</ru>
+</text>
+<text name="configuration_coulterOn">
+<en>Coulter On</en>
+<de>Mit Zusatzschare</de>
+<ru>С предплужниками</ru>
+</text>
+</l10n>	
+
+</modDesc>

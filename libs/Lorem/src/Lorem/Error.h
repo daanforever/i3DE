@@ -6,6 +6,14 @@
 namespace Lorem {
   class Error {
   public:
+
+    class EmptyInputError {};
+    class NotFoundError : std::runtime_error {
+    public:
+      explicit NotFoundError(const std::string& message) : std::runtime_error(message) {};
+      explicit NotFoundError(const char* message) : std::runtime_error(message) {};
+    };
+
     // Constructor
     Error() = default;
 

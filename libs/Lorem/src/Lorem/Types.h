@@ -16,6 +16,10 @@ using t_file_ptr = std::shared_ptr<t_file>;
 struct t_directory {
   std::vector<t_file_ptr> files = {};
   std::map<std::string, t_file_ptr, std::less<>> names = {};
+
+  operator bool() const {
+    return files.size() > 0;
+  }
 };
 
 using t_directory_ptr = std::shared_ptr<t_directory>;

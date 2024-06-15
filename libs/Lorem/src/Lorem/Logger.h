@@ -10,8 +10,7 @@
 namespace Lorem {
   class Logger {
   public:
-    template<class T>
-    Lorem::Logger operator<<(T& text) const {
+    Lorem::Logger operator<<(std::string text) const {
       std::cout << text;
       return *this;
     };
@@ -26,8 +25,23 @@ namespace Lorem {
       return *this;
     };
 
-    Lorem::Logger operator<<(std::list<std::string>& list) const {
-      for (const auto& text : list) {
+    Lorem::Logger operator<<(std::list<std::string>& strings) const {
+      if (strings.size() > 0) {
+        std::cout << std::endl;
+      }
+
+      for (const auto& text : strings) {
+        std::cout << text << std::endl;
+      }
+      return *this;
+    };
+
+    Lorem::Logger operator<<(std::vector<std::string> strings) const {
+      if (strings.size() > 0) {
+        std::cout << std::endl;
+      }
+
+      for (const auto& text : strings) {
         std::cout << text << std::endl;
       }
       return *this;
@@ -35,6 +49,12 @@ namespace Lorem {
 
     Lorem::Logger operator<<(std::shared_ptr<std::string> text_ptr) const {
       std::cout << *text_ptr.get();
+      return *this;
+    };
+
+    template<class T>
+    Lorem::Logger operator<<(T& text) const {
+      std::cout << text;
       return *this;
     };
 
