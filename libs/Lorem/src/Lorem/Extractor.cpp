@@ -1,12 +1,12 @@
 #include "pch.h"
 #include <filesystem>
 
-#include "Unzip.h"
+#include "Lorem/Extractor.h"
 #include "Lorem/Logger.h"
 
-Lorem::Unzip::Unzip(const std::string& file) : Filename(file) {}
+Lorem::Extractor::Extractor(const std::string& file) : Filename(file) {}
 
-t_directory_ptr Lorem::Unzip::ToMemory()
+t_directory_ptr Lorem::Extractor::ToMemory()
 {
   t_directory_ptr ptr = {};
   int errnum = 0;
@@ -25,7 +25,7 @@ t_directory_ptr Lorem::Unzip::ToMemory()
   return ptr;
 }
 
-t_directory_ptr Lorem::Unzip::ExtractFiles(zip_t* zip)
+t_directory_ptr Lorem::Extractor::ExtractFiles(zip_t* zip)
 {
   t_file_ptr entry_ptr = {};
   t_directory content = {};
@@ -49,7 +49,7 @@ t_directory_ptr Lorem::Unzip::ExtractFiles(zip_t* zip)
   return std::make_shared<t_directory>(content);
 }
 
-t_file_ptr Lorem::Unzip::ExtractFileByIndex(zip_t* zip, size_t index)
+t_file_ptr Lorem::Extractor::ExtractFileByIndex(zip_t* zip, size_t index)
 {
   void* buffer = nullptr;
   size_t bufsize = 0;

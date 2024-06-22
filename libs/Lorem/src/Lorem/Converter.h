@@ -6,12 +6,12 @@
 #include "Lorem/Error.h"
 
 namespace Lorem {
-  class Convert
+  class Converter
   {
 
   public:
-    Convert() = default;
-    explicit Convert(t_directory_ptr imported);
+    Converter() = default;
+    explicit Converter(t_directory_ptr imported);
 
   private:
     t_directory_ptr Imported = {};
@@ -24,8 +24,10 @@ namespace Lorem {
     // Parsed content of modDesc.xml
     pugi::xml_document parseModDescXML() const;
     std::vector<std::string> getStoreItems() const;
+    std::vector<t_file_ptr> readStoreItemsXML() const;
+
     std::string getFileNameWithoutExtension(const std::string_view filename) const;
-    t_directory_ptr convertStoreItemsToFBX();
-    t_file_ptr convertFileToFBX(const std::string_view input, const std::string_view output) const;
+    t_directory_ptr convertStoreItems();
+    t_file_ptr convertFile(const std::string_view input, const std::string_view output) const;
   };
 }

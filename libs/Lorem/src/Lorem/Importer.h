@@ -2,7 +2,8 @@
 
 #include <string>
 
-#include "Lorem/Unzip.h"
+#include "Lorem/Logger.h"
+#include "Lorem/Extractor.h"
 
 namespace Lorem {
   class Importer

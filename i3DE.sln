@@ -16,12 +16,15 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lorem", "libs\Lorem.vcxproj", "{53764235-8C2B-4A60-BCD1-186B17F47A74}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6557B4F8-1AF3-43D0-80AE-FB1B7E470D1A} = {6557B4F8-1AF3-43D0-80AE-FB1B7E470D1A}
+		{9877F11F-5183-4832-A3F1-552F66E559F8} = {9877F11F-5183-4832-A3F1-552F66E559F8}
 		{A76E04DF-803A-4A4B-8B10-3FB4A1107FFA} = {A76E04DF-803A-4A4B-8B10-3FB4A1107FFA}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zip", "libs\zip.vcxproj", "{A76E04DF-803A-4A4B-8B10-3FB4A1107FFA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pugixml", "libs\pugixml.vcxproj", "{6557B4F8-1AF3-43D0-80AE-FB1B7E470D1A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tinygltf", "libs\tinygltf.vcxproj", "{9877F11F-5183-4832-A3F1-552F66E559F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +74,14 @@ Global
 		{6557B4F8-1AF3-43D0-80AE-FB1B7E470D1A}.Release|x64.Build.0 = Release|x64
 		{6557B4F8-1AF3-43D0-80AE-FB1B7E470D1A}.Release|x86.ActiveCfg = Release|Win32
 		{6557B4F8-1AF3-43D0-80AE-FB1B7E470D1A}.Release|x86.Build.0 = Release|Win32
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Debug|x64.ActiveCfg = Debug|x64
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Debug|x64.Build.0 = Debug|x64
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Debug|x86.Build.0 = Debug|Win32
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Release|x64.ActiveCfg = Release|x64
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Release|x64.Build.0 = Release|x64
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Release|x86.ActiveCfg = Release|Win32
+		{9877F11F-5183-4832-A3F1-552F66E559F8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

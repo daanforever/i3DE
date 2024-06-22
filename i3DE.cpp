@@ -7,7 +7,7 @@
 
 #include "Lorem/Logger.h"
 #include "Lorem/Importer.h"
-#include "Lorem/Convert.h"
+#include "Lorem/Converter.h"
 
 int main(int argc, char* argv[]) {
   if (argc < 2) {
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 
   if (importer.Content) {
     try {
-      Lorem::Convert converter(importer.Content);
+      Lorem::Converter converter(importer.Content);
       auto storeItems = converter.getStoreItems();
       LDEBUG << converter.getStoreItems();
     }

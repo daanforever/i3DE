@@ -26,7 +26,7 @@
     <ClInclude Include="Lorem\src\framework.h">
       <Filter>Header Files\default</Filter>
     </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Convert.h">
+    <ClInclude Include="Lorem\src\Lorem\Converter.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Error.h">
@@ -44,12 +44,12 @@
     <ClInclude Include="Lorem\src\Lorem\Types.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Unzip.h">
+    <ClInclude Include="Lorem\src\Lorem\Extractor.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lorem\src\Lorem\Convert.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Converter.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Importer.cpp">
@@ -58,7 +58,7 @@
     <ClCompile Include="Lorem\src\pch.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Unzip.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Extractor.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
   </ItemGroup>

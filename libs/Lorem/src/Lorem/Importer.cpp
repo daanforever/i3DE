@@ -3,7 +3,7 @@
 #include <sstream>
 
 Lorem::Importer::Importer(const std::string& filename) : Filename(filename) {
-  auto unzip = Lorem::Unzip(Filename);
+  auto unzip = Lorem::Extractor(Filename);
   Content = unzip.ToMemory();
    
   if (unzip.Errors.All.empty()) {

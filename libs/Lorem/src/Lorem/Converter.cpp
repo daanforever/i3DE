@@ -2,16 +2,16 @@
 
 #include <sstream>
 #include <filesystem>
-#include "Convert.h"
+#include "Converter.h"
 
-Lorem::Convert::Convert(t_directory_ptr imported) : Imported(imported)
+Lorem::Converter::Converter(t_directory_ptr imported) : Imported(imported)
 {
   if (!imported) {
     throw Lorem::Error::EmptyInputError();
   }
 }
 
-std::string Lorem::Convert::getModDescRaw() const
+std::string Lorem::Converter::getModDescRaw() const
 {
   std::string result = "";
   auto modDesc = Imported->names.find("modDesc.xml");
@@ -27,7 +27,7 @@ std::string Lorem::Convert::getModDescRaw() const
   return result;
 }
 
-pugi::xml_document Lorem::Convert::parseModDescXML() const
+pugi::xml_document Lorem::Converter::parseModDescXML() const
 {
   pugi::xml_document doc = {};
   pugi::xml_parse_result result = doc.load_string( getModDescRaw().c_str() );
@@ -39,7 +39,7 @@ pugi::xml_document Lorem::Convert::parseModDescXML() const
   return doc;
 }
 
-std::vector<std::string> Lorem::Convert::getStoreItems() const
+std::vector<std::string> Lorem::Converter::getStoreItems() const
 {
   std::vector<std::string> result = {};
 
@@ -61,13 +61,13 @@ std::vector<std::string> Lorem::Convert::getStoreItems() const
 }
 
 // Function to extract the file name without extension (helper function)
-std::string Lorem::Convert::getFileNameWithoutExtension(const std::string_view filename) const
+std::string Lorem::Converter::getFileNameWithoutExtension(const std::string_view filename) const
 {
   std::filesystem::path file(filename);
   return file.replace_extension().generic_string();
 }
 
-t_directory_ptr Lorem::Convert::convertStoreItemsToFBX()
+t_directory_ptr Lorem::Converter::convertStoreItems()
 {
   // Assuming Converted is a prepared directory structure where FBX files will be stored
   Converted = std::make_shared<t_directory>();
@@ -78,12 +78,12 @@ t_directory_ptr Lorem::Convert::convertStoreItemsToFBX()
     std::string outputFile = getFileNameWithoutExtension(inputFile) + ".fbx";
 
     // Store the converted file in the directory structure (implementation-specific)
-    Converted->files.push_back( convertFileToFBX(inputFile, outputFile) );
+    Converted->files.push_back( convertFile(inputFile, outputFile) );
   }
 
   return Converted;
 }
 
-t_file_ptr Lorem::Convert::convertFileToFBX(const std::string_view input, const std::string_view output) const {
+t_file_ptr Lorem::Converter::convertFile(const std::string_view input, const std::string_view output) const {
   return t_file_ptr();
 }

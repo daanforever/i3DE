@@ -6,12 +6,12 @@
 #include "Lorem/IError.h"
 
 namespace Lorem {
-  class Unzip : public Lorem::IError
+  class Extractor : public Lorem::IError
   {
   public:
 
-    explicit Unzip(const std::string& file);
-    virtual ~Unzip() = default;
+    explicit Extractor(const std::string& file);
+    virtual ~Extractor() = default;
 
     const std::string Filename = {};
 

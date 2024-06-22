@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{53764235-8c2b-4a60-bcd1-186b17f47a74}</ProjectGuid>
-    <RootNamespace>Lorem</RootNamespace>
+    <ProjectGuid>{9877f11f-5183-4832-a3f1-552f66e559f8}</ProjectGuid>
+    <RootNamespace>tinygltf</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,9 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)Build\Lorem\$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\Lorem\Intermediate\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Build\tinygltf\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\tinygltf\Intermediate\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -115,25 +114,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\tinygltf\src</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib>
-      <Verbose>true</Verbose>
-      <AdditionalDependencies>../Build/zip/x64/Debug/zip.lib;../Build/tinygltf/x64/Debug/tinygltf.lib</AdditionalDependencies>
-    </Lib>
-    <ProjectReference>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -155,34 +145,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Lorem\src\framework.h" />
-    <ClInclude Include="Lorem\src\Lorem\Converter.h" />
-    <ClInclude Include="Lorem\src\Lorem\Error.h" />
-    <ClInclude Include="Lorem\src\Lorem\IError.h" />
-    <ClInclude Include="Lorem\src\Lorem\Importer.h" />
-    <ClInclude Include="Lorem\src\Lorem\Logger.h" />
-    <ClInclude Include="Lorem\src\Lorem\Types.h" />
-    <ClInclude Include="Lorem\src\Lorem\Extractor.h" />
-    <ClInclude Include="Lorem\src\pch.h" />
+    <ClInclude Include="tinygltf\json.hpp" />
+    <ClInclude Include="tinygltf\stb_image.h" />
+    <ClInclude Include="tinygltf\stb_image_write.h" />
+    <ClInclude Include="tinygltf\tiny_gltf.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lorem\src\Lorem\Converter.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Importer.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Extractor.cpp" />
-    <ClCompile Include="Lorem\src\pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="pugixml.vcxproj">
-      <Project>{6557b4f8-1af3-43d0-80ae-fb1b7e470d1a}</Project>
-    </ProjectReference>
-    <ProjectReference Include="zip.vcxproj">
-      <Project>{a76e04df-803a-4a4b-8b10-3fb4a1107ffa}</Project>
-    </ProjectReference>
+    <ClCompile Include="tinygltf\tiny_gltf.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
