@@ -21,9 +21,23 @@ int main(int argc, char* argv[]) {
   auto importer = Lorem::Importer(filename);
 
   if (importer.Content) {
-    auto converter = Lorem::Convert(importer.Content);
-    //LDEBUG << converter.modDesc();
-    LDEBUG << converter.storeItems();
+    try {
+      Lorem::Convert converter(importer.Content);
+      auto storeItems = converter.getStoreItems();
+      LDEBUG << converter.getStoreItems();
+    }
+    catch (const Lorem::Error::EmptyInputError& e) {
+      std::cerr << "Empty input directory error: " << e.what() << std::endl;
+    }
+    catch (const Lorem::Error::NotFoundError& e) {
+      std::cerr << "File not found: " << e.what() << std::endl;
+    }
+    catch (const Lorem::Error::UnableToParseXML& e) {
+      std::cerr << "Unable to parse XML: " << e.what() << std::endl;
+    }
+    catch (const std::exception& e) {
+      std::cerr << "Unknown error: " << e.what() << std::endl;
+    }
   }
 
   return 0;

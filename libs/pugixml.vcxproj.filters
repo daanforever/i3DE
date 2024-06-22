@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\pugiconfig.hpp">
+    <ClInclude Include="pugixml\src\pugiconfig.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pugixml.hpp">
+    <ClInclude Include="pugixml\src\pugixml.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\pugixml.cpp">
+    <ClCompile Include="pugixml\src\pugixml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

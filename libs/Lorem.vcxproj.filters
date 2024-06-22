@@ -9,52 +9,57 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Header Files\default">
+      <UniqueIdentifier>{1df659a9-b291-4c1d-a491-01dc5f60057e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lorem">
+      <UniqueIdentifier>{3c854276-1646-443f-bc91-851f81508772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lorem">
+      <UniqueIdentifier>{0b3edb01-5ab2-4486-b862-95921afc4f40}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Lorem\src\pch.h">
+      <Filter>Header Files\default</Filter>
+    </ClInclude>
     <ClInclude Include="Lorem\src\framework.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\default</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Convert.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Error.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\IError.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Importer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Logger.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Types.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Unzip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\pch.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Lorem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Convert.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Lorem</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Importer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Unzip.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Lorem</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\pch.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Unzip.cpp">
+      <Filter>Source Files\Lorem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

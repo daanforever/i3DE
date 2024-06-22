@@ -18,21 +18,28 @@ namespace Convert {
     auto importer = Lorem::Importer(ZipEmptyFileName);
     auto converter = Lorem::Convert(importer.Content);
 
-    EXPECT_THROW(converter.modDesc(), Lorem::Error::NotFoundError);
+    EXPECT_THROW(converter.getModDescRaw(), Lorem::Error::NotFoundError);
   }
 
   TEST(ConvertCaseName, modDescTest) {
     auto importer = Lorem::Importer(ZipGoodFileName);
     auto converter = Lorem::Convert(importer.Content);
 
-    EXPECT_NE("", converter.modDesc());
+    EXPECT_NE("", converter.getModDescRaw());
   }
 
   TEST(ConvertCaseName, modDescXmlTest) {
     auto importer = Lorem::Importer(ZipGoodFileName);
     auto converter = Lorem::Convert(importer.Content);
 
-    EXPECT_EQ(true, converter.modDescXML());
+    EXPECT_NO_THROW(converter.parseModDescXML());
+  }
+
+  TEST(ConvertCaseName, getStoreItems) {
+    auto importer = Lorem::Importer(ZipGoodFileName);
+    auto converter = Lorem::Convert(importer.Content);
+
+    EXPECT_EQ(3, converter.getStoreItems().size());
   }
 
 }

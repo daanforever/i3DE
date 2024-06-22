@@ -10,6 +10,24 @@
 namespace Lorem {
   class Logger {
   public:
+    //template<class T>
+    //Lorem::Logger operator<<(T& text) const {
+    //  std::cout << text;
+    //  return *this;
+    //};
+
+    template<class T>
+    Lorem::Logger operator<<(T text) const {
+      std::cout << text;
+      return *this;
+    };
+
+
+    //Lorem::Logger operator<<(int num) const {
+    //  std::cout << num;
+    //  return *this;
+    //};
+
     Lorem::Logger operator<<(std::string text) const {
       std::cout << text;
       return *this;
@@ -49,12 +67,6 @@ namespace Lorem {
 
     Lorem::Logger operator<<(std::shared_ptr<std::string> text_ptr) const {
       std::cout << *text_ptr.get();
-      return *this;
-    };
-
-    template<class T>
-    Lorem::Logger operator<<(T& text) const {
-      std::cout << text;
       return *this;
     };
 
