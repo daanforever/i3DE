@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Lorem/Extractor.h"
 
-namespace Unzip {
+namespace Extractor {
 
   const auto ZipFileName = "../../../../Tests/Samples/file.zip";
 

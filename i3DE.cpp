@@ -6,6 +6,7 @@
 #include <string>
 
 #include "Lorem/Logger.h"
+#include "Lorem/Extractor.h"
 #include "Lorem/Importer.h"
 #include "Lorem/Converter.h"
 
@@ -15,30 +16,14 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
-  std::string filename = argv[1];
+  std::string filename(argv[1]);
   //std::string filename = "not_found";
 
-  auto importer = Lorem::Importer(filename);
+  const auto dir = Lorem::Extractor(filename).ToMemory();
+  const auto mod = Lorem::ModDesc().parse(dir);
 
-  if (importer.Content) {
-    try {
-      Lorem::Converter converter(importer.Content);
-      auto storeItems = converter.getStoreItems();
-      LDEBUG << converter.getStoreItems();
-    }
-    catch (const Lorem::Error::EmptyInputError& e) {
-      std::cerr << "Empty input directory error: " << e.what() << std::endl;
-    }
-    catch (const Lorem::Error::NotFoundError& e) {
-      std::cerr << "File not found: " << e.what() << std::endl;
-    }
-    catch (const Lorem::Error::UnableToParseXML& e) {
-      std::cerr << "Unable to parse XML: " << e.what() << std::endl;
-    }
-    catch (const std::exception& e) {
-      std::cerr << "Unknown error: " << e.what() << std::endl;
-    }
-  }
+  LDEBUG << "Filename: " << filename << std::endl;
+  LDEBUG << mod.Contributors;
 
   return 0;
 }

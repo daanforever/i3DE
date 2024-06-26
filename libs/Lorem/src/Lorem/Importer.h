@@ -2,19 +2,21 @@
 
 #include <string>
 
+#include "pugixml.hpp"
+
 #include "Lorem/Logger.h"
-#include "Lorem/Extractor.h"
+#include "Lorem/Error.h"
+#include "Lorem/Types.h"
+#include "Lorem/ModDesc.h"
+#include "Lorem/Scene.h"
 
 namespace Lorem {
   class Importer
   {
   public:
-    explicit Importer(const std::string& filename);
+    Importer() = default;
     virtual ~Importer() = default;
 
-    std::string Filename = "";
-    t_directory_ptr Content = nullptr;
-
-    virtual std::string Dump() const;
+    virtual Lorem::Scene importMod(const t_directory_ptr dir);
   };
 };

@@ -5,33 +5,31 @@
 #include <map>
 #include <memory>
 
-struct t_file {
-  std::string name = {};
-  bool directory = false;
-  std::vector<unsigned char> content = {};
-};
+#include "pugixml.hpp"
 
-using t_file_ptr = std::shared_ptr<t_file>;
+namespace Lorem {
 
-struct t_directory {
-  std::vector<t_file_ptr> files = {};
-  std::map<std::string, t_file_ptr, std::less<>> names = {};
+  // Structure representing a file in memory
+  struct t_file {
+    std::string name = {};
+    bool directory = false;
+    std::vector<unsigned char> content = {};
+  };
 
-  explicit operator bool() const {
-    return !files.empty();
-  }
-};
+  using t_file_ptr = std::shared_ptr<t_file>;
 
-using t_directory_ptr = std::shared_ptr<t_directory>;
+  // Structure representing a content of zip archive in memory
+  struct t_directory {
+    std::vector<t_file_ptr> files = {};
+    std::map<std::string, t_file_ptr, std::less<>> names = {};
 
-// Structure representing a shape .i3d.shapes
-struct Shape {
-  std::string name = "";
-  std::vector<float> vertices = {}; // Assuming each vertex has 3 float values for x, y, and z
-  std::vector<uint32_t> indices = {};
-};
+    explicit operator bool() const {
+      return !files.empty();
+    }
+  };
 
-// Structure representing the shape file
-struct ShapesFile {
-  std::vector<Shape> shapes = {};
-};
+  using t_directory_ptr = std::shared_ptr<t_directory>;
+
+  using t_map_ss = std::map<std::string, std::string, std::less<>>;
+  using t_shared_xml = std::shared_ptr<pugi::xml_document>;
+}
