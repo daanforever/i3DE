@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="PLN_3_35_new" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="8.2.2"/>
+  </Asset>
+
+  <Files>
+    <File fileId="5" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="9" filename="$data/shared/default_normal.dds"/>
+    <File fileId="11" filename="$data/shared/default_specular.dds"/>
+    <File fileId="2" filename="textures/alpha_channel_pln.dds"/>
+    <File fileId="10" filename="textures/pln_decals_diffuse.dds"/>
+    <File fileId="3" filename="textures/pln_normal.dds"/>
+    <File fileId="4" filename="textures/pln_specular.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="decals_mat" materialId="4" alphaBlending="true" customShaderId="5" customShaderVariation="Decal">
+      <Texture fileId="10"/>
+      <Normalmap fileId="9" bumpDepth="0"/>
+      <Glossmap fileId="11"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+    </Material>
+    <Material name="default" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1">
+      <Normalmap fileId="9"/>
+    </Material>
+    <Material name="lambert1" materialId="6" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+    <Material name="pln_mat" materialId="7" customShaderId="5" customShaderVariation="colorMask">
+      <Texture fileId="2"/>
+      <Normalmap fileId="3" bumpDepth="0"/>
+      <Glossmap fileId="4"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+      <CustomParameter name="colorMat0" value="0.173 0.243 0.58 0"/>
+      <CustomParameter name="colorMat1" value="0.078 0.078 0.078 0"/>
+      <CustomParameter name="colorMat2" value="0.1 1 0.1 0"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 1 1"/>
+      <CustomParameter name="colorMat4" value="1 1 0.1 1"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 1"/>
+      <CustomParameter name="colorMat6" value="1 0.1 1 1"/>
+      <CustomParameter name="colorMat7" value="0.1 1 1 1"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="pln_3_35.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+    <Shape shapeId="1" name="pln3_main_component1" dynamic="true" compound="true" collisionMask="8194" density="5" clipDistance="300" nodeId="23" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true">
+      <Shape shapeId="2" name="pln_vis" clipDistance="300" nodeId="24" materialIds="7" castsShadows="true" receiveShadows="true">
+        <TransformGroup name="attachable" nodeId="25">
+          <TransformGroup name="attacherJoint" translation="-0.2118 0.731 0.991087" rotation="0 90 0" nodeId="26">
+            <TransformGroup name="topReferenceNode" translation="-0.050745 0.458685 0" rotation="0 -90 0" nodeId="27"/>
+          </TransformGroup>
+        </TransformGroup>
+        <TransformGroup name="hydraulics" nodeId="28">
+          <Shape shapeId="3" name="hydraulics_screw" translation="0.218382 0.977 0.406052" clipDistance="300" nodeId="29" materialIds="7" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="4" name="hydraulics_wheel" translation="0.262 0.541 0.46" clipDistance="300" nodeId="30" materialIds="7" castsShadows="true" receiveShadows="true">
+            <TransformGroup name="supportWheel" translation="0.132 -0.499 0.016" nodeId="31">
+              <Shape shapeId="5" name="supportWheelCol" compoundChild="true" collisionMask="8194" density="0.001" nodeId="32" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            </TransformGroup>
+            <Shape shapeId="6" name="wheel" translation="0.102 -0.267659 0.0208122" rotation="1e-05 -0 0" clipDistance="300" nodeId="33" materialIds="7" castsShadows="true" receiveShadows="true"/>
+          </Shape>
+        </TransformGroup>
+        <TransformGroup name="supportArm" nodeId="34">
+          <Shape shapeId="7" name="supportCol" compoundChild="true" collisionMask="8194" density="0.001" nodeId="35" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </TransformGroup>
+        <TransformGroup name="workAreas" nodeId="36">
+          <TransformGroup name="workAreaStart" translation="-0.390407 0 1.09165" nodeId="37"/>
+          <TransformGroup name="workAreaWidth" translation="-0.74083 0 0.34405" nodeId="38"/>
+          <TransformGroup name="workAreaHeight" translation="0.386402 0 -0.514449" nodeId="39"/>
+          <TransformGroup name="groundReferenceNode01" translation="-0.0725117 0.312 -0.0890269" nodeId="40"/>
+          <TransformGroup name="groundReferenceNode02" translation="0.0111996 0.341638 0.405841" nodeId="41"/>
+        </TransformGroup>
+        <TransformGroup name="ai" nodeId="42">
+          <TransformGroup name="aiMarker" nodeId="43">
+            <TransformGroup name="aiMarkerLeft" translation="0.535 0 0.826" nodeId="44"/>
+            <TransformGroup name="aiMarkerRight" translation="-0.77081 0 0.826" nodeId="45"/>
+            <TransformGroup name="aiMarkerBack" translation="-0.432246 0 -1.118" nodeId="46"/>
+          </TransformGroup>
+        </TransformGroup>
+        <TransformGroup name="effect" nodeId="47">
+          <TransformGroup name="effectNode" nodeId="48">
+            <Shape shapeId="8" name="soilAnimation" clipDistance="100" nodeId="49" materialIds="5" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="9" name="soilSmokeEmit" clipDistance="75" nodeId="50" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="10" name="soilEmit" clipDistance="75" nodeId="51" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="11" name="soilChunksEmit" clipDistance="75" nodeId="52" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="11" name="soilBigChunksEmit" clipDistance="75" nodeId="53" materialIds="5" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          </TransformGroup>
+          <TransformGroup name="depthNode01" translation="-0.0723421 0.016 -0.0891778" nodeId="54"/>
+          <TransformGroup name="depthNode02" translation="0.00487161 0.183145 0.407827" nodeId="55"/>
+        </TransformGroup>
+        <TransformGroup name="foliageBendingNode" translation="0.0665741 0.732269 -0.134254" rotation="0 -17.5293 0" nodeId="56"/>
+        <TransformGroup name="configurations" nodeId="57">
+          <TransformGroup name="designConfigurations" nodeId="58">
+            <TransformGroup name="coulterDefault" nodeId="59"/>
+            <Shape shapeId="12" name="coulterConfigurations" clipDistance="300" nodeId="60" materialIds="7" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="13" name="soilAnimationCoulter" clipDistance="100" nodeId="61" materialIds="5" castsShadows="true" receiveShadows="true"/>
+            </Shape>
+          </TransformGroup>
+        </TransformGroup>
+        <Shape shapeId="14" name="decals_pln3" clipDistance="300" nodeId="62" materialIds="4" castsShadows="true" receiveShadows="true" decalLayer="1"/>
+      </Shape>
+    </Shape>
+  </Scene>
+
+</i3D>
