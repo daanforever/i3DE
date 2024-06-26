@@ -42,7 +42,7 @@ namespace Lorem {
         return os;
       }
 
-      virtual ModDesc& parse(const t_directory_ptr dir);
+      virtual ModDesc& process(const t_directory_ptr dir);
 
       // Raw content of modDesc.xml
       virtual std::string getModDescRaw(const t_directory_ptr dir) const;
