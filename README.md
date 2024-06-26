@@ -1,7 +1,7 @@
 # i3DE Documentation
 
 ## Overview
-i3DE is a tool for processing Farming Simulator mods (.i3d and i3d.shapes), offering functionalities for extracting, importing, converting, and exporting 3D scenes. It is written in C++ and inspired by the [I3DShapesTool](https://github.com/Donkie/I3DShapesTool).
+i3DE is a tool for processing Farming Simulator (by GIANTS Software) mods (primarily .i3d and i3d.shapes files), offering functionalities for extracting, importing, converting, and exporting 3D scenes. It is written in C++ and inspired by the [I3DShapesTool](https://github.com/Donkie/I3DShapesTool).
 
 ## Features
 - Unpack mod files (in memory)
@@ -61,3 +61,7 @@ This project is licensed under the MIT License.
 
 ## Contact
 For any questions or feedback, please open an issue on the [GitHub repository](https://github.com/daanforever/i3DE/issues).
+
+## Trademark Disclaimer
+
+All trademarks, logos and brand names are the property of their respective owners. All company, product and service names used for identification purposes only. Use of these names,trademarks and brands does not imply endorsement.
