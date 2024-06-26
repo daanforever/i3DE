@@ -35,7 +35,14 @@ namespace Lorem {
       std::vector<t_brand>    Brands;
 
     public: // Methods
-      ModDesc& parse(const t_directory_ptr dir);
+      friend std::ostream& operator<<(std::ostream& os, const Lorem::ModDesc& modDesc)
+      {
+        os << modDesc.Title.find("en")->second << std::endl;
+        os << "Author: " << modDesc.Author << std::endl;
+        return os;
+      }
+
+      virtual ModDesc& parse(const t_directory_ptr dir);
 
       // Raw content of modDesc.xml
       virtual std::string getModDescRaw(const t_directory_ptr dir) const;
@@ -58,3 +65,6 @@ namespace Lorem {
       virtual std::string fileWithoutExt(std::string_view name) const;
     };
 }
+
+
+

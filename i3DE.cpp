@@ -20,10 +20,10 @@ int main(int argc, char* argv[]) {
   //std::string filename = "not_found";
 
   const auto dir = Lorem::Extractor(filename).ToMemory();
-  const auto mod = Lorem::ModDesc().parse(dir);
+  //const auto mod = Lorem::ModDesc().parse(dir);
 
   LDEBUG << "Filename: " << filename << std::endl;
-  LDEBUG << mod.Contributors;
+  LDEBUG << Lorem::ModDesc().parse(dir);
 
   return 0;
 }
