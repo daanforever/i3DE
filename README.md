@@ -15,7 +15,7 @@ Extractor >> Importer >> Converter >> Exporter
 # i3DE Documentation
 
 ## Overview
-i3DE is a tool for processing Farming Simulator mods, offering functionalities for extracting, importing, converting, and exporting 3D scenes. It is written in C++ and C and inspired by the I3DShapesTool.
+i3DE is a tool for processing Farming Simulator mods, offering functionalities for extracting, importing, converting, and exporting 3D scenes. It is written in C++ and C and inspired by the [I3DShapesTool](https://github.com/Donkie/I3DShapesTool).
 
 ## Features
 - Unpack mod files (in memory)
