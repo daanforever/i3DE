@@ -1,17 +1,3 @@
-Inspired by [I3DShapesTool](https://github.com/Donkie/I3DShapesTool)
-
-## Base workflow:
-
-```
-Extractor >> Importer >> Converter >> Exporter
-```
-
-* Extractor - unzip plugin and creates file structure in memory
-* Importer  - read plugin content and creates Scene with Shapes
-* Converter - convert whole scene to the given format
-* Exporter  - save scene in specified file format
-
-
 # i3DE Documentation
 
 ## Overview
@@ -42,6 +28,18 @@ i3DE is a tool for processing Farming Simulator mods, offering functionalities f
 ./i3DE convert input_file output_file
 ```
 
+
+## Base workflow:
+
+```
+Extractor >> Importer >> Converter >> Exporter
+```
+
+* Extractor - unzip plugin and creates file structure in memory
+* Importer  - read plugin content and creates Scene with Shapes
+* Converter - convert whole scene to the given format
+* Exporter  - save scene in specified file format
+
 ## Contributing
 1. Fork the repository.
 2. Create a new branch:
@@ -63,4 +61,3 @@ This project is licensed under the MIT License.
 
 ## Contact
 For any questions or feedback, please open an issue on the [GitHub repository](https://github.com/daanforever/i3DE/issues).
-
