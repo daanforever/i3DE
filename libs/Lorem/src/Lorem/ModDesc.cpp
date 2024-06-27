@@ -5,7 +5,7 @@
 
 namespace Lorem {
 
-  ModDesc& ModDesc::parse(const t_directory_ptr dir)
+  ModDesc& ModDesc::process(const t_directory_ptr dir)
   {
     auto raw     = getModDescRaw(dir);
     auto xml     = getModDescXML(raw);
@@ -27,23 +27,16 @@ namespace Lorem {
 
   std::string ModDesc::getModDescRaw(const t_directory_ptr dir) const
   {
-    std::string result = "";
-
-    auto modDescPtr = dir->names.find("modDesc.xml");
+    const std::string filename = "modDesc.xml";
+    auto modDescPtr = dir->names.find(filename);
 
     if (modDescPtr == dir->names.end()) {
-      throw Error::NotFoundError("modDesc.xml");
+      throw Error::NotFoundError(filename);
     }
 
-    if (!modDescPtr->second) {
-      throw Error::NotFoundError("Pointer to modDesc.xml is invalid");
-    }
+    auto file_ptr = Lorem::Utils::getFilePtr(dir, filename);
 
-    for (auto content = modDescPtr->second->content; auto c : content) {
-      result += (const char)c;
-    }
-
-    return result;
+    return file_ptr->string();
   }
 
   t_shared_xml ModDesc::getModDescXML(std::string_view raw) const
@@ -77,10 +70,10 @@ namespace Lorem {
   {
     std::string iconFilename = xml->select_node("/modDesc/iconFilename").node().child_value();
 
-    auto icon = findFile(dir, iconFilename);
+    auto icon = Utils::getFilePtr(dir, iconFilename);
 
     if (!icon) { // try to check different file extension
-      icon = findFile(dir, fileWithoutExt(iconFilename) + ".dds");
+      icon = Utils::getFilePtr(dir, Utils::fileWithoutExt(iconFilename) + ".dds");
     }
 
     return icon;
@@ -149,28 +142,12 @@ namespace Lorem {
       const auto title = node.attribute("title").value();
       const auto image_name = node.attribute("image").value();
 
-      const auto image_ptr = findFile(dir, image_name);
+      const auto image_ptr = Utils::getFilePtr(dir, image_name);
 
       result.emplace_back(name, title, image_ptr);
     }
 
     return result;
-  }
-
-  t_file_ptr ModDesc::findFile(const t_directory_ptr dir, std::string_view name) const
-  {
-    t_file_ptr result = nullptr;
-    auto iconIter = dir->names.find(name);
-    if (iconIter != dir->names.end()) {
-      result = iconIter->second;
-    }
-    return result;
-  }
-
-  std::string ModDesc::fileWithoutExt(std::string_view name) const
-  {
-    auto path = std::filesystem::path(name);
-    return path.replace_extension().generic_string();
   }
 
 }

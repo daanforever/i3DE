@@ -8,6 +8,7 @@
 
 #include "Lorem/Types.h"
 #include "Lorem/Error.h"
+#include "Lorem/Utils.h"
 
 namespace Lorem {
   class ModDesc {
@@ -58,11 +59,7 @@ namespace Lorem {
       virtual t_map_ss prepareDescription(const t_shared_xml xml) const;
       virtual std::vector<t_file_ptr> prepareStoreItems(const t_shared_xml xml, const t_directory_ptr dir) const;
       virtual std::vector<t_brand> prepareBrands(const t_shared_xml xml, const t_directory_ptr dir) const;
-      
 
-      // Utility methods
-      virtual t_file_ptr findFile(const t_directory_ptr dir, std::string_view name) const;
-      virtual std::string fileWithoutExt(std::string_view name) const;
     };
 }
 

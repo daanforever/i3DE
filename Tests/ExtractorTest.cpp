@@ -3,24 +3,32 @@
 
 namespace Extractor {
 
-  const auto ZipFileName = "../../../../Tests/Samples/file.zip";
+  const auto fileName = "../../../../Tests/Samples/file.zip";
 
   TEST(ConstructorTestCase, ConstructorTest) {
-    auto unzip = Lorem::Extractor(ZipFileName);
-    EXPECT_EQ(unzip.Filename, ZipFileName);
+    EXPECT_NO_THROW(Lorem::Extractor());
+  }
+
+  TEST(ToMemoryTestCase, ToMemory) {
+    auto extract = Lorem::Extractor();
+    EXPECT_NO_THROW(extract.ToMemory(fileName));
   }
 
   TEST(ToMemoryTestCase, SizeTest) {
-    auto unzip = Lorem::Extractor(ZipFileName);
-    auto content = unzip.ToMemory();
-    EXPECT_EQ(unzip.Errors.All.size(), 0);
+    auto extract = Lorem::Extractor();
+
+    EXPECT_NO_THROW(extract.ToMemory(fileName));
+    auto content = extract.ToMemory(fileName);
+
     EXPECT_EQ(content->files.size(), 1);
   }
 
   TEST(ToMemoryTestCase, FilenameTest) {
-    auto unzip = Lorem::Extractor(ZipFileName);
+    auto extract = Lorem::Extractor();
     auto name = "file.txt";
-    auto content = unzip.ToMemory();
+
+    EXPECT_NO_THROW(extract.ToMemory(fileName));
+    auto content = extract.ToMemory(fileName);
 
     ASSERT_EQ(content->files.size(), 1);
 
@@ -30,16 +38,16 @@ namespace Extractor {
 
   TEST(ToMemoryTestCase, ContentTest) {
     auto expected_string = "123";
-    auto unzip = Lorem::Extractor(ZipFileName);
-    auto content = unzip.ToMemory();
+    auto extract = Lorem::Extractor();
+
+    EXPECT_NO_THROW(extract.ToMemory(fileName));
+    auto content = extract.ToMemory(fileName);
 
     ASSERT_EQ(content->files.size(), 1);
 
-    auto entry = content->files[0].get();
+    auto file_ptr = content->files.front();
 
-    for (int i = 0; i < entry->content.size(); i++) {
-      EXPECT_EQ(expected_string[i], entry->content[i]);
-    }
+    EXPECT_STREQ(expected_string, file_ptr->string().data());
   }
 
 }

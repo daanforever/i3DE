@@ -4,53 +4,53 @@
 
 namespace ModDesc {
   const std::string ModFileName = "../../../../Tests/Samples/mod.zip";
-  const auto dir = Lorem::Extractor(ModFileName).ToMemory();
-  const auto modDesc = Lorem::ModDesc().parse(dir);
+  const auto dir = Lorem::Extractor().ToMemory(ModFileName);
+  const auto modDesc = Lorem::ModDesc().process(dir);
 
   using ::testing::HasSubstr;
 
-  TEST(DefaultCase, DefaultConstructor) {
+  TEST(ModDescCase, DefaultConstructor) {
     EXPECT_NO_THROW(Lorem::ModDesc());
   };
 
-  TEST(DefaultCase, ParseNoThrow) {
-    EXPECT_NO_THROW(Lorem::ModDesc().parse(dir));
+  TEST(ModDescCase, ParseNoThrow) {
+    EXPECT_NO_THROW(Lorem::ModDesc().process(dir));
   };
 
-  TEST(DefaultCase, PrepareAuthor) {
+  TEST(ModDescCase, PrepareAuthor) {
     EXPECT_EQ("FarmAndrei,Krystian", modDesc.Author);
   };
 
-  TEST(DefaultCase, PrepareContributors) {
+  TEST(ModDescCase, PrepareContributors) {
     EXPECT_THAT(modDesc.Contributors, HasSubstr("DiZik"));
   };
 
-  TEST(DefaultCase, PrepareIcon) {
+  TEST(ModDescCase, PrepareIcon) {
     EXPECT_NE(nullptr, modDesc.Icon);
     EXPECT_EQ("icon.dds", modDesc.Icon->name);
   };
 
-  TEST(DefaultCase, PrepareVersion) {
+  TEST(ModDescCase, PrepareVersion) {
     EXPECT_EQ("1.0.0.0", modDesc.Version);
   };
 
-  TEST(DefaultCase, PrepareTitle) {
+  TEST(ModDescCase, PrepareTitle) {
     EXPECT_EQ(3, modDesc.Title.size());
     EXPECT_EQ("en", modDesc.Title.find("en")->first);
     EXPECT_EQ("PLN Plows Pack", modDesc.Title.find("en")->second);
   };
 
-  TEST(DefaultCase, PrepareDescription) {
+  TEST(ModDescCase, PrepareDescription) {
     EXPECT_EQ(3, modDesc.Description.size());
     EXPECT_EQ("en", modDesc.Description.find("en")->first);
   };
 
-  TEST(DefaultCase, PrepareStoreItems) {
+  TEST(ModDescCase, PrepareStoreItems) {
     EXPECT_EQ(3, modDesc.StoreItems.size());
     EXPECT_NE(nullptr, modDesc.StoreItems[0]);
   }
 
-  TEST(DefaultCase, PrepareBrands) {
+  TEST(ModDescCase, PrepareBrands) {
     EXPECT_EQ(1, modDesc.Brands.size());
     EXPECT_EQ("PLN", modDesc.Brands[0].Name);
     EXPECT_EQ("PLN", modDesc.Brands[0].Title);

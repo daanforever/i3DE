@@ -12,8 +12,12 @@ namespace Lorem {
   // Structure representing a file in memory
   struct t_file {
     std::string name = {};
-    bool directory = false;
-    std::vector<unsigned char> content = {};
+    bool isDirectory = false;
+    std::vector<std::byte> content = {};
+
+    std::string string() const {
+      return std::string((const char*)content.data(), content.size());
+    }
   };
 
   using t_file_ptr = std::shared_ptr<t_file>;

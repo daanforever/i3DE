@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+    <None Include="Tests\Samples\pln_3_35.i3d" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="libs\Lorem.vcxproj">

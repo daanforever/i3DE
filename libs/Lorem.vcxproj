@@ -158,6 +158,7 @@
     <ClInclude Include="Lorem\src\framework.h" />
     <ClInclude Include="Lorem\src\Lorem\Converter.h" />
     <ClInclude Include="Lorem\src\Lorem\Error.h" />
+    <ClInclude Include="Lorem\src\Lorem\i3D.h" />
     <ClInclude Include="Lorem\src\Lorem\IError.h" />
     <ClInclude Include="Lorem\src\Lorem\Importer.h" />
     <ClInclude Include="Lorem\src\Lorem\Logger.h" />
@@ -165,14 +166,17 @@
     <ClInclude Include="Lorem\src\Lorem\Scene.h" />
     <ClInclude Include="Lorem\src\Lorem\Types.h" />
     <ClInclude Include="Lorem\src\Lorem\Extractor.h" />
+    <ClInclude Include="Lorem\src\Lorem\Utils.h" />
     <ClInclude Include="Lorem\src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Converter.cpp" />
+    <ClCompile Include="Lorem\src\Lorem\i3D.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Importer.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Extractor.cpp" />
     <ClCompile Include="Lorem\src\Lorem\ModDesc.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Scene.cpp" />
+    <ClCompile Include="Lorem\src\Lorem\Utils.cpp" />
     <ClCompile Include="Lorem\src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

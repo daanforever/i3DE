@@ -8,9 +8,11 @@ Lorem::Scene Lorem::Importer::importMod(const t_directory_ptr dir)
   Lorem::Scene result = {};
 
   auto modDesc = Lorem::ModDesc().process(dir);
-  for (auto file : modDesc.StoreItems) {
+  //std::vector
 
-  }
+  //for (auto file : modDesc.StoreItems) {
+
+  //}
 
   return result;
 }

@@ -2,25 +2,23 @@
 #include <filesystem>
 
 #include "Lorem/Extractor.h"
-#include "Lorem/Logger.h"
 
 namespace Lorem {
-  Extractor::Extractor(const std::string& file) : Filename(file) {}
-
-  t_directory_ptr Extractor::ToMemory()
+    t_directory_ptr Extractor::ToMemory(std::string_view filename)
   {
     t_directory_ptr ptr = {};
     int errnum = 0;
 
-    if (zip_t* zip = zip_openwitherror(Filename.c_str(), 0, 'r', &errnum); zip) {
+    if (zip_t* zip = zip_openwitherror(filename.data(), 0, 'r', &errnum); zip) {
       ptr = ExtractFiles(zip);
       zip_close(zip);
     }
     else {
 
       std::string cwd{ std::filesystem::current_path().generic_string() };
-      Errors.add("Error occuried while openning file '" + Filename + "': " + zip_strerror(errnum));
-      Errors.add("Current path is " + cwd);
+      throw Lorem::Error::ReadFileError(
+        cwd + "/" + filename.data() + ": " + zip_strerror(errnum)
+      );
     }
 
     return ptr;
@@ -28,44 +26,53 @@ namespace Lorem {
 
   t_directory_ptr Extractor::ExtractFiles(zip_t* zip)
   {
-    t_file_ptr entry_ptr = {};
-    t_directory content = {};
+    t_file_ptr file_ptr = {};
+    t_directory directory = {};
 
     if (ssize_t zip_entries = zip_entries_total(zip); zip_entries < 0) {
 
-      Errors << zip_strerror((int)zip_entries);
+      throw Lorem::Error::ReadFileError(zip_strerror((int)zip_entries));
 
     }
     else {
 
       for (int i = 0; i < zip_entries; i++) {
 
-        entry_ptr = ExtractFileByIndex(zip, i);
-        content.files.push_back(entry_ptr);
-        content.names.try_emplace(entry_ptr->name, entry_ptr);
+        file_ptr = ExtractFileByIndex(zip, i);
+        directory.files.push_back(file_ptr);
+        directory.names.try_emplace(file_ptr->name, file_ptr);
 
       }
 
     }
-    return std::make_shared<t_directory>(content);
+    return std::make_shared<t_directory>(directory);
   }
 
   t_file_ptr Extractor::ExtractFileByIndex(zip_t* zip, size_t index)
   {
-    void* buffer = nullptr;
     size_t bufsize = 0;
     t_file entry = {};
 
     if (int err = zip_entry_openbyindex(zip, index); err < 0) {
-      Errors << zip_strerror(err);
+      throw Lorem::Error::ReadFileError(zip_strerror(err));
     }
     else {
       bufsize = zip_entry_size(zip);
 
-      zip_entry_read(zip, &buffer, &bufsize);
-      entry.content.assign((unsigned char*)buffer, (unsigned char*)buffer + bufsize);
       entry.name = zip_entry_name(zip);
-      entry.directory = zip_entry_isdir(zip);
+
+      if (zip_entry_isdir(zip)) {
+        entry.content = {};
+        entry.isDirectory = true;
+      }
+      else {
+        void* buffer = nullptr;
+        if (zip_entry_read(zip, &buffer, &bufsize) < 0) {
+          throw Lorem::Error::EmptyInputError();
+        }
+        entry.content.assign((std::byte*)buffer, (std::byte*)buffer + bufsize);
+        entry.isDirectory = false;
+      }
 
       zip_entry_close(zip);
     }

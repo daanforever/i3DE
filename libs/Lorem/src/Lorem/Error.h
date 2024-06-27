@@ -15,6 +15,13 @@ namespace Lorem {
       EmptyInputError() : std::runtime_error("Empty input provided") {}
     };
 
+    // Read file error
+    class ReadFileError : public std::runtime_error {
+    public:
+      explicit ReadFileError(std::string_view message)
+        : std::runtime_error(message.data()) {}
+    };
+
     // File not found error
     class NotFoundError : public std::runtime_error {
     public:
@@ -27,6 +34,13 @@ namespace Lorem {
     public:
       explicit UnableToParseXML(const std::string& filename)
         : std::runtime_error("Unable to parse XML: " + filename) {}
+    };
+
+    // Not implemented yet
+    class NotImplemented : public std::runtime_error {
+    public:
+      explicit NotImplemented()
+        : std::runtime_error("") {}
     };
 
     // Constructor

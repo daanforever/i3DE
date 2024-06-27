@@ -53,6 +53,12 @@
     <ClInclude Include="Lorem\src\Lorem\ModDesc.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\i3D.h">
+      <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Utils.h">
+      <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Converter.cpp">
@@ -71,6 +77,12 @@
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\ModDesc.cpp">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\i3D.cpp">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Utils.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
   </ItemGroup>
