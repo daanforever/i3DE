@@ -40,14 +40,25 @@ namespace Lorem {
     auto file_ptr = std::make_shared<t_file>();
     file_ptr->name = filename;
 
+    if (!std::filesystem::exists(filename)) {
+      throw Lorem::Error::NotFoundError("File not found: " + std::string(filename));
+    }
+
     auto length{ std::filesystem::file_size(filename) };
     std::ifstream file(filename.data(), std::ios::in | std::ios::binary);
+
+    if (!file) {
+      throw Lorem::Error::ReadFileError("Unable to open file: " + std::string(filename));
+    }
 
     // Stop eating new lines in binary mode!!!
     file.unsetf(std::ios::skipws);
 
     file_ptr->content.resize(length);
-    file.read((char*)(file_ptr->content.data()), length);
+
+    if (!file.read(std::bit_cast<char*>(file_ptr->content.data()), length)) {
+      throw Lorem::Error::ReadFileError("Error reading file: " + std::string(filename));
+    }
 
     return file_ptr;
   }

@@ -15,7 +15,10 @@ namespace i3D {
   };
 
   TEST(I3DDocumentCase, NameAndVersion) {
-    EXPECT_NO_THROW(Lorem::I3DDocument().parseXML(file_ptr));
+    auto name = Lorem::I3DDocument().parseXML(file_ptr).name;
+    auto version = Lorem::I3DDocument().parseXML(file_ptr).version;
+    EXPECT_EQ("PLN_3_35_new", name);
+    EXPECT_EQ("1.6", version);
   };
 
 }
