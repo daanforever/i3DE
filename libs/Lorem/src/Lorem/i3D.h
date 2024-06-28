@@ -8,75 +8,37 @@
 #include "Lorem/Utils.h"
 
 namespace Lorem {
-
-  class I3DFile {
+  class I3DEntry {
   public:
-    std::string fileId;
-    std::string filename;
+    I3DEntry() = default;
+    virtual ~I3DEntry() = default;
+
+    std::string name = {};
+    t_map_ss attributes = {};
+    std::vector<I3DEntry> children = {};
+
+    virtual explicit operator bool() const {
+      return !name.empty();
+    }
+
+    virtual std::string attr(std::string_view what);
   };
 
-  class I3DMaterial {
+  class I3D {
   public:
-    std::string name;
-    int materialId;
-    bool alphaBlending;
-    int customShaderId;
-    std::string customShaderVariation;
-    std::vector<int> textureFileIds;
-    Lorem::t_map_ss customParameters;
-  };
+    I3D() = default;
+    virtual ~I3D() = default;
 
-  class I3DTransformGroup;
+    std::string name = {};
+    std::string version = {};
 
-  class I3DShape {
-  public:
-    int shapeId;
-    std::string name;
-    bool dynamic;
-    bool compound;
-    int collisionMask;
-    float density;
-    int clipDistance;
-    int nodeId;
-    std::vector<int> materialIds;
-    bool castsShadows;
-    bool receiveShadows;
-    bool nonRenderable;
-    std::vector<I3DShape> children;
-    std::vector<I3DTransformGroup> transformGroups;
-  };
+    std::map<std::string, I3DEntry, std::less<>> content = {};
 
-  class I3DTransformGroup {
-  public:
-    std::string name;
-    int nodeId;
-    std::vector<float> translation;
-    std::vector<float> rotation;
-    std::vector<I3DShape> shapes;
-    std::vector<I3DTransformGroup> transformGroups;
-  };
+    virtual I3D& load(const t_directory_ptr dir_ptr, const std::string& filename);
+    virtual I3D& load(const t_file_ptr file_ptr);
 
-  class I3DScene {
-  public:
-    std::vector<I3DShape> shapes;
-  };
-
-  class I3DDocument {
-  public:
-    I3DDocument() = default;
-    virtual ~I3DDocument() = default;
-
-    std::string name;
-    std::string version;
-
-    std::vector<I3DFile> files;
-    std::vector<I3DMaterial> materials;
-    std::string externalShapesFile;
-    std::string dynamics;  // Currently empty
-    I3DScene scene;
-
-    virtual I3DDocument& parseXML(const t_directory_ptr dir_ptr, const std::string& filename);
-    virtual I3DDocument& parseXML(const t_file_ptr file_ptr);
+    virtual I3DEntry getContainer(pugi::xml_node node) const;
+    virtual I3DEntry find(std::string_view what);
 
   };
 }

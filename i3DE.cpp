@@ -19,11 +19,12 @@ int main(int argc, char* argv[]) {
   std::string filename(argv[1]);
   //std::string filename = "not_found";
 
-  const auto dir = Lorem::Extractor().ToMemory(filename);
+  const auto dir_ptr = Lorem::Extractor().ToMemory(filename);
   //const auto mod = Lorem::ModDesc().parse(dir);
 
   LDEBUG << "Filename: " << filename << std::endl;
-  LDEBUG << Lorem::Utils::loadFile("Tests/Samples/pln_3_35.i3d")->name << std::endl;
+  //LDEBUG << Lorem::Importer().importMod(dir_ptr) << std::endl;
+  Lorem::Importer().importMod(dir_ptr);
 
   return 0;
 }

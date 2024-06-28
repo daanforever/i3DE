@@ -4,8 +4,8 @@
 
 namespace ModDesc {
   const std::string ModFileName = "../../../../Tests/Samples/mod.zip";
-  const auto dir = Lorem::Extractor().ToMemory(ModFileName);
-  const auto modDesc = Lorem::ModDesc().process(dir);
+  const auto dir_ptr = Lorem::Extractor().ToMemory(ModFileName);
+  const auto modDesc = Lorem::ModDesc().load(dir_ptr->find("modDesc.xml"));
 
   using ::testing::HasSubstr;
 
@@ -14,7 +14,7 @@ namespace ModDesc {
   };
 
   TEST(ModDescCase, ParseNoThrow) {
-    EXPECT_NO_THROW(Lorem::ModDesc().process(dir));
+    EXPECT_NO_THROW(Lorem::ModDesc().load(dir_ptr->find("modDesc.xml")));
   };
 
   TEST(ModDescCase, PrepareAuthor) {
@@ -26,8 +26,8 @@ namespace ModDesc {
   };
 
   TEST(ModDescCase, PrepareIcon) {
-    EXPECT_NE(nullptr, modDesc.Icon);
-    EXPECT_EQ("icon.dds", modDesc.Icon->name);
+    EXPECT_NE("", modDesc.Icon);
+    EXPECT_EQ("icon.png", modDesc.Icon);
   };
 
   TEST(ModDescCase, PrepareVersion) {
@@ -47,13 +47,13 @@ namespace ModDesc {
 
   TEST(ModDescCase, PrepareStoreItems) {
     EXPECT_EQ(3, modDesc.StoreItems.size());
-    EXPECT_NE(nullptr, modDesc.StoreItems[0]);
+    EXPECT_NE("", modDesc.StoreItems[0]);
   }
 
   TEST(ModDescCase, PrepareBrands) {
     EXPECT_EQ(1, modDesc.Brands.size());
     EXPECT_EQ("PLN", modDesc.Brands[0].Name);
     EXPECT_EQ("PLN", modDesc.Brands[0].Title);
-    EXPECT_NE(nullptr, modDesc.Brands[0].Image);
+    EXPECT_NE("", modDesc.Brands[0].Image);
   }
 }

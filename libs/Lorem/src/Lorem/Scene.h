@@ -13,7 +13,8 @@ namespace Lorem {
   };
 
   // Structure representing a shape
-  struct Shape {
+  class Shape {
+  public:
     std::string name = "";
     std::vector<float> vertices = {}; // Vertices in the format (x, y, z)
     std::vector<uint32_t> indices = {}; // Indices for forming triangles

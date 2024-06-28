@@ -3,17 +3,36 @@
 
 #include "Importer.h"
 
-Lorem::Scene Lorem::Importer::importMod(const t_directory_ptr dir)
+Lorem::Scene Lorem::Importer::importMod(const t_directory_ptr dir_ptr)
 {
-  Lorem::Scene result = {};
+  Lorem::Scene scene = {};
 
-  auto modDesc = Lorem::ModDesc().process(dir);
-  //std::vector
+  auto modDesc = Lorem::ModDesc().load(dir_ptr->find("modDesc.xml"));
+  std::string shapesFilename;
+  Lorem::Shape shape;
 
-  //for (auto file : modDesc.StoreItems) {
+  for (std::string filename : modDesc.StoreItems) {
 
-  //}
+    auto file = dir_ptr->find(filename);
 
-  return result;
+    if (!file) continue;
+
+    if (I3D().load(file).find("Shapes").children.empty()) {
+
+      shapesFilename = I3D().load(file).find("Shapes").attr("externalShapesFile");
+      //shape = Lorem::Shape().load(shapesFilename);
+
+    }
+    else {
+
+      for (auto child : I3D().load(file).find("Shapes").children) {
+        shapesFilename = child.attr("externalShapesFile");
+      }
+
+    }
+
+  }
+
+  return scene;
 }
 

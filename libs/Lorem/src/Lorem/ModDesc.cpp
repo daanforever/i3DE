@@ -5,44 +5,31 @@
 
 namespace Lorem {
 
-  ModDesc& ModDesc::process(const t_directory_ptr dir)
+  ModDesc& ModDesc::load(const t_file_ptr file_ptr)
   {
-    auto raw     = getModDescRaw(dir);
-    auto xml     = getModDescXML(raw);
+    auto xml     = parse(file_ptr);
 
     Author       = prepareAuthor(xml);
     Contributors = prepareContributors(xml);
 
     Version      = prepareVersion(xml);
-    Icon         = prepareIcon(xml, dir);
+    Icon         = prepareIcon(xml);
 
     Title        = prepareTitle(xml);
     Description  = prepareDescription(xml);
 
-    StoreItems   = prepareStoreItems(xml, dir);
-    Brands       = prepareBrands(xml, dir);
+    StoreItems   = prepareStoreItems(xml);
+    Brands       = prepareBrands(xml);
 
     return *this;
   }
 
-  std::string ModDesc::getModDescRaw(const t_directory_ptr dir) const
-  {
-    const std::string filename = "modDesc.xml";
-    auto modDescPtr = dir->names.find(filename);
-
-    if (modDescPtr == dir->names.end()) {
-      throw Error::NotFoundError(filename);
-    }
-
-    auto file_ptr = Lorem::Utils::getFilePtr(dir, filename);
-
-    return file_ptr->string();
-  }
-
-  t_shared_xml ModDesc::getModDescXML(std::string_view raw) const
+  t_shared_xml ModDesc::parse(const t_file_ptr file_ptr) const
   {
     auto doc = std::make_shared<pugi::xml_document>();
-    pugi::xml_parse_result result = doc->load_string(raw.data());
+    auto raw = file_ptr->string();
+
+    pugi::xml_parse_result result = doc->load_string(raw.c_str());
 
     if (!result) {
       throw Error::UnableToParseXML("modDesc.xml");
@@ -66,17 +53,11 @@ namespace Lorem {
     return xml->select_node("/modDesc/version").node().child_value();
   }
 
-  t_file_ptr ModDesc::prepareIcon(t_shared_xml xml, const t_directory_ptr dir) const
+  std::string ModDesc::prepareIcon(t_shared_xml xml) const
   {
     std::string iconFilename = xml->select_node("/modDesc/iconFilename").node().child_value();
 
-    auto icon = Utils::getFilePtr(dir, iconFilename);
-
-    if (!icon) { // try to check different file extension
-      icon = Utils::getFilePtr(dir, Utils::fileWithoutExt(iconFilename) + ".dds");
-    }
-
-    return icon;
+    return iconFilename;
   }
 
   t_map_ss ModDesc::prepareTitle(t_shared_xml xml) const
@@ -101,9 +82,9 @@ namespace Lorem {
     return result;
   }
 
-  std::vector<t_file_ptr> ModDesc::prepareStoreItems(const t_shared_xml xml, const t_directory_ptr dir) const
+  std::vector<std::string> ModDesc::prepareStoreItems(const t_shared_xml xml) const
   {
-    std::vector<t_file_ptr> result = {};
+    std::vector<std::string> result = {};
 
     const auto storeItems = xml->select_nodes("/modDesc/storeItems/*");
 
@@ -115,19 +96,13 @@ namespace Lorem {
       const auto attr = node.attribute("xmlFilename");
       if (!attr) continue;
 
-      const auto value = dir->names.find(attr.value());
-      if (value != dir->names.end()) {
-        result.emplace_back(value->second);
-      }
-      else {
-        throw Error::NotFoundError(attr.value());
-      }
+      result.emplace_back(attr.value());
     }
 
     return result;
   }
 
-  std::vector<ModDesc::t_brand> ModDesc::prepareBrands(t_shared_xml xml, const t_directory_ptr dir) const
+  std::vector<ModDesc::t_brand> ModDesc::prepareBrands(t_shared_xml xml) const
   {
     std::vector<ModDesc::t_brand> result = {};
 
@@ -140,11 +115,9 @@ namespace Lorem {
 
       const auto name = node.attribute("name").value();
       const auto title = node.attribute("title").value();
-      const auto image_name = node.attribute("image").value();
+      const auto image = node.attribute("image").value();
 
-      const auto image_ptr = Utils::getFilePtr(dir, image_name);
-
-      result.emplace_back(name, title, image_ptr);
+      result.emplace_back(name, title, image);
     }
 
     return result;

@@ -26,8 +26,9 @@ namespace Lorem {
   t_shared_xml Utils::getXML(const t_file_ptr file_ptr)
   {
     auto doc = std::make_shared<pugi::xml_document>();
+    auto str = file_ptr->string();
 
-    pugi::xml_parse_result result = doc->load_string(file_ptr->string().data());
+    pugi::xml_parse_result result = doc->load_string(str.c_str());
 
     if (!result) {
       throw Error::UnableToParseXML(file_ptr->name);

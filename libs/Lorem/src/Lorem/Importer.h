@@ -8,6 +8,7 @@
 #include "Lorem/Error.h"
 #include "Lorem/Types.h"
 #include "Lorem/ModDesc.h"
+#include "Lorem/i3D.h"
 #include "Lorem/Scene.h"
 
 namespace Lorem {

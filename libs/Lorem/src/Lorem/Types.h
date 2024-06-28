@@ -15,6 +15,18 @@ namespace Lorem {
     bool isDirectory = false;
     std::vector<std::byte> content = {};
 
+    explicit operator bool() const {
+      return !name.empty();
+    }
+
+    bool empty() const {
+      return content.empty();
+    }
+
+    bool present() const {
+      return !empty();
+    }
+
     std::string string() const {
       return std::string((const char*)content.data(), content.size());
     }
@@ -29,6 +41,16 @@ namespace Lorem {
 
     explicit operator bool() const {
       return !files.empty();
+    }
+
+    t_file_ptr find(std::string_view filename) const {
+      t_file_ptr result = {};
+
+      if (auto iter = names.find(filename); iter != names.end()) {
+        result = iter->second;
+      }
+
+      return result;
     }
   };
 

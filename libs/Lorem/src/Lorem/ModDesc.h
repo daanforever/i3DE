@@ -18,22 +18,22 @@ namespace Lorem {
 
     public: // Attributes
       struct t_brand {
-        std::string       Name;
-        std::string       Title;
-        Lorem::t_file_ptr Image;
+        std::string Name;
+        std::string Title;
+        std::string Image;
       };
 
-      std::string             Author;
-      std::string             Contributors;
+      std::string Author;
+      std::string Contributors;
 
-      std::string             Version;
-      t_file_ptr              Icon;
+      std::string Version;
+      std::string Icon;
 
-      t_map_ss                Title;
-      t_map_ss                Description;
+      t_map_ss    Title;
+      t_map_ss    Description;
 
-      std::vector<t_file_ptr> StoreItems;
-      std::vector<t_brand>    Brands;
+      std::vector<std::string> StoreItems;
+      std::vector<t_brand>     Brands;
 
     public: // Methods
       friend std::ostream& operator<<(std::ostream& os, const Lorem::ModDesc& modDesc)
@@ -43,22 +43,19 @@ namespace Lorem {
         return os;
       }
 
-      virtual ModDesc& process(const t_directory_ptr dir);
-
-      // Raw content of modDesc.xml
-      virtual std::string getModDescRaw(const t_directory_ptr dir) const;
+      virtual ModDesc& load(t_file_ptr file_ptr);
 
       // Parsed content of modDesc.xml
-      virtual t_shared_xml getModDescXML(std::string_view modDescContent) const;
+      virtual t_shared_xml parse(t_file_ptr file_ptr) const;
 
       virtual std::string prepareAuthor(const t_shared_xml xml) const;
       virtual std::string prepareContributors(const t_shared_xml xml) const;
       virtual std::string prepareVersion(const t_shared_xml xml) const;
-      virtual t_file_ptr prepareIcon(const t_shared_xml xml, const t_directory_ptr dir) const;
+      virtual std::string prepareIcon(const t_shared_xml xml) const;
       virtual t_map_ss prepareTitle(const t_shared_xml xml) const;
       virtual t_map_ss prepareDescription(const t_shared_xml xml) const;
-      virtual std::vector<t_file_ptr> prepareStoreItems(const t_shared_xml xml, const t_directory_ptr dir) const;
-      virtual std::vector<t_brand> prepareBrands(const t_shared_xml xml, const t_directory_ptr dir) const;
+      virtual std::vector<std::string> prepareStoreItems(const t_shared_xml xml) const;
+      virtual std::vector<t_brand> prepareBrands(const t_shared_xml xml) const;
 
     };
 }

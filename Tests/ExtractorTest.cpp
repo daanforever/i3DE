@@ -47,7 +47,7 @@ namespace Extractor {
 
     auto file_ptr = content->files.front();
 
-    EXPECT_STREQ(expected_string, file_ptr->string().data());
+    EXPECT_EQ(expected_string, file_ptr->string());
   }
 
 }
