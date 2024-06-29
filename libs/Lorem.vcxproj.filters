@@ -18,6 +18,24 @@
     <Filter Include="Source Files\Lorem">
       <UniqueIdentifier>{0b3edb01-5ab2-4486-b862-95921afc4f40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Lorem\Scene">
+      <UniqueIdentifier>{13da2fc5-1d0f-45ab-9c6c-a64007402347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lorem\Scene">
+      <UniqueIdentifier>{8ea9e78c-798a-4510-932c-5690357e5a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lorem\Importer">
+      <UniqueIdentifier>{6ef1a941-2ab6-49a9-abb8-b0173a570d12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lorem\Importer">
+      <UniqueIdentifier>{4e4aa1dd-7890-4fbf-8f56-f71cbd17073e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lorem\Importer\FS">
+      <UniqueIdentifier>{02c2e90e-e90c-4174-8dee-89f6455d7e47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lorem\Importer\FS">
+      <UniqueIdentifier>{bc9a1b34-23c4-40a2-bf01-79012c774340}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lorem\src\pch.h">
@@ -35,7 +53,7 @@
     <ClInclude Include="Lorem\src\Lorem\IError.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Importer.h">
+    <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Logger.h">
@@ -50,21 +68,30 @@
     <ClInclude Include="Lorem\src\Lorem\Scene.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\ModDesc.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\i3D.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Utils.h">
       <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Scene\Material.h">
+      <Filter>Header Files\Lorem\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Scene\Shape.h">
+      <Filter>Header Files\Lorem\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.h">
+      <Filter>Header Files\Lorem\Importer\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.h">
+      <Filter>Header Files\Lorem\Importer\FS</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Importer\FS\ModDesc.h">
+      <Filter>Header Files\Lorem\Importer\FS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Converter.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Importer.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\pch.cpp">
@@ -76,14 +103,23 @@
     <ClCompile Include="Lorem\src\Lorem\Scene.cpp">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\ModDesc.cpp">
-      <Filter>Source Files\Lorem</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\i3D.cpp">
-      <Filter>Source Files\Lorem</Filter>
-    </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Utils.cpp">
       <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Scene\Material.cpp">
+      <Filter>Source Files\Lorem\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cpp">
+      <Filter>Source Files\Lorem\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cpp">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cpp">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

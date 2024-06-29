@@ -7,7 +7,7 @@
 
 #include "Lorem/Logger.h"
 #include "Lorem/Extractor.h"
-#include "Lorem/Importer.h"
+#include "Lorem/Importer/FS/Base.h"
 #include "Lorem/Converter.h"
 
 int main(int argc, char* argv[]) {
@@ -24,7 +24,9 @@ int main(int argc, char* argv[]) {
 
   LDEBUG << "Filename: " << filename << std::endl;
   //LDEBUG << Lorem::Importer().importMod(dir_ptr) << std::endl;
-  Lorem::Importer().importMod(dir_ptr);
+  LDEBUG << "First file: " << dir_ptr->name << std::endl;
+  LDEBUG << "Files count: " << dir_ptr->index.size() << std::endl;
+  Lorem::Importer::FS::Base().load(dir_ptr);
 
   return 0;
 }

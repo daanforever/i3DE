@@ -10,11 +10,11 @@ namespace Lorem {
 
   public:
     Converter() = default;
-    explicit Converter(t_directory_ptr imported);
+    explicit Converter(t_file_ptr imported);
 
   private:
-    t_directory_ptr Imported = {};
-    t_directory_ptr Converted = {};
+    t_file_ptr Imported = {};
+    t_file_ptr Converted = {};
 
   public:
   };

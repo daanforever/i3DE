@@ -118,7 +118,7 @@
   <ItemGroup>
     <ClCompile Include="ConverterTest.cpp" />
     <ClCompile Include="i3DTest.cpp" />
-    <ClCompile Include="ImporterTest.cpp" />
+    <ClCompile Include="BaseTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
     <ClCompile Include="ModDescTest.cpp" />
     <ClCompile Include="pch.cpp">
@@ -128,6 +128,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ExtractorTest.cpp" />
+    <ClCompile Include="TypesTest.cpp" />
     <ClCompile Include="UtilsTest.cpp" />
   </ItemGroup>
   <ItemGroup>

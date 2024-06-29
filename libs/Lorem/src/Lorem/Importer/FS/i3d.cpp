@@ -1,9 +1,8 @@
 #include "pch.h"
-#include "i3D.h"
+#include "Lorem/Importer/FS/i3d.h"
 
-
-namespace Lorem {
-  I3D& I3D::load(const t_directory_ptr dir_ptr, const std::string& filename)
+namespace Lorem::Importer::FS {
+  I3D& I3D::load(const t_file_ptr dir_ptr, const std::string& filename)
   {
     load(dir_ptr->find(filename));
     return *this;
@@ -25,7 +24,7 @@ namespace Lorem {
 
   I3DEntry I3D::getContainer(pugi::xml_node node) const
   {
-    I3DEntry result;
+    I3DEntry result = {};
 
     result.name = node.name();
 
@@ -40,7 +39,7 @@ namespace Lorem {
     return result;
   }
 
-  I3DEntry I3D::find(std::string_view what)
+  I3DEntry I3D::find(std::string_view what) const
   {
     I3DEntry result = {};
 
@@ -51,7 +50,7 @@ namespace Lorem {
     return result;
   }
 
-  std::string I3DEntry::attr(std::string_view what)
+  std::string I3DEntry::attr(std::string_view what) const
   {
     std::string result = {};
 

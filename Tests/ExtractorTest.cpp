@@ -1,33 +1,34 @@
 #include "pch.h"
 #include "Lorem/Extractor.h"
 
-namespace Extractor {
+namespace Lorem {
 
   const auto fileName = "../../../../Tests/Samples/file.zip";
 
-  TEST(ConstructorTestCase, ConstructorTest) {
-    EXPECT_NO_THROW(Lorem::Extractor());
+  TEST(Extractor, ConstructorTest) {
+    ASSERT_NO_THROW(Extractor());
   }
 
-  TEST(ToMemoryTestCase, ToMemory) {
-    auto extract = Lorem::Extractor();
-    EXPECT_NO_THROW(extract.ToMemory(fileName));
+  TEST(Extractor, ToMemory) {
+    auto extract = Extractor();
+    ASSERT_NO_THROW(extract.ToMemory(fileName));
   }
 
-  TEST(ToMemoryTestCase, SizeTest) {
-    auto extract = Lorem::Extractor();
+  TEST(Extractor, SizeTest) {
+    auto extract = Extractor();
 
-    EXPECT_NO_THROW(extract.ToMemory(fileName));
+    ASSERT_NO_THROW(extract.ToMemory(fileName));
     auto content = extract.ToMemory(fileName);
 
     EXPECT_EQ(content->files.size(), 1);
+    EXPECT_EQ(content->index.size(), 1);
   }
 
-  TEST(ToMemoryTestCase, FilenameTest) {
-    auto extract = Lorem::Extractor();
+  TEST(Extractor, FilenameTest) {
+    auto extract = Extractor();
     auto name = "file.txt";
 
-    EXPECT_NO_THROW(extract.ToMemory(fileName));
+    ASSERT_NO_THROW(extract.ToMemory(fileName));
     auto content = extract.ToMemory(fileName);
 
     ASSERT_EQ(content->files.size(), 1);
@@ -36,11 +37,11 @@ namespace Extractor {
     EXPECT_EQ(name, entry_ptr->get()->name);
   }
 
-  TEST(ToMemoryTestCase, ContentTest) {
+  TEST(Extractor, ContentTest) {
     auto expected_string = "123";
-    auto extract = Lorem::Extractor();
+    auto extract = Extractor();
 
-    EXPECT_NO_THROW(extract.ToMemory(fileName));
+    ASSERT_NO_THROW(extract.ToMemory(fileName));
     auto content = extract.ToMemory(fileName);
 
     ASSERT_EQ(content->files.size(), 1);

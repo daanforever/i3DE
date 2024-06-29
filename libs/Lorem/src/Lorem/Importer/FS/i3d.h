@@ -7,7 +7,7 @@
 #include "Lorem/Error.h"
 #include "Lorem/Utils.h"
 
-namespace Lorem {
+namespace Lorem::Importer::FS {
   class I3DEntry {
   public:
     I3DEntry() = default;
@@ -21,7 +21,7 @@ namespace Lorem {
       return !name.empty();
     }
 
-    virtual std::string attr(std::string_view what);
+    virtual std::string attr(std::string_view what) const;
   };
 
   class I3D {
@@ -34,11 +34,11 @@ namespace Lorem {
 
     std::map<std::string, I3DEntry, std::less<>> content = {};
 
-    virtual I3D& load(const t_directory_ptr dir_ptr, const std::string& filename);
+    virtual I3D& load(const t_file_ptr dir_ptr, const std::string& filename);
     virtual I3D& load(const t_file_ptr file_ptr);
 
     virtual I3DEntry getContainer(pugi::xml_node node) const;
-    virtual I3DEntry find(std::string_view what);
+    virtual I3DEntry find(std::string_view what) const;
 
   };
 }

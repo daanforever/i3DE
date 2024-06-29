@@ -4,9 +4,9 @@
 #include "Lorem/Extractor.h"
 
 namespace Lorem {
-    t_directory_ptr Extractor::ToMemory(std::string_view filename)
+    t_file_ptr Extractor::ToMemory(std::string_view filename)
   {
-    t_directory_ptr ptr = {};
+    t_file_ptr ptr = {};
     int errnum = 0;
 
     if (zip_t* zip = zip_openwitherror(filename.data(), 0, 'r', &errnum); zip) {
@@ -24,10 +24,10 @@ namespace Lorem {
     return ptr;
   }
 
-  t_directory_ptr Extractor::ExtractFiles(zip_t* zip)
+  t_file_ptr Extractor::ExtractFiles(zip_t* zip)
   {
+    auto dir_ptr = std::make_shared<t_file>("/");
     t_file_ptr file_ptr = {};
-    t_directory directory = {};
 
     if (ssize_t zip_entries = zip_entries_total(zip); zip_entries < 0) {
 
@@ -39,13 +39,12 @@ namespace Lorem {
       for (int i = 0; i < zip_entries; i++) {
 
         file_ptr = ExtractFileByIndex(zip, i);
-        directory.files.push_back(file_ptr);
-        directory.names.try_emplace(file_ptr->name, file_ptr);
+        dir_ptr->add(file_ptr);
 
       }
 
     }
-    return std::make_shared<t_directory>(directory);
+    return dir_ptr;
   }
 
   t_file_ptr Extractor::ExtractFileByIndex(zip_t* zip, size_t index)

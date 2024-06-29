@@ -10,7 +10,7 @@
 #include "Lorem/Error.h"
 #include "Lorem/Utils.h"
 
-namespace Lorem {
+namespace Lorem::Importer::FS {
   class ModDesc {
     public: // Constructor
       ModDesc() = default;
@@ -36,7 +36,7 @@ namespace Lorem {
       std::vector<t_brand>     Brands;
 
     public: // Methods
-      friend std::ostream& operator<<(std::ostream& os, const Lorem::ModDesc& modDesc)
+      friend std::ostream& operator<<(std::ostream& os, const ModDesc& modDesc)
       {
         os << modDesc.Title.find("en")->second << std::endl;
         os << "Author: " << modDesc.Author << std::endl;

@@ -2,20 +2,16 @@
 #include "Lorem/Extractor.h"
 #include "Lorem/Utils.cpp"
 
-namespace Utils {
+namespace Lorem {
   const std::string modFilename = "../../../../Tests/Samples/mod.zip";
-  const auto dir_ptr = Lorem::Extractor().ToMemory(modFilename);
-  const auto file_ptr = Lorem::Utils::getFilePtr(dir_ptr, "modDesc.xml");
+  const auto dir_ptr = Extractor().ToMemory(modFilename);
+  const auto file_ptr = dir_ptr->find("modDesc.xml");
 
-  TEST(fileWithoutExt, One) {
-    EXPECT_EQ("file", Lorem::Utils::fileWithoutExt("file.ext"));
+  TEST(Utils, fileWithoutExt) {
+    EXPECT_EQ("file", Utils::fileWithoutExt("file.ext"));
   };
 
-  TEST(getFilePtr, One) {
-    EXPECT_NE(nullptr, Lorem::Utils::getFilePtr(dir_ptr, "modDesc.xml"));
-  };
-
-  TEST(getXML, One) {
-    EXPECT_NO_THROW(Lorem::Utils::getXML(file_ptr));
+  TEST(Utils, getXML) {
+    ASSERT_NO_THROW(Utils::getXML(file_ptr));
   };
 }

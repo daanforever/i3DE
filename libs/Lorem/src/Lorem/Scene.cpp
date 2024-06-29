@@ -1,22 +1,27 @@
 #include "pch.h"
 #include "Scene.h"
+#include "Scene/Material.h"
+#include "Scene/Shape.h"
 
-// Implementation of the addShape method
-inline void Lorem::Scene::addShape(const Shape& shape) {
-  shapes.push_back(shape);
-}
+namespace Lorem {
+  // Implementation of the addShape method
+  inline void Scene::addShape(const Scene::Shape& shape) {
+    shapes.push_back(shape);
+  }
 
-// Implementation of the getShapes method
-inline const std::vector<Lorem::Shape>& Lorem::Scene::getShapes() const {
-  return shapes;
-}
+  // Implementation of the getShapes method
+  inline const std::vector<Scene::Shape>& Scene::getShapes() const {
+    return shapes;
+  }
 
-// Implementation of the addMaterial method (optional)
-inline void Lorem::Scene::addMaterial(const Material& material) {
-  materials.push_back(material);
-}
+  // Implementation of the addMaterial method (optional)
+  inline void Scene::addMaterial(const Scene::Material& material) {
+    materials.push_back(material);
+  }
 
-// Implementation of the getMaterials method (optional)
-inline const std::vector<Lorem::Material>& Lorem::Scene::getMaterials() const {
-  return materials;
+  // Implementation of the getMaterials method (optional)
+  inline const std::vector<Scene::Material>& Scene::getMaterials() const {
+    return materials;
+
+  }
 }

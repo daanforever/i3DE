@@ -6,24 +6,12 @@
 
 namespace Lorem {
 
-  // Structure representing a material (optional)
-  struct Material {
-    std::string name = ""; // Material name
-    // Other material properties such as color, textures, etc.
-  };
-
-  // Structure representing a shape
-  class Shape {
-  public:
-    std::string name = "";
-    std::vector<float> vertices = {}; // Vertices in the format (x, y, z)
-    std::vector<uint32_t> indices = {}; // Indices for forming triangles
-    Material material = {};
-  };
-
   // Class representing a scene
   class Scene {
   public:
+    class Shape;
+    class Material;
+
     Scene() = default;
     ~Scene() = default;
 

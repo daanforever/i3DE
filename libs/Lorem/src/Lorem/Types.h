@@ -10,51 +10,73 @@
 namespace Lorem {
 
   // Structure representing a file in memory
-  struct t_file {
+  class t_file {
+  public:
+    t_file() = default;
+    explicit t_file(std::string_view new_name) : name(new_name) {};
+
+    virtual ~t_file() = default;
+
     std::string name = {};
     bool isDirectory = false;
     std::vector<std::byte> content = {};
+
+    t_file* parent = {};
+    std::vector<std::shared_ptr<t_file>> files = {};
+    std::map<std::string, std::shared_ptr<t_file>, std::less<>> index = {};
 
     explicit operator bool() const {
       return !name.empty();
     }
 
     bool empty() const {
-      return content.empty();
+      return content.empty() && files.empty();
     }
 
     bool present() const {
       return !empty();
     }
 
+    t_file& add(std::shared_ptr<t_file> new_child) {
+      new_child->parent = this;
+      files.emplace_back(new_child);
+      index.try_emplace(new_child->name, new_child);
+
+      return *this;
+    }
+
     std::string string() const {
       return std::string((const char*)content.data(), content.size());
     }
-  };
 
-  using t_file_ptr = std::shared_ptr<t_file>;
+    std::shared_ptr<t_file> find(std::string_view filename) const {
+      std::shared_ptr<t_file> result = {};
 
-  // Structure representing a content of zip archive in memory
-  struct t_directory {
-    std::vector<t_file_ptr> files = {};
-    std::map<std::string, t_file_ptr, std::less<>> names = {};
+      bool search = true;
+      auto ptr = this;
 
-    explicit operator bool() const {
-      return !files.empty();
-    }
+      while (search) {
 
-    t_file_ptr find(std::string_view filename) const {
-      t_file_ptr result = {};
+        if (auto iter = ptr->index.find(filename); iter != ptr->index.end()) {
+          result = iter->second;
+          search = false;
+        }
+        else {
+          if (ptr->name == "/") {
+            search = false;
+          }
+          else {
+            ptr = parent;
+          }
+        }
 
-      if (auto iter = names.find(filename); iter != names.end()) {
-        result = iter->second;
       }
 
       return result;
     }
   };
 
-  using t_directory_ptr = std::shared_ptr<t_directory>;
+  using t_file_ptr = std::shared_ptr<t_file>;
 
   using t_map_ss = std::map<std::string, std::string, std::less<>>;
   using t_shared_xml = std::shared_ptr<pugi::xml_document>;

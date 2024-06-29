@@ -10,17 +10,17 @@
 namespace Lorem {
   class Logger {
   public:
-    template<class T>
-    Lorem::Logger operator<<(T& text) const {
-      std::cout << text;
-      return *this;
-    };
-
     //template<class T>
-    //Lorem::Logger operator<<(T text) const {
+    //Lorem::Logger operator<<(T& text) const {
     //  std::cout << text;
     //  return *this;
     //};
+
+    template<class T>
+    Lorem::Logger operator<<(T text) const {
+      std::cout << text;
+      return *this;
+    };
 
 
     //Lorem::Logger operator<<(int num) const {

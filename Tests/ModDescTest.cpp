@@ -1,56 +1,56 @@
 #include "pch.h"
 #include "Lorem/Extractor.h"
-#include "Lorem/ModDesc.cpp"
+#include "Lorem/Importer/FS/ModDesc.h"
 
-namespace ModDesc {
+namespace Lorem::Importer::FS {
   const std::string ModFileName = "../../../../Tests/Samples/mod.zip";
   const auto dir_ptr = Lorem::Extractor().ToMemory(ModFileName);
-  const auto modDesc = Lorem::ModDesc().load(dir_ptr->find("modDesc.xml"));
+  const auto modDesc = ModDesc().load(dir_ptr->find("modDesc.xml"));
 
   using ::testing::HasSubstr;
 
-  TEST(ModDescCase, DefaultConstructor) {
-    EXPECT_NO_THROW(Lorem::ModDesc());
+  TEST(ModDesc, DefaultConstructor) {
+    ASSERT_NO_THROW(ModDesc());
   };
 
-  TEST(ModDescCase, ParseNoThrow) {
-    EXPECT_NO_THROW(Lorem::ModDesc().load(dir_ptr->find("modDesc.xml")));
+  TEST(ModDesc, ParseNoThrow) {
+    ASSERT_NO_THROW(ModDesc().load(dir_ptr->find("modDesc.xml")));
   };
 
-  TEST(ModDescCase, PrepareAuthor) {
+  TEST(ModDesc, PrepareAuthor) {
     EXPECT_EQ("FarmAndrei,Krystian", modDesc.Author);
   };
 
-  TEST(ModDescCase, PrepareContributors) {
+  TEST(ModDesc, PrepareContributors) {
     EXPECT_THAT(modDesc.Contributors, HasSubstr("DiZik"));
   };
 
-  TEST(ModDescCase, PrepareIcon) {
+  TEST(ModDesc, PrepareIcon) {
     EXPECT_NE("", modDesc.Icon);
     EXPECT_EQ("icon.png", modDesc.Icon);
   };
 
-  TEST(ModDescCase, PrepareVersion) {
+  TEST(ModDesc, PrepareVersion) {
     EXPECT_EQ("1.0.0.0", modDesc.Version);
   };
 
-  TEST(ModDescCase, PrepareTitle) {
+  TEST(ModDesc, PrepareTitle) {
     EXPECT_EQ(3, modDesc.Title.size());
     EXPECT_EQ("en", modDesc.Title.find("en")->first);
     EXPECT_EQ("PLN Plows Pack", modDesc.Title.find("en")->second);
   };
 
-  TEST(ModDescCase, PrepareDescription) {
+  TEST(ModDesc, PrepareDescription) {
     EXPECT_EQ(3, modDesc.Description.size());
     EXPECT_EQ("en", modDesc.Description.find("en")->first);
   };
 
-  TEST(ModDescCase, PrepareStoreItems) {
+  TEST(ModDesc, PrepareStoreItems) {
     EXPECT_EQ(3, modDesc.StoreItems.size());
     EXPECT_NE("", modDesc.StoreItems[0]);
   }
 
-  TEST(ModDescCase, PrepareBrands) {
+  TEST(ModDesc, PrepareBrands) {
     EXPECT_EQ(1, modDesc.Brands.size());
     EXPECT_EQ("PLN", modDesc.Brands[0].Name);
     EXPECT_EQ("PLN", modDesc.Brands[0].Title);

@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "ModDesc.h"
+#include "Lorem/Importer/FS/ModDesc.h"
 
 #include <filesystem>
 
-namespace Lorem {
+namespace Lorem::Importer::FS {
 
   ModDesc& ModDesc::load(const t_file_ptr file_ptr)
   {

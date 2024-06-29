@@ -7,16 +7,6 @@
 #include <istream>
 
 namespace Lorem {
-  t_file_ptr Utils::getFilePtr(const t_directory_ptr dir_ptr, std::string_view filename)
-  {
-    t_file_ptr result = nullptr;
-    auto fileIter = dir_ptr->names.find(filename);
-    if (fileIter != dir_ptr->names.end()) {
-      result = fileIter->second;
-    }
-    return result;
-  }
-
   std::string Utils::fileWithoutExt(std::string_view name)
   {
     auto path = std::filesystem::path(name);

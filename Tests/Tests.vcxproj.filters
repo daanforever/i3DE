@@ -2,9 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="ConverterTest.cpp" />
-    <ClCompile Include="ImporterTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
-    <ClCompile Include="ModDescTest.cpp" />
     <ClCompile Include="ExtractorTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc">
       <Filter>default</Filter>
@@ -15,12 +13,27 @@
     <ClCompile Include="pch.cpp">
       <Filter>default</Filter>
     </ClCompile>
-    <ClCompile Include="i3DTest.cpp" />
     <ClCompile Include="UtilsTest.cpp" />
+    <ClCompile Include="TypesTest.cpp" />
+    <ClCompile Include="BaseTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="i3DTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="ModDescTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="default">
       <UniqueIdentifier>{a940f806-a68e-4bd4-a5fb-e9572dd39d22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Importer">
+      <UniqueIdentifier>{bbd3a742-6a91-4197-aefd-3ca7225c4b01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Importer\FS">
+      <UniqueIdentifier>{2a5a1794-8673-4bc9-aa4f-fd63ab48b622}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

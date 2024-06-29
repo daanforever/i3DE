@@ -13,8 +13,8 @@ namespace Lorem {
     Extractor() = default;
     virtual ~Extractor() = default;
 
-    virtual t_directory_ptr ToMemory(std::string_view filename);
-    virtual t_directory_ptr ExtractFiles(zip_t* zip);
+    virtual t_file_ptr ToMemory(std::string_view filename);
+    virtual t_file_ptr ExtractFiles(zip_t* zip);
     virtual t_file_ptr ExtractFileByIndex(zip_t* zip, size_t index);
   };
 }
