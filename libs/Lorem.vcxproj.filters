@@ -53,9 +53,6 @@
     <ClInclude Include="Lorem\src\Lorem\IError.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\Logger.h">
       <Filter>Header Files\Lorem</Filter>
     </ClInclude>
@@ -86,6 +83,15 @@
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\ModDesc.h">
       <Filter>Header Files\Lorem\Importer\FS</Filter>
     </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Scene\Sound.h">
+      <Filter>Header Files\Lorem\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Base.h">
+      <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h">
+      <Filter>Header Files\Lorem\Importer\FS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Converter.cpp">
@@ -105,12 +111,6 @@
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Utils.cpp">
       <Filter>Source Files\Lorem</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Scene\Material.cpp">
-      <Filter>Source Files\Lorem\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cpp">
-      <Filter>Source Files\Lorem\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cpp">
       <Filter>Source Files\Lorem\Importer\FS</Filter>

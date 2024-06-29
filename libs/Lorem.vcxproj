@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Lorem\src\Lorem\Base.h" />
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.h" />
     <ClInclude Include="Lorem\src\framework.h" />
     <ClInclude Include="Lorem\src\Lorem\Converter.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Lorem\src\Lorem\Scene.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene\Material.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene\Shape.h" />
+    <ClInclude Include="Lorem\src\Lorem\Scene\Sound.h" />
     <ClInclude Include="Lorem\src\Lorem\Types.h" />
     <ClInclude Include="Lorem\src\Lorem\Extractor.h" />
     <ClInclude Include="Lorem\src\Lorem\Utils.h" />
@@ -180,7 +182,6 @@
     <ClCompile Include="Lorem\src\Lorem\Extractor.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Scene.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Utils.cpp" />
     <ClCompile Include="Lorem\src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -188,7 +189,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Scene\Material.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="pugixml.vcxproj">

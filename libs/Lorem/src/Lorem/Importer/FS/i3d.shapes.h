@@ -2,6 +2,7 @@
 
 #include "Lorem/Types.h"
 #include "Lorem/Error.h"
+#include "Lorem/Scene.h"
 
 namespace Lorem::Importer::FS {
   class i3dShapes
@@ -14,8 +15,8 @@ namespace Lorem::Importer::FS {
 
     // Load .i3d.shapes file and import content
     i3dShapes& load(t_file_ptr file_ptr) {
-      auto l = std::source_location::current();
-      throw Lorem::Error::NotImplemented(std::string(l.file_name()) + ":" + std::string(l.function_name()));
+      throw Lorem::Error::NotImplemented(std::source_location::current().file_name());
+      return *this;
     }
   };
 }

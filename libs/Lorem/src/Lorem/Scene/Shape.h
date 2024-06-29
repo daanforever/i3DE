@@ -7,6 +7,8 @@
 #include "Lorem/Scene/Material.h"
 
 namespace Lorem {
+  class Scene::Material;
+
   // Structure representing a shape
   class Scene::Shape {
   public:

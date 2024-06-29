@@ -20,7 +20,8 @@ namespace Lorem::Importer::FS {
       shape_files = i3dFile.load(dir_ptr->find(filename)).shapes;
 
       for (const auto& file : shape_files) {
-        shape = i3dSh.load( dir_ptr->find(file) ).shape;
+        shapes = i3dShps.load( dir_ptr->find(file) ).shapes;
+        throw Lorem::Error::NotImplemented(std::source_location::current().file_name());
       }
 
     }

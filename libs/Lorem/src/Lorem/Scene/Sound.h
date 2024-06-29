@@ -3,20 +3,20 @@
 #include <string>
 #include <vector>
 
+#include "Lorem/Types.h"
 #include "Lorem/Scene.h"
-#include "Lorem/Scene/Material.h"
 
 namespace Lorem {
   // Structure representing a shape
-  class Scene::Shape {
+  class Scene::Sound {
   public:
-    std::string name = {};
-    std::vector<float> vertices = {}; // Vertices in the format (x, y, z)
-    std::vector<uint32_t> indices = {}; // Indices for forming triangles
-    Scene::Material material = {};
+    Sound() = default;
+    virtual ~Sound() = default;
+    
+    t_file_ptr file_ptr = {};
 
     explicit operator bool() const {
-      return !name.empty() || !vertices.empty() || !indices.empty() || material;
+      return !file_ptr;
     }
   };
 }

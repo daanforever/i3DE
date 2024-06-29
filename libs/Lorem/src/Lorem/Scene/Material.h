@@ -4,6 +4,8 @@
 #include "Lorem/Scene.h"
 
 namespace Lorem {
+  class Scene;
+
   class Scene::Material
   {
   public:
