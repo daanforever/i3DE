@@ -6,16 +6,17 @@
 #include "Lorem/Types.h"
 #include "Lorem/Error.h"
 #include "Lorem/Utils.h"
+#include "Lorem/Scene/Shape.h"
 
 namespace Lorem::Importer::FS {
-  class I3DEntry {
+  class i3dEntry {
   public:
-    I3DEntry() = default;
-    virtual ~I3DEntry() = default;
+    i3dEntry() = default;
+    virtual ~i3dEntry() = default;
 
     std::string name = {};
     t_map_ss attributes = {};
-    std::vector<I3DEntry> children = {};
+    std::vector<i3dEntry> children = {};
 
     virtual explicit operator bool() const {
       return !name.empty();
@@ -24,22 +25,22 @@ namespace Lorem::Importer::FS {
     virtual std::string attr(std::string_view what) const;
   };
 
-  class I3D {
+  class i3d {
   public:
-    I3D() = default;
-    virtual ~I3D() = default;
+    i3d() = default;
+    virtual ~i3d() = default;
 
     std::string name = {};
     std::string version = {};
 
-    std::map<std::string, I3DEntry, std::less<>> content = {};
+    std::vector<std::string> shapes = {};
+    std::map<std::string, i3dEntry, std::less<>> content = {};
 
-    virtual I3D& load(const t_file_ptr dir_ptr, const std::string& filename);
-    virtual I3D& load(const t_file_ptr file_ptr);
+    virtual i3d& load(const t_file_ptr file_ptr);
+    virtual i3d& parse(const t_file_ptr file_ptr);
 
-    virtual I3DEntry getContainer(pugi::xml_node node) const;
-    virtual I3DEntry find(std::string_view what) const;
-
+    virtual i3dEntry getEntry(pugi::xml_node node) const;
+    virtual i3dEntry find(std::string_view what) const;
   };
 }
 

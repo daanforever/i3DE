@@ -11,9 +11,14 @@ namespace Lorem {
   public:
     class Shape;
     class Material;
+    class Sounds;
 
     Scene() = default;
     ~Scene() = default;
+
+    std::string name;
+    std::vector<Shape> shapes; // Collection of shapes
+    std::vector<Material> materials; // Collection of materials (if used)
 
     // Method to add a shape to the scene
     void addShape(const Shape& shape);
@@ -26,10 +31,6 @@ namespace Lorem {
 
     // Method to get all materials in the scene (optional)
     const std::vector<Material>& getMaterials() const;
-
-  private:
-    std::vector<Shape> shapes; // Collection of shapes
-    std::vector<Material> materials; // Collection of materials (if used)
   };
 
 }

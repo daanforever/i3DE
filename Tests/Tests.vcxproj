@@ -117,7 +117,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConverterTest.cpp" />
-    <ClCompile Include="i3DTest.cpp" />
+    <ClCompile Include="i3dShapesTest.cpp" />
+    <ClCompile Include="i3dTest.cpp" />
     <ClCompile Include="BaseTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
     <ClCompile Include="ModDescTest.cpp" />

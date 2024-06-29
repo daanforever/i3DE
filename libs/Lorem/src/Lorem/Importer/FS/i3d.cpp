@@ -2,13 +2,49 @@
 #include "Lorem/Importer/FS/i3d.h"
 
 namespace Lorem::Importer::FS {
-  I3D& I3D::load(const t_file_ptr dir_ptr, const std::string& filename)
+
+  // i3dEntry methods
+  std::string i3dEntry::attr(std::string_view what) const
   {
-    load(dir_ptr->find(filename));
+    std::string result = {};
+
+    if (auto entry = attributes.find(what); entry != attributes.end()) {
+      result = entry->second;
+    }
+
+    return result;
+  }
+
+
+  // i3d methods
+
+  // Fill this.shapes with (std::string)shapes from .i3d file
+  i3d& i3d::load(const t_file_ptr file_ptr)
+  {
+    if (!file_ptr) {
+
+      LERROR << "Unable to import. Invalid directory pointer." << std::endl;
+      return *this;
+
+    }
+
+    auto entry = parse(file_ptr).find("Shapes");
+
+    if (entry.children.empty()) {
+      shapes.push_back( entry.attr("externalShapesFile") );
+    }
+    else {
+
+      for (const auto& child : entry.children) {
+        shapes.push_back(child.attr("externalShapesFile"));
+      }
+
+    }
+
     return *this;
   }
 
-  I3D& I3D::load(const t_file_ptr file_ptr)
+  i3d& i3d::parse(const t_file_ptr file_ptr)
   {
     auto xml_ptr = Lorem::Utils::getXML(file_ptr);
 
@@ -16,15 +52,15 @@ namespace Lorem::Importer::FS {
     version = xml_ptr->select_node("/i3D").node().attribute("version").value();
 
     for (auto xnode : xml_ptr->select_nodes("/i3D/*")) {
-      content.try_emplace(xnode.node().name(), getContainer(xnode.node()));
+      content.try_emplace(xnode.node().name(), getEntry(xnode.node()));
     }
 
     return *this;
   }
 
-  I3DEntry I3D::getContainer(pugi::xml_node node) const
+  i3dEntry i3d::getEntry(pugi::xml_node node) const
   {
-    I3DEntry result = {};
+    i3dEntry result = {};
 
     result.name = node.name();
 
@@ -33,28 +69,17 @@ namespace Lorem::Importer::FS {
     }
 
     for (auto child : node.children()) {
-      result.children.push_back( getContainer(child) );
+      result.children.push_back( getEntry(child) );
     }
 
     return result;
   }
 
-  I3DEntry I3D::find(std::string_view what) const
+  i3dEntry i3d::find(std::string_view what) const
   {
-    I3DEntry result = {};
+    i3dEntry result = {};
 
     if (auto entry = content.find(what); entry != content.end()) {
-      result = entry->second;
-    }
-
-    return result;
-  }
-
-  std::string I3DEntry::attr(std::string_view what) const
-  {
-    std::string result = {};
-
-    if (auto entry = attributes.find(what); entry != attributes.end()) {
       result = entry->second;
     }
 

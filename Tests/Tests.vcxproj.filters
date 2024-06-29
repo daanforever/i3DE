@@ -18,12 +18,13 @@
     <ClCompile Include="BaseTest.cpp">
       <Filter>Importer\FS</Filter>
     </ClCompile>
-    <ClCompile Include="i3DTest.cpp">
+    <ClCompile Include="i3dTest.cpp">
       <Filter>Importer\FS</Filter>
     </ClCompile>
     <ClCompile Include="ModDescTest.cpp">
       <Filter>Importer\FS</Filter>
     </ClCompile>
+    <ClCompile Include="i3dShapesTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="default">

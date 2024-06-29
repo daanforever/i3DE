@@ -39,8 +39,7 @@ namespace Lorem {
     // Not implemented yet
     class NotImplemented : public std::runtime_error {
     public:
-      explicit NotImplemented()
-        : std::runtime_error("") {}
+      using runtime_error::runtime_error;
     };
 
     // Constructor

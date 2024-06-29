@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
   //LDEBUG << Lorem::Importer().importMod(dir_ptr) << std::endl;
   LDEBUG << "First file: " << dir_ptr->name << std::endl;
   LDEBUG << "Files count: " << dir_ptr->index.size() << std::endl;
-  Lorem::Importer::FS::Base().load(dir_ptr);
+  Lorem::Importer::FS::Base().process(dir_ptr);
 
   return 0;
 }
