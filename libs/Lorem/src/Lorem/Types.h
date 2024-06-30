@@ -5,8 +5,6 @@
 #include <map>
 #include <memory>
 
-#include "pugixml.hpp"
-
 namespace Lorem {
 
   // Structure representing a file in memory
@@ -79,5 +77,4 @@ namespace Lorem {
   using t_file_ptr = std::shared_ptr<t_file>;
 
   using t_map_ss = std::map<std::string, std::string, std::less<>>;
-  using t_shared_xml = std::shared_ptr<pugi::xml_document>;
 }

@@ -16,7 +16,7 @@ namespace Lorem {
     else {
 
       std::string cwd{ std::filesystem::current_path().generic_string() };
-      throw Lorem::Error::ReadFileError(
+      throw Lorem::Error::FileReadError(
         cwd + "/" + filename.data() + ": " + zip_strerror(errnum)
       );
     }
@@ -31,7 +31,7 @@ namespace Lorem {
 
     if (ssize_t zip_entries = zip_entries_total(zip); zip_entries < 0) {
 
-      throw Lorem::Error::ReadFileError(zip_strerror((int)zip_entries));
+      throw Lorem::Error::FileReadError(zip_strerror((int)zip_entries));
 
     }
     else {
@@ -53,7 +53,7 @@ namespace Lorem {
     t_file entry = {};
 
     if (int err = zip_entry_openbyindex(zip, index); err < 0) {
-      throw Lorem::Error::ReadFileError(zip_strerror(err));
+      throw Lorem::Error::FileReadError(zip_strerror(err));
     }
     else {
       bufsize = zip_entry_size(zip);

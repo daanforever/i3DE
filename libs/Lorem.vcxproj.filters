@@ -92,6 +92,12 @@
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h">
       <Filter>Header Files\Lorem\Importer\FS</Filter>
     </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Reader.h">
+      <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\XML.h">
+      <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Converter.cpp">
@@ -120,6 +126,9 @@
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp">
       <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Reader.cpp">
+      <Filter>Source Files\Lorem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

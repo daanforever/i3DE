@@ -16,9 +16,9 @@ namespace Lorem {
     };
 
     // Read file error
-    class ReadFileError : public std::runtime_error {
+    class FileReadError : public std::runtime_error {
     public:
-      explicit ReadFileError(std::string_view message)
+      explicit FileReadError(std::string_view message)
         : std::runtime_error(message.data()) {}
     };
 

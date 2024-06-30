@@ -3,18 +3,22 @@
 #include "Lorem/Importer/FS/i3d.h"
 
 namespace Lorem::Importer::FS {
-  const std::string filename = "../../../../Tests/Samples/pln_3_35.i3d";
-  const auto file_ptr = Lorem::Utils::loadFile(filename);
+  const std::string filename = "../../../../Tests/Samples/test.i3d";
 
-  TEST(i3d, DefaultConstructor) {
+  TEST(i3d, Constructor) {
     ASSERT_NO_THROW(i3d());
   };
 
   TEST(i3d, ParseXML) {
+    ASSERT_NO_THROW(Lorem::Utils::loadFile(filename));
+    const auto file_ptr = Lorem::Utils::loadFile(filename);
     ASSERT_NO_THROW(i3d().load(file_ptr));
   };
 
   TEST(i3d, NameAndVersion) {
+    ASSERT_NO_THROW(Lorem::Utils::loadFile(filename));
+    const auto file_ptr = Lorem::Utils::loadFile(filename);
+
     auto name = i3d().load(file_ptr).name;
     auto version = i3d().load(file_ptr).version;
     EXPECT_EQ("PLN_3_35_new", name);
@@ -22,6 +26,9 @@ namespace Lorem::Importer::FS {
   };
 
   TEST(i3d, Files) {
+    ASSERT_NO_THROW(Lorem::Utils::loadFile(filename));
+    const auto file_ptr = Lorem::Utils::loadFile(filename);
+
     auto files = i3d().load(file_ptr).find("Files");
 
     ASSERT_TRUE(files);

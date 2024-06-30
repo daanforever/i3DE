@@ -39,7 +39,7 @@ namespace Lorem {
     std::ifstream file(filename.data(), std::ios::in | std::ios::binary);
 
     if (!file) {
-      throw Lorem::Error::ReadFileError("Unable to open file: " + std::string(filename));
+      throw Lorem::Error::FileReadError("Unable to open file: " + std::string(filename));
     }
 
     // Stop eating new lines in binary mode!!!
@@ -48,7 +48,7 @@ namespace Lorem {
     file_ptr->content.resize(length);
 
     if (!file.read(std::bit_cast<char*>(file_ptr->content.data()), length)) {
-      throw Lorem::Error::ReadFileError("Error reading file: " + std::string(filename));
+      throw Lorem::Error::FileReadError("Error reading file: " + std::string(filename));
     }
 
     return file_ptr;

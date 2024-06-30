@@ -121,6 +121,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\tinygltf\src</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -165,6 +166,7 @@
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h" />
     <ClInclude Include="Lorem\src\Lorem\Logger.h" />
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\ModDesc.h" />
+    <ClInclude Include="Lorem\src\Lorem\Reader.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene\Material.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene\Shape.h" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Lorem\src\Lorem\Extractor.h" />
     <ClInclude Include="Lorem\src\Lorem\Utils.h" />
     <ClInclude Include="Lorem\src\pch.h" />
+    <ClInclude Include="Lorem\src\Lorem\XML.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cpp" />
@@ -181,6 +184,7 @@
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Extractor.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp" />
+    <ClCompile Include="Lorem\src\Lorem\Reader.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Scene.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Utils.cpp" />
     <ClCompile Include="Lorem\src\pch.cpp">

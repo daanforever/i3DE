@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cassert>
+
 #include "Lorem/Types.h"
 #include "Lorem/Error.h"
 #include "Lorem/Utils.h"

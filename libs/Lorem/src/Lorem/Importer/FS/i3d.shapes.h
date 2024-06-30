@@ -1,8 +1,6 @@
 #pragma once
 
-#include "Lorem/Types.h"
-#include "Lorem/Error.h"
-#include "Lorem/Scene.h"
+#include "Lorem/Base.h"
 
 namespace Lorem::Importer::FS {
   class i3dShapes
@@ -14,9 +12,6 @@ namespace Lorem::Importer::FS {
     std::vector<Lorem::Scene::Shape> shapes;
 
     // Load .i3d.shapes file and import content
-    i3dShapes& load(t_file_ptr file_ptr) {
-      throw Lorem::Error::NotImplemented(std::source_location::current().file_name());
-      return *this;
-    }
+    i3dShapes& load(t_file_ptr file_ptr);
   };
 }
