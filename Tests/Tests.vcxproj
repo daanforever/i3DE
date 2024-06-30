@@ -70,7 +70,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <CallingConvention>Cdecl</CallingConvention>
       <CompileAsManaged>false</CompileAsManaged>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\endian\src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -130,6 +130,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ExtractorTest.cpp" />
+    <ClCompile Include="ReaderTest.cpp" />
     <ClCompile Include="TypesTest.cpp" />
     <ClCompile Include="UtilsTest.cpp" />
   </ItemGroup>

@@ -30,9 +30,9 @@ namespace Lorem {
     };
 
     // Unable to parse XML error
-    class UnableToParseXML : public std::runtime_error {
+    class XMLParseError : public std::runtime_error {
     public:
-      explicit UnableToParseXML(const std::string& filename)
+      explicit XMLParseError(const std::string& filename)
         : std::runtime_error("Unable to parse XML: " + filename) {}
     };
 
@@ -40,6 +40,17 @@ namespace Lorem {
     class NotImplemented : public std::runtime_error {
     public:
       using runtime_error::runtime_error;
+    };
+
+    class UninitializedReaderError : public std::runtime_error {
+    public:
+      using runtime_error::runtime_error;
+    };
+
+    class NullPtrError : public std::runtime_error {
+    public:
+      explicit NullPtrError() : 
+        std::runtime_error("nullptr is not valid value") {}
     };
 
     // Constructor

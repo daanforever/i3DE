@@ -21,7 +21,7 @@ namespace Lorem {
     pugi::xml_parse_result result = doc->load_string(str.c_str());
 
     if (!result) {
-      throw Error::UnableToParseXML(file_ptr->name);
+      throw Error::XMLParseError(file_ptr->name);
     }
 
     return doc;

@@ -32,7 +32,7 @@ namespace Lorem::Importer::FS {
     pugi::xml_parse_result result = doc->load_string(raw.c_str());
 
     if (!result) {
-      throw Error::UnableToParseXML("modDesc.xml");
+      throw Error::XMLParseError("modDesc.xml");
     }
 
     return doc;
