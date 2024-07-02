@@ -36,6 +36,12 @@
     <Filter Include="Source Files\Lorem\Importer\FS">
       <UniqueIdentifier>{bc9a1b34-23c4-40a2-bf01-79012c774340}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Lorem\Reader">
+      <UniqueIdentifier>{c634e0b3-e348-49db-bd1c-e6ac89c0a4d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lorem\Reader">
+      <UniqueIdentifier>{3a539f23-76dd-4fc9-a1b3-dfd1ef3b3134}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lorem\src\pch.h">
@@ -92,11 +98,14 @@
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h">
       <Filter>Header Files\Lorem\Importer\FS</Filter>
     </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Reader.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
     <ClInclude Include="Lorem\src\Lorem\XML.h">
       <Filter>Header Files\Lorem</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Reader\Reader.h">
+      <Filter>Header Files\Lorem\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="Lorem\src\Lorem\Reader.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -127,8 +136,8 @@
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp">
       <Filter>Source Files\Lorem\Importer\FS</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Reader.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\Lorem\Reader\Base.cpp">
+      <Filter>Source Files\Lorem\Reader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

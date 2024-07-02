@@ -19,5 +19,6 @@
     <None Include="Tests\Samples\pln_3_35.i3d">
       <Filter>Examples</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

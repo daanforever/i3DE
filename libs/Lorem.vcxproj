@@ -167,6 +167,7 @@
     <ClInclude Include="Lorem\src\Lorem\Logger.h" />
     <ClInclude Include="Lorem\src\Lorem\Importer\FS\ModDesc.h" />
     <ClInclude Include="Lorem\src\Lorem\Reader.h" />
+    <ClInclude Include="Lorem\src\Lorem\Reader\Reader.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene\Material.h" />
     <ClInclude Include="Lorem\src\Lorem\Scene\Shape.h" />
@@ -181,10 +182,14 @@
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Converter.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cpp" />
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)lorem_importer_fs_base.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Extractor.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Reader.cpp" />
+    <ClCompile Include="Lorem\src\Lorem\Reader\Base.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)lorem_reader_base.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Scene.cpp" />
     <ClCompile Include="Lorem\src\Lorem\Utils.cpp" />
     <ClCompile Include="Lorem\src\pch.cpp">

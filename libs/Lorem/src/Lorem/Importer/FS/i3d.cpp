@@ -3,8 +3,8 @@
 
 namespace Lorem::Importer::FS {
 
-  // i3dEntry methods
-  std::string i3dEntry::attr(std::string_view what) const
+  // Entry methods
+  std::string i3d::Entry::attr(std::string_view what) const
   {
     std::string result = {};
 
@@ -58,9 +58,9 @@ namespace Lorem::Importer::FS {
     return *this;
   }
 
-  i3dEntry i3d::getEntry(pugi::xml_node node) const
+  i3d::Entry i3d::getEntry(pugi::xml_node node) const
   {
-    i3dEntry result = {};
+    Entry result = {};
 
     result.name = node.name();
 
@@ -75,9 +75,9 @@ namespace Lorem::Importer::FS {
     return result;
   }
 
-  i3dEntry i3d::find(std::string_view what) const
+  i3d::Entry i3d::find(std::string_view what) const
   {
-    i3dEntry result = {};
+    Entry result = {};
 
     if (auto entry = content.find(what); entry != content.end()) {
       result = entry->second;

@@ -6,6 +6,15 @@ namespace Lorem::Importer::FS {
   class i3dShapes
   {
   public:
+
+    struct Header {
+      Header() = default;
+      explicit Header(Lorem::Reader::Base& reader);
+
+      uint16_t version = 0;
+      uint8_t  seed = 0;
+    };
+
     i3dShapes() = default;
     virtual ~i3dShapes() = default;
 

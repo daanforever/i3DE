@@ -44,13 +44,24 @@ namespace Lorem {
 
     class UninitializedReaderError : public std::runtime_error {
     public:
-      using runtime_error::runtime_error;
+      explicit UninitializedReaderError() :
+        std::runtime_error("Use Base().open(file_ptr) first") {}
     };
 
     class NullPtrError : public std::runtime_error {
     public:
       explicit NullPtrError() : 
         std::runtime_error("nullptr is not valid value") {}
+    };
+
+    class UnsupportedVersionError : public std::runtime_error {
+    public:
+      using runtime_error::runtime_error;
+    };
+
+    class BadTypeError : public std::runtime_error {
+    public:
+      using runtime_error::runtime_error;
     };
 
     // Constructor
