@@ -115,6 +115,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\endian\src;</AdditionalIncludeDirectories>
+      <AdditionalBMIDirectories>%(AdditionalBMIDirectories)</AdditionalBMIDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +156,9 @@
     <ProjectReference Include="libs\Lorem.vcxproj">
       <Project>{53764235-8c2b-4a60-bcd1-186b17f47a74}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

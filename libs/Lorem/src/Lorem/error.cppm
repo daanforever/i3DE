@@ -1,11 +1,9 @@
-#pragma once
+export module daan.i3de.lorem.error;
 
-#include <list>
-#include <stdexcept>
-#include <string>
-#include "Lorem/Logger.h"
+import std;
+import daan.i3de.lorem.logger;
 
-namespace Lorem {
+export namespace Lorem {
   class Error {
   public:
 
@@ -84,7 +82,7 @@ namespace Lorem {
     // Add error and log it
     void logError(const std::string& message) {
       add(message);
-      LERROR << message; // Assumes Logger has a static log function
+      logger::error() << message;
     }
   };
 }

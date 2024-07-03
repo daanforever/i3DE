@@ -1,14 +1,11 @@
-#pragma once
+export module daan.i3de.lorem.scene:Sound;
 
-#include <string>
-#include <vector>
+import daan.i3de.lorem.types;
 
-#include "Lorem/Types.h"
-#include "Lorem/Scene.h"
+export namespace Lorem::Scene {
 
-namespace Lorem {
   // Structure representing a shape
-  class Scene::Sound {
+  struct Sound {
   public:
     Sound() = default;
     virtual ~Sound() = default;
@@ -19,6 +16,7 @@ namespace Lorem {
       return !file_ptr;
     }
   };
+
 }
 
 

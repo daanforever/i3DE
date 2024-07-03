@@ -5,139 +5,82 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files\default">
-      <UniqueIdentifier>{1df659a9-b291-4c1d-a491-01dc5f60057e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Lorem">
-      <UniqueIdentifier>{3c854276-1646-443f-bc91-851f81508772}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Lorem">
       <UniqueIdentifier>{0b3edb01-5ab2-4486-b862-95921afc4f40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Lorem\Scene">
-      <UniqueIdentifier>{13da2fc5-1d0f-45ab-9c6c-a64007402347}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Lorem\Scene">
       <UniqueIdentifier>{8ea9e78c-798a-4510-932c-5690357e5a39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Lorem\Importer">
-      <UniqueIdentifier>{6ef1a941-2ab6-49a9-abb8-b0173a570d12}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Lorem\Importer">
       <UniqueIdentifier>{4e4aa1dd-7890-4fbf-8f56-f71cbd17073e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Lorem\Importer\FS">
-      <UniqueIdentifier>{02c2e90e-e90c-4174-8dee-89f6455d7e47}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Lorem\Importer\FS">
       <UniqueIdentifier>{bc9a1b34-23c4-40a2-bf01-79012c774340}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Lorem\Reader">
-      <UniqueIdentifier>{c634e0b3-e348-49db-bd1c-e6ac89c0a4d4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Lorem\Reader">
       <UniqueIdentifier>{3a539f23-76dd-4fc9-a1b3-dfd1ef3b3134}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lorem\src\pch.h">
-      <Filter>Header Files\default</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\framework.h">
-      <Filter>Header Files\default</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Converter.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Error.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\IError.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Logger.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Types.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Extractor.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Scene.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Utils.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Scene\Material.h">
-      <Filter>Header Files\Lorem\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Scene\Shape.h">
-      <Filter>Header Files\Lorem\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.h">
-      <Filter>Header Files\Lorem\Importer\FS</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.h">
-      <Filter>Header Files\Lorem\Importer\FS</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\ModDesc.h">
-      <Filter>Header Files\Lorem\Importer\FS</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Scene\Sound.h">
-      <Filter>Header Files\Lorem\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Base.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h">
-      <Filter>Header Files\Lorem\Importer\FS</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\XML.h">
-      <Filter>Header Files\Lorem</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Reader\Reader.h">
-      <Filter>Header Files\Lorem\Reader</Filter>
-    </ClInclude>
-    <ClInclude Include="Lorem\src\Lorem\Reader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Lorem\src\Lorem\Converter.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\Lorem\types.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\Lorem\logger.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\pch.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\std.ixx">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Extractor.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\Lorem\Utils.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Scene.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\Lorem\xml.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Utils.cpp">
-      <Filter>Source Files\Lorem</Filter>
+    <ClCompile Include="Lorem\src\Lorem\error.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cpp">
-      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    <ClCompile Include="Lorem\src\Lorem\Scene.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cpp">
-      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    <ClCompile Include="Lorem\src\Lorem\Base.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp">
-      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    <ClCompile Include="Lorem\src\Lorem\Reader.cppm">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Reader\Base.cpp">
+    <ClCompile Include="Lorem\src\Lorem\Converter.cppm">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Extractor.cppm">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm">
+      <Filter>Source Files\Lorem\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Reader\Base.cppm">
       <Filter>Source Files\Lorem\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cppm">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cppm">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cppm">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cppm">
+      <Filter>Source Files\Lorem\Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Scene\Material.cppm">
+      <Filter>Source Files\Lorem\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Scene\Sound.cppm">
+      <Filter>Source Files\Lorem\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cppm">
+      <Filter>Source Files\Lorem\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

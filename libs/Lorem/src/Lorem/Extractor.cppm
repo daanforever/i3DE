@@ -1,10 +1,22 @@
-#include "pch.h"
-#include <filesystem>
+export module daan.i3de.lorem.Extractor;
 
-#include "Lorem/Extractor.h"
+import "zip.h";
 
-namespace Lorem {
-    t_file_ptr Extractor::ToMemory(std::string_view filename)
+import daan.i3de.lorem.types;
+
+export namespace Lorem {
+  class Extractor
+  {
+  public:
+    Extractor() = default;
+    virtual ~Extractor() = default;
+
+    virtual t_file_ptr ToMemory(std::string_view filename);
+    virtual t_file_ptr ExtractFiles(zip_t* zip);
+    virtual t_file_ptr ExtractFileByIndex(zip_t* zip, size_t index);
+  };
+
+  t_file_ptr Extractor::ToMemory(std::string_view filename)
   {
     t_file_ptr ptr = {};
     int errnum = 0;

@@ -1,15 +1,13 @@
-#pragma once
+export module daan.i3de.lorem.types;
 
-#include <string>
-#include <vector>
-#include <map>
-#include <memory>
+export import std;
+export import daan.i3de.lorem.error;
+export import daan.i3de.lorem.logger;
 
 namespace Lorem {
 
   // Structure representing a file in memory
-  class t_file {
-  public:
+  export struct t_file {
     t_file() = default;
     explicit t_file(std::string_view new_name) : name(new_name) {};
 
@@ -74,7 +72,6 @@ namespace Lorem {
     }
   };
 
-  using t_file_ptr = std::shared_ptr<t_file>;
-
-  using t_map_ss = std::map<std::string, std::string, std::less<>>;
+  export using t_file_ptr = std::shared_ptr<t_file>;
+  export using t_map_ss = std::map<std::string, std::string, std::less<>>;
 }

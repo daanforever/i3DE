@@ -1,7 +1,31 @@
-#include "pch.h"
-#include "Lorem/Importer/FS/i3d.shapes.h"
+export module daan.i3de.lorem.importer.fs:i3dshapes;
+
+import daan.i3de.lorem.types;
+import daan.i3de.lorem.reader;
+import daan.i3de.lorem.scene;
 
 namespace Lorem::Importer::FS {
+  class i3dShapes
+  {
+  public:
+
+    struct Header {
+      Header() = default;
+      explicit Header(Lorem::Reader::Base& reader);
+
+      std::uint16_t version = 0;
+      std::uint8_t  seed = 0;
+    };
+
+    i3dShapes() = default;
+    virtual ~i3dShapes() = default;
+
+    std::vector<Lorem::Scene::Shape> shapes;
+
+    // Load .i3d.shapes file and import content
+    i3dShapes& load(t_file_ptr file_ptr);
+  };
+
   // i3dShapes::Header
   i3dShapes::Header::Header(Lorem::Reader::Base& reader)
   {
@@ -34,7 +58,9 @@ namespace Lorem::Importer::FS {
   // Param file_ptr can't be nullptr at all
   i3dShapes& i3dShapes::load(t_file_ptr file_ptr)
   {
-    assert(file_ptr);
+    if (!file_ptr) {
+      throw Lorem::Error::NullPtrError();
+    }
 
     auto stream = Lorem::Reader::Base().open(file_ptr);
     auto header = i3dShapes::Header(stream);

@@ -115,13 +115,21 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\tinygltf\src;$(SolutionDir)\libs\endian\src</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+      <AdditionalBMIDirectories>D:\Projects\CPP\STLModules\Debug;%(AdditionalBMIDirectories)</AdditionalBMIDirectories>
+      <BuildStlModules>true</BuildStlModules>
+      <EnableModules>true</EnableModules>
+      <CompileAs>Default</CompileAs>
+      <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <ModuleDependenciesFile>$(IntDir)%(RelativeDir)</ModuleDependenciesFile>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -156,56 +164,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Lorem\src\Lorem\Base.h" />
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.h" />
-    <ClInclude Include="Lorem\src\framework.h" />
-    <ClInclude Include="Lorem\src\Lorem\Converter.h" />
-    <ClInclude Include="Lorem\src\Lorem\Error.h" />
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\i3d.h" />
-    <ClInclude Include="Lorem\src\Lorem\IError.h" />
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\Base.h" />
-    <ClInclude Include="Lorem\src\Lorem\Logger.h" />
-    <ClInclude Include="Lorem\src\Lorem\Importer\FS\ModDesc.h" />
-    <ClInclude Include="Lorem\src\Lorem\Reader.h" />
-    <ClInclude Include="Lorem\src\Lorem\Reader\Reader.h" />
-    <ClInclude Include="Lorem\src\Lorem\Scene.h" />
-    <ClInclude Include="Lorem\src\Lorem\Scene\Material.h" />
-    <ClInclude Include="Lorem\src\Lorem\Scene\Shape.h" />
-    <ClInclude Include="Lorem\src\Lorem\Scene\Sound.h" />
-    <ClInclude Include="Lorem\src\Lorem\Types.h" />
-    <ClInclude Include="Lorem\src\Lorem\Extractor.h" />
-    <ClInclude Include="Lorem\src\Lorem\Utils.h" />
-    <ClInclude Include="Lorem\src\pch.h" />
-    <ClInclude Include="Lorem\src\Lorem\XML.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Converter.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cpp">
-      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)lorem_importer_fs_base.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Extractor.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Reader\Base.cpp">
-      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)lorem_reader_base.obj</ObjectFileName>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Scene.cpp" />
-    <ClCompile Include="Lorem\src\Lorem\Utils.cpp" />
-    <ClCompile Include="Lorem\src\pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="pugixml.vcxproj">
       <Project>{6557b4f8-1af3-43d0-80ae-fb1b7e470d1a}</Project>
     </ProjectReference>
     <ProjectReference Include="zip.vcxproj">
       <Project>{a76e04df-803a-4a4b-8b10-3fb4a1107ffa}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lorem\src\Lorem\Base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Converter.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\error.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Extractor.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\logger.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Reader.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Reader\Base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Scene.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Scene\Material.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Scene\Sound.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\types.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Utils.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\xml.cppm" />
+    <ClCompile Include="Lorem\src\std.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

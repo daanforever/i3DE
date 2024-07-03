@@ -1,7 +1,31 @@
-#include "pch.h"
-#include "Lorem/Reader/Base.h"
+export module daan.i3de.lorem.reader:Base;
 
-namespace Lorem::Reader {
+import daan.i3de.lorem.types;
+
+export namespace Lorem::Reader {
+  class Base
+  {
+  public:
+    Base() = default;
+    virtual ~Base() = default;
+
+    Base& open(const t_file_ptr ptr);
+
+    explicit operator bool() const;
+
+    Base& reset();
+
+    // Get n bytes from file
+    std::vector<std::byte> get(size_t n);
+
+    template<typename T>
+    std::vector<T> get(size_t n);
+
+  private:
+    t_file_ptr file_ptr = nullptr;
+    size_t position = -1;
+  };
+
   Base& Base::open(const t_file_ptr ptr) {
     if (!ptr) {
       throw Lorem::Error::NullPtrError();
@@ -12,6 +36,11 @@ namespace Lorem::Reader {
     return *this;
   }
 
+  Base::operator bool() const
+  {
+    return file_ptr ? true : false;
+  }
+
   Base& Base::reset() {
     position = 0;
     return *this;
@@ -19,7 +48,7 @@ namespace Lorem::Reader {
 
   // Get n bytes from file
   std::vector<std::byte> Base::get(size_t n) {
-    if (!file_ptr || position == SIZE_MAX) {
+    if (!file_ptr || position == -1) {
       throw Lorem::Error::UninitializedReaderError();
     }
 

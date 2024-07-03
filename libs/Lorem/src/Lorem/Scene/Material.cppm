@@ -1,12 +1,9 @@
-#pragma once
+export module daan.i3de.lorem.scene:Material;
 
-#include "Lorem/Types.h"
-#include "Lorem/Scene.h"
+import daan.i3de.lorem.types;
 
-namespace Lorem {
-  class Scene;
-
-  class Scene::Material
+export namespace Lorem::Scene {
+  struct Material
   {
   public:
     Material() = default;

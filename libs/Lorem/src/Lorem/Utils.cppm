@@ -1,12 +1,18 @@
-#include "pch.h"
-#include "Utils.h"
+export module daan.i3de.lorem.utils;
 
-#include <filesystem>
-#include <sstream>
-#include <fstream>
-#include <istream>
+import std;
+import daan.i3de.lorem.types;
+import daan.i3de.lorem.xml;
 
-namespace Lorem {
+export namespace Lorem {
+  class Utils
+  {
+  public:
+    static std::string fileWithoutExt(std::string_view filename);
+    static t_shared_xml getXML(const t_file_ptr file_ptr);
+    static t_file_ptr loadFile(std::string_view filename);
+  };
+
   std::string Utils::fileWithoutExt(std::string_view name)
   {
     auto path = std::filesystem::path(name);
