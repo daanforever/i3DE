@@ -4,7 +4,7 @@ export import std;
 export import daan.i3de.lorem.error;
 export import daan.i3de.lorem.logger;
 
-namespace Lorem {
+namespace lorem {
 
   // Structure representing a file in memory
   export struct t_file {
@@ -45,8 +45,8 @@ namespace Lorem {
       return std::string((const char*)content.data(), content.size());
     }
 
-    std::shared_ptr<t_file> find(std::string_view filename) const {
-      std::shared_ptr<t_file> result = {};
+    std::shared_ptr<t_file> find(const std::string& filename) const {
+      auto result = std::make_shared<t_file>();
 
       bool search = true;
       auto ptr = this;

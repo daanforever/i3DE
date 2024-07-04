@@ -2,7 +2,7 @@ export module daan.i3de.lorem.scene:Sound;
 
 import daan.i3de.lorem.types;
 
-export namespace Lorem::Scene {
+export namespace lorem::Scene {
 
   // Structure representing a shape
   struct Sound {

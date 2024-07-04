@@ -2,7 +2,7 @@ export module daan.i3de.lorem.logger;
 
 import std;
 
-export namespace Lorem {
+export namespace lorem {
   class logger {
   private:
     logger() = default;
@@ -31,39 +31,39 @@ export namespace Lorem {
 
 
     //template<class T>
-    //Lorem::logger operator<<(T& text) const {
+    //lorem::logger operator<<(T& text) const {
     //  std::cout << text;
     //  return *this;
     //};
 
     template<class T>
-    Lorem::logger operator<<(T text) const {
+    lorem::logger operator<<(T text) const {
       std::cout << text;
       return *this;
     };
 
 
-    //Lorem::logger operator<<(int num) const {
+    //lorem::logger operator<<(int num) const {
     //  std::cout << num;
     //  return *this;
     //};
 
-    Lorem::logger operator<<(std::string text) const {
+    lorem::logger operator<<(std::string text) const {
       std::cout << text;
       return *this;
     };
 
-    Lorem::logger operator<<(std::stringstream const& ss) const {
+    lorem::logger operator<<(std::stringstream const& ss) const {
       std::cout << ss.str();
       return *this;
     };
 
-    Lorem::logger operator<<(std::ostream& (*OStreamMani)(std::ostream&)) {
+    lorem::logger operator<<(std::ostream& (*OStreamMani)(std::ostream&)) {
       std::cout << OStreamMani;
       return *this;
     };
 
-    Lorem::logger operator<<(std::list<std::string>& strings) const {
+    lorem::logger operator<<(std::list<std::string>& strings) const {
       if (strings.size() > 0) {
         std::cout << std::endl;
       }
@@ -74,7 +74,7 @@ export namespace Lorem {
       return *this;
     };
 
-    Lorem::logger operator<<(std::vector<std::string> strings) const {
+    lorem::logger operator<<(std::vector<std::string> strings) const {
       if (strings.size() > 0) {
         std::cout << std::endl;
       }
@@ -85,12 +85,12 @@ export namespace Lorem {
       return *this;
     };
 
-    Lorem::logger operator<<(std::shared_ptr<std::string> text_ptr) const {
+    lorem::logger operator<<(std::shared_ptr<std::string> text_ptr) const {
       std::cout << *text_ptr.get();
       return *this;
     };
 
-    Lorem::logger prefix(const std::string& level) const {
+    lorem::logger prefix(const std::string& level) const {
       std::cout << "[" << level << "] ";
       return *this;
     }

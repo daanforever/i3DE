@@ -1,27 +1,26 @@
 #include "pch.h"
 
-#include "Lorem/Base.h"
-#include "Lorem/Importer/FS/i3d.shapes.h"
+import daan.i3de.lorem.base;
 
-namespace Lorem::Importer::FS {
+namespace lorem::importer::FS {
   const std::string filename = "../../../../Tests/Samples/test.i3d.shapes";
-  const auto file_ptr = Lorem::Utils::loadFile(filename);
+  const auto file_ptr = lorem::utils::loadFile(filename);
 
-  TEST(i3dShapes, Contructor) {
+  TEST(i3dShapesTest, Contructor) {
     ASSERT_NO_THROW(i3dShapes());
   }
 
-  TEST(i3dShapes, load) {
+  TEST(i3dShapesTest, load) {
     ASSERT_NO_THROW(i3dShapes());
 
     ASSERT_NO_THROW(i3dShapes().load(file_ptr));
   }
 
-  TEST(i3dShapes, Header) {
-    auto empty_reader = Lorem::Reader::Base();
-    auto reader = Lorem::Reader::Base().open(file_ptr);
+  TEST(i3dShapesTest, Header) {
+    auto empty_reader = lorem::reader::Base();
+    auto reader = lorem::reader::Base().open(file_ptr);
 
-    ASSERT_THROW(i3dShapes::Header(empty_reader).seed, Lorem::Error::UninitializedReaderError);
+    ASSERT_THROW(i3dShapes::Header(empty_reader).seed, lorem::Error::UninitializedReaderError);
     ASSERT_NO_THROW(i3dShapes::Header(reader).seed);
 
     auto header = i3dShapes::Header(reader.reset());

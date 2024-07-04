@@ -1,22 +1,22 @@
-export module daan.i3de.lorem.Extractor;
+export module daan.i3de.lorem.extractor;
 
 import "zip.h";
 
 import daan.i3de.lorem.types;
 
-export namespace Lorem {
-  class Extractor
+export namespace lorem {
+  class extractor
   {
   public:
-    Extractor() = default;
-    virtual ~Extractor() = default;
+    extractor() = default;
+    virtual ~extractor() = default;
 
     virtual t_file_ptr ToMemory(std::string_view filename);
     virtual t_file_ptr ExtractFiles(zip_t* zip);
     virtual t_file_ptr ExtractFileByIndex(zip_t* zip, size_t index);
   };
 
-  t_file_ptr Extractor::ToMemory(std::string_view filename)
+  t_file_ptr extractor::ToMemory(std::string_view filename)
   {
     t_file_ptr ptr = {};
     int errnum = 0;
@@ -28,7 +28,7 @@ export namespace Lorem {
     else {
 
       std::string cwd{ std::filesystem::current_path().generic_string() };
-      throw Lorem::Error::FileReadError(
+      throw lorem::Error::FileReadError(
         cwd + "/" + filename.data() + ": " + zip_strerror(errnum)
       );
     }
@@ -36,14 +36,14 @@ export namespace Lorem {
     return ptr;
   }
 
-  t_file_ptr Extractor::ExtractFiles(zip_t* zip)
+  t_file_ptr extractor::ExtractFiles(zip_t* zip)
   {
     auto dir_ptr = std::make_shared<t_file>("/");
     t_file_ptr file_ptr = {};
 
     if (ssize_t zip_entries = zip_entries_total(zip); zip_entries < 0) {
 
-      throw Lorem::Error::FileReadError(zip_strerror((int)zip_entries));
+      throw lorem::Error::FileReadError(zip_strerror((int)zip_entries));
 
     }
     else {
@@ -59,13 +59,13 @@ export namespace Lorem {
     return dir_ptr;
   }
 
-  t_file_ptr Extractor::ExtractFileByIndex(zip_t* zip, size_t index)
+  t_file_ptr extractor::ExtractFileByIndex(zip_t* zip, size_t index)
   {
     size_t bufsize = 0;
     t_file entry = {};
 
     if (int err = zip_entry_openbyindex(zip, index); err < 0) {
-      throw Lorem::Error::FileReadError(zip_strerror(err));
+      throw lorem::Error::FileReadError(zip_strerror(err));
     }
     else {
       bufsize = zip_entry_size(zip);
@@ -79,7 +79,7 @@ export namespace Lorem {
       else {
         void* buffer = nullptr;
         if (zip_entry_read(zip, &buffer, &bufsize) < 0) {
-          throw Lorem::Error::EmptyInputError();
+          throw lorem::Error::EmptyInputError();
         }
         entry.content.assign((std::byte*)buffer, (std::byte*)buffer + bufsize);
         entry.isDirectory = false;

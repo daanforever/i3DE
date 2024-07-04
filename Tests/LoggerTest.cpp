@@ -1,9 +1,9 @@
 #include "pch.h"
-#include "Lorem/Logger.h"
 
-namespace Lorem {
-  TEST(Logger, DEBUG) {
-    LDEBUG << "Hello";
-    EXPECT_TRUE(true);
+import daan.i3de.lorem.base;
+
+namespace lorem {
+  TEST(loggerTest, debug) {
+    ASSERT_NO_THROW(lorem::logger::debug() << "Hello");
   }
 }

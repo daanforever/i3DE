@@ -7,6 +7,7 @@
 
 import std;
 import daan.i3de.lorem.types;
+import daan.i3de.lorem.base;
 
 int main(int argc, char* argv[]) {
   if (argc < 2) {
@@ -17,14 +18,15 @@ int main(int argc, char* argv[]) {
   std::string filename(argv[1]);
   //std::string filename = "not_found";
 
-  //const auto dir_ptr = Lorem::Extractor().ToMemory(filename);
-  ////const auto mod = Lorem::ModDesc().parse(dir);
+  const auto dir_ptr = lorem::extractor().ToMemory(filename);
+  ////const auto mod = lorem::ModDesc().parse(dir);
 
   //LDEBUG << "Filename: " << filename << std::endl;
-  ////LDEBUG << Lorem::Importer().importMod(dir_ptr) << std::endl;
+  ////LDEBUG << lorem::importer().importMod(dir_ptr) << std::endl;
   //LDEBUG << "First file: " << dir_ptr->name << std::endl;
   //LDEBUG << "Files count: " << dir_ptr->index.size() << std::endl;
-  //Lorem::Importer::FS::Base().process(dir_ptr);
+
+  lorem::importer::FS::Base().process(dir_ptr);
 
   return 0;
 }

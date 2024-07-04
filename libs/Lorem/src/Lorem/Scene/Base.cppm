@@ -6,7 +6,7 @@ import :Shape;
 import :Material;
 import :Sound;
 
-export namespace Lorem::Scene {
+export namespace lorem::Scene {
   // Representing a scene
   class Base {
   public:
@@ -29,6 +29,10 @@ export namespace Lorem::Scene {
 
     // Method to get all materials in the scene (optional)
     const std::vector<Material>& getMaterials() const;
+
+    explicit operator bool() const {
+      return !shapes.empty() || !materials.empty() || !sounds.empty();
+    }
   };
 
   // Implementation of the addShape method

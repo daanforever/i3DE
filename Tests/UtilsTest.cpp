@@ -1,17 +1,17 @@
 #include "pch.h"
-#include "Lorem/Extractor.h"
-#include "Lorem/Utils.cpp"
 
-namespace Lorem {
+import daan.i3de.lorem.base;
+
+namespace lorem {
   const std::string modFilename = "../../../../Tests/Samples/mod.zip";
-  const auto dir_ptr = Extractor().ToMemory(modFilename);
+  const auto dir_ptr = extractor().ToMemory(modFilename);
   const auto file_ptr = dir_ptr->find("modDesc.xml");
 
-  TEST(Utils, fileWithoutExt) {
-    EXPECT_EQ("file", Utils::fileWithoutExt("file.ext"));
+  TEST(utils, fileWithoutExt) {
+    EXPECT_EQ("file", utils::fileWithoutExt("file.ext"));
   };
 
-  TEST(Utils, getXML) {
-    ASSERT_NO_THROW(Utils::getXML(file_ptr));
+  TEST(utils, getXML) {
+    ASSERT_NO_THROW(utils::getXML(file_ptr));
   };
 }

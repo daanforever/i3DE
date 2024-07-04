@@ -1,9 +1,10 @@
 #include "pch.h"
-#include "Lorem/Extractor.h"
 
-namespace Lorem {
+import daan.i3de.lorem.base;
+
+namespace lorem {
   const std::string ModFileName = "../../../../Tests/Samples/mod.zip";
-  const auto dir_ptr = Extractor().ToMemory(ModFileName);
+  const auto dir_ptr = extractor().ToMemory(ModFileName);
 
   using ::testing::HasSubstr;
 

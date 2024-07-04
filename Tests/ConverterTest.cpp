@@ -1,12 +1,13 @@
 #include "pch.h"
-#include "Lorem/Converter.h"
 
-namespace Lorem {
+import daan.i3de.lorem.base;
+
+namespace lorem {
   const std::string ZipBadFileName = "not_found";
   const std::string ZipEmptyFileName = "../../../../Tests/Samples/file.zip";
   const std::string ZipGoodFileName = "../../../../Tests/Samples/mod.zip";
 
-  TEST(Converter, DefaultConstructorTest) {
+  TEST(ConverterTest, DefaultConstructorTest) {
     auto converter = Converter();
 
     EXPECT_TRUE(true);

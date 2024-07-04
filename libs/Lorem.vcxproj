@@ -172,24 +172,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lorem\src\Lorem\Base.cppm" />
-    <ClCompile Include="Lorem\src\Lorem\Converter.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\converter.cppm" />
     <ClCompile Include="Lorem\src\Lorem\error.cppm" />
-    <ClCompile Include="Lorem\src\Lorem\Extractor.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\extractor.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\i3d.shapes.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\Base.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Importer\FS\ModDesc.cppm" />
     <ClCompile Include="Lorem\src\Lorem\logger.cppm" />
-    <ClCompile Include="Lorem\src\Lorem\Reader.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\reader.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Reader\Base.cppm" />
-    <ClCompile Include="Lorem\src\Lorem\Scene.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Reader\i3dCipher.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\scene.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Material.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Sound.cppm" />
     <ClCompile Include="Lorem\src\Lorem\types.cppm" />
-    <ClCompile Include="Lorem\src\Lorem\Utils.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\utils.cppm" />
     <ClCompile Include="Lorem\src\Lorem\xml.cppm" />
     <ClCompile Include="Lorem\src\std.ixx" />
   </ItemGroup>

@@ -31,7 +31,7 @@
     <ClCompile Include="Lorem\src\std.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Utils.cppm">
+    <ClCompile Include="Lorem\src\Lorem\utils.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\xml.cppm">
@@ -40,19 +40,19 @@
     <ClCompile Include="Lorem\src\Lorem\error.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Scene.cppm">
+    <ClCompile Include="Lorem\src\Lorem\scene.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Base.cppm">
+    <ClCompile Include="Lorem\src\Lorem\base.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Reader.cppm">
+    <ClCompile Include="Lorem\src\Lorem\reader.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Converter.cppm">
+    <ClCompile Include="Lorem\src\Lorem\converter.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Extractor.cppm">
+    <ClCompile Include="Lorem\src\Lorem\extractor.cppm">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm">
@@ -81,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cppm">
       <Filter>Source Files\Lorem\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Reader\i3dCipher.cppm">
+      <Filter>Source Files\Lorem\Reader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@ export module daan.i3de.lorem.scene:Material;
 
 import daan.i3de.lorem.types;
 
-export namespace Lorem::Scene {
+export namespace lorem::Scene {
   struct Material
   {
   public:

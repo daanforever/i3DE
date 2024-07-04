@@ -4,7 +4,7 @@ import std;
 import daan.i3de.lorem.types;
 import daan.i3de.lorem.xml;
 
-export namespace Lorem::Importer::FS {
+export namespace lorem::importer::FS {
   class ModDesc {
   public: // Constructor
     ModDesc() = default;

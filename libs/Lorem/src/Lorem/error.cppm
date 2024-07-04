@@ -3,7 +3,7 @@ export module daan.i3de.lorem.error;
 import std;
 import daan.i3de.lorem.logger;
 
-export namespace Lorem {
+export namespace lorem {
   class Error {
   public:
 

@@ -1,23 +1,23 @@
 #include "pch.h"
 
-#include "Lorem/Importer/FS/i3d.h"
+import daan.i3de.lorem.base;
 
-namespace Lorem::Importer::FS {
+namespace lorem::importer::FS {
   const std::string filename = "../../../../Tests/Samples/test.i3d";
 
-  TEST(i3d, Constructor) {
+  TEST(i3dTest, Constructor) {
     ASSERT_NO_THROW(i3d());
   };
 
-  TEST(i3d, ParseXML) {
-    ASSERT_NO_THROW(Lorem::Utils::loadFile(filename));
-    const auto file_ptr = Lorem::Utils::loadFile(filename);
+  TEST(i3dTest, ParseXML) {
+    ASSERT_NO_THROW(lorem::utils::loadFile(filename));
+    const auto file_ptr = lorem::utils::loadFile(filename);
     ASSERT_NO_THROW(i3d().load(file_ptr));
   };
 
-  TEST(i3d, NameAndVersion) {
-    ASSERT_NO_THROW(Lorem::Utils::loadFile(filename));
-    const auto file_ptr = Lorem::Utils::loadFile(filename);
+  TEST(i3dTest, NameAndVersion) {
+    ASSERT_NO_THROW(lorem::utils::loadFile(filename));
+    const auto file_ptr = lorem::utils::loadFile(filename);
 
     auto name = i3d().load(file_ptr).name;
     auto version = i3d().load(file_ptr).version;
@@ -25,9 +25,9 @@ namespace Lorem::Importer::FS {
     EXPECT_EQ("1.6", version);
   };
 
-  TEST(i3d, Files) {
-    ASSERT_NO_THROW(Lorem::Utils::loadFile(filename));
-    const auto file_ptr = Lorem::Utils::loadFile(filename);
+  TEST(i3dTest, Files) {
+    ASSERT_NO_THROW(lorem::utils::loadFile(filename));
+    const auto file_ptr = lorem::utils::loadFile(filename);
 
     auto files = i3d().load(file_ptr).find("Files");
 

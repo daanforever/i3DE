@@ -3,7 +3,7 @@ export module daan.i3de.lorem.scene:Shape;
 import std;
 import :Material;
 
-export namespace Lorem::Scene {
+export namespace lorem::Scene {
   
   // Structure representing a shape
   struct Shape {

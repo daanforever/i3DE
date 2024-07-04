@@ -1,13 +1,11 @@
 #include "pch.h"
-#include "Lorem/Importer/FS/Base.h"
 
-namespace Lorem::Importer::FS {
+import daan.i3de.lorem.base;
+
+namespace lorem::importer::FS {
   const std::string ZipFileName = "../../../../Tests/Samples/mod.zip";
 
-  TEST(Base, DefaultConstructor) {
+  TEST(BaseTest, DefaultConstructor) {
     ASSERT_NO_THROW(Base());
   }
-
-  //Test(Base, Import)
-
 }

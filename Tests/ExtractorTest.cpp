@@ -1,21 +1,22 @@
 #include "pch.h"
-#include "Lorem/Extractor.h"
 
-namespace Lorem {
+import daan.i3de.lorem.base;
+
+namespace lorem {
 
   const auto fileName = "../../../../Tests/Samples/file.zip";
 
-  TEST(Extractor, ConstructorTest) {
-    ASSERT_NO_THROW(Extractor());
+  TEST(ExtractorTest, ConstructorTest) {
+    ASSERT_NO_THROW(extractor());
   }
 
-  TEST(Extractor, ToMemory) {
-    auto extract = Extractor();
+  TEST(ExtractorTest, ToMemory) {
+    auto extract = extractor();
     ASSERT_NO_THROW(extract.ToMemory(fileName));
   }
 
-  TEST(Extractor, SizeTest) {
-    auto extract = Extractor();
+  TEST(ExtractorTest, SizeTest) {
+    auto extract = extractor();
 
     ASSERT_NO_THROW(extract.ToMemory(fileName));
     auto content = extract.ToMemory(fileName);
@@ -24,8 +25,8 @@ namespace Lorem {
     EXPECT_EQ(content->index.size(), 1);
   }
 
-  TEST(Extractor, FilenameTest) {
-    auto extract = Extractor();
+  TEST(ExtractorTest, FilenameTest) {
+    auto extract = extractor();
     auto name = "file.txt";
 
     ASSERT_NO_THROW(extract.ToMemory(fileName));
@@ -37,9 +38,9 @@ namespace Lorem {
     EXPECT_EQ(name, entry_ptr->get()->name);
   }
 
-  TEST(Extractor, ContentTest) {
+  TEST(ExtractorTest, ContentTest) {
     auto expected_string = "123";
-    auto extract = Extractor();
+    auto extract = extractor();
 
     ASSERT_NO_THROW(extract.ToMemory(fileName));
     auto content = extract.ToMemory(fileName);

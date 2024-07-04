@@ -4,7 +4,7 @@ import "pugixml.hpp";
 import daan.i3de.lorem.types;
 import daan.i3de.lorem.utils;
 
-export namespace Lorem::Importer::FS {
+export namespace lorem::importer::FS {
 
   class i3d {
   public:
@@ -82,7 +82,7 @@ export namespace Lorem::Importer::FS {
 
   i3d& i3d::parse(const t_file_ptr file_ptr)
   {
-    auto xml_ptr = Lorem::Utils::getXML(file_ptr);
+    auto xml_ptr = lorem::utils::getXML(file_ptr);
 
     name = xml_ptr->select_node("/i3D").node().attribute("name").value();
     version = xml_ptr->select_node("/i3D").node().attribute("version").value();

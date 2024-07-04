@@ -2,7 +2,7 @@ export module daan.i3de.lorem.reader:Base;
 
 import daan.i3de.lorem.types;
 
-export namespace Lorem::Reader {
+export namespace lorem::reader {
   class Base
   {
   public:
@@ -28,7 +28,7 @@ export namespace Lorem::Reader {
 
   Base& Base::open(const t_file_ptr ptr) {
     if (!ptr) {
-      throw Lorem::Error::NullPtrError();
+      throw lorem::Error::NullPtrError();
     }
 
     file_ptr = ptr;
@@ -49,7 +49,7 @@ export namespace Lorem::Reader {
   // Get n bytes from file
   std::vector<std::byte> Base::get(size_t n) {
     if (!file_ptr || position == -1) {
-      throw Lorem::Error::UninitializedReaderError();
+      throw lorem::Error::UninitializedReaderError();
     }
 
     auto& content = file_ptr->content;
@@ -76,7 +76,7 @@ export namespace Lorem::Reader {
     std::vector<T> result(n);
 
     if (sizeof(std::byte) > sizeof(T)) {
-      throw Lorem::Error::BadTypeError("Wrong type given");
+      throw lorem::Error::BadTypeError("Wrong type given");
     }
 
     for (size_t i = 0; i < bytes.size(); i++) {

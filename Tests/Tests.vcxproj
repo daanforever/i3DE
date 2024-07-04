@@ -72,6 +72,9 @@
       <CompileAsManaged>false</CompileAsManaged>
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\endian\src</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <BuildStlModules>true</BuildStlModules>
+      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -118,21 +121,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConverterTest.cpp" />
+    <ClCompile Include="ExtractorTest.cpp" />
     <ClCompile Include="i3dShapesTest.cpp" />
     <ClCompile Include="i3dTest.cpp" />
     <ClCompile Include="BaseTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
     <ClCompile Include="ModDescTest.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="ExtractorTest.cpp" />
     <ClCompile Include="ReaderTest.cpp" />
-    <ClCompile Include="TypesTest.cpp" />
-    <ClCompile Include="UtilsTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\i3DE.vcxproj">
