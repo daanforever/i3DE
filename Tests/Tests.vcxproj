@@ -38,8 +38,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build\$(MSBuildProjectName)\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\$(MSBuildProjectName)\Intermediate\$(Configuration)\</IntDir>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <PublicIncludeDirectories>$(SolutionDir)\libs\zip\src</PublicIncludeDirectories>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -75,6 +76,9 @@
       <BuildStlModules>true</BuildStlModules>
       <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
       <SDLCheck>true</SDLCheck>
+      <ModuleOutputFile>$(IntDir)%(Directory)</ModuleOutputFile>
+      <ModuleDependenciesFile>$(IntDir)%(Directory)</ModuleDependenciesFile>
+      <ObjectFileName>$(IntDir)%(Directory)</ObjectFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -117,17 +121,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ConverterTest.cpp" />
-    <ClCompile Include="ExtractorTest.cpp" />
-    <ClCompile Include="i3dShapesTest.cpp" />
-    <ClCompile Include="i3dTest.cpp" />
-    <ClCompile Include="BaseTest.cpp" />
-    <ClCompile Include="LoggerTest.cpp" />
-    <ClCompile Include="ModDescTest.cpp" />
-    <ClCompile Include="ReaderTest.cpp" />
+    <ClInclude Include="tests.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\i3DE.vcxproj">
@@ -139,6 +133,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Importer\FS\BaseTest.cpp" />
+    <ClCompile Include="ConverterTest.cpp" />
+    <ClCompile Include="ExtractorTest.cpp" />
+    <ClCompile Include="i3dShapesTest.cpp" />
+    <ClCompile Include="i3dTest.cpp" />
+    <ClCompile Include="LoggerTest.cpp" />
+    <ClCompile Include="ModDescTest.cpp" />
+    <ClCompile Include="Reader\BaseTest.cpp" />
+    <ClCompile Include="Reader\i3dCipherTest.cpp" />
+    <ClCompile Include="TypesTest.cpp" />
+    <ClCompile Include="UtilsTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

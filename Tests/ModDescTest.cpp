@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "tests.h"
 
 import daan.i3de.lorem.base;
 

@@ -6,25 +6,43 @@ export namespace lorem::reader {
   class Base
   {
   public:
+    // variables
+    Base* parent = nullptr;
+    t_file_ptr file_ptr = nullptr;
+    const std::size_t upper_bound = std::numeric_limits<std::size_t>::max();
+    std::size_t position = upper_bound;
+
+    // methods
     Base() = default;
-    virtual ~Base() = default;
 
-    Base& open(const t_file_ptr ptr);
+    Base(const Base& instance) {
+      file_ptr = instance.file_ptr;
+      position = instance.position;
+    };
 
-    explicit operator bool() const;
+    Base(Base& instance) {
+      parent   = &instance;
+      file_ptr = instance.file_ptr;
+      position = instance.position;
+    };
 
-    Base& reset();
+    virtual explicit operator bool() const;
 
-    // Get n bytes from file
-    std::vector<std::byte> get(size_t n);
+    virtual Base& open(const t_file_ptr ptr);
+    virtual Base& reset();
+
 
     template<typename T>
-    std::vector<T> get(size_t n);
+    std::vector<T> get(std::size_t n);
 
-  private:
-    t_file_ptr file_ptr = nullptr;
-    size_t position = -1;
+    // Get n bytes from file
+    virtual std::vector<std::byte> read(std::size_t n);
   };
+
+  Base::operator bool() const
+  {
+    return file_ptr ? true : false;
+  }
 
   Base& Base::open(const t_file_ptr ptr) {
     if (!ptr) {
@@ -36,52 +54,61 @@ export namespace lorem::reader {
     return *this;
   }
 
-  Base::operator bool() const
-  {
-    return file_ptr ? true : false;
-  }
-
   Base& Base::reset() {
     position = 0;
     return *this;
   }
 
+  template<typename T>
+  std::vector<T> Base::get(std::size_t n) {
+    if (parent) {
+      return parent->get<T>(n);
+    }
+
+    if constexpr (sizeof(std::byte) > sizeof(T)) {
+      throw lorem::Error::BadTypeError("Wrong type given");
+    }
+
+    auto type_size = sizeof(T);
+    auto bytes = read(n * type_size);
+    auto result_size = bytes.size() / type_size;
+
+    std::vector<T> result(result_size);
+
+    if (result_size > 0) {
+      for (auto i = 0; i < result_size; ++i) {
+        std::memcpy(&result[i], &bytes[i * type_size], type_size);
+      }
+    }
+
+    return result;
+  }
+
   // Get n bytes from file
-  std::vector<std::byte> Base::get(size_t n) {
-    if (!file_ptr || position == -1) {
+  std::vector<std::byte> Base::read(std::size_t n) {
+
+    if (parent) {
+      return parent->read(n);
+    }
+
+    if (!file_ptr || position == upper_bound) {
       throw lorem::Error::UninitializedReaderError();
     }
 
-    auto& content = file_ptr->content;
-    const auto ibegin = content.begin();
-    const auto iend = content.end();
+    const auto& content = file_ptr->content;
 
     if (position + n > content.size()) {
       n = content.size() - position;
     }
 
-    auto result = std::vector<std::byte>(
-      ibegin + position,
-      ibegin + position + n
-    );
+    std::vector<std::byte> result;
+    result.reserve(n);
+
+    for (auto i = position; i < position + n; ++i) {
+      result.push_back(content[i]);
+    }
 
     position += n;
-
-    return result;
-  }
-
-  template<typename T>
-  std::vector<T> Base::get(size_t n) {
-    auto bytes = get(n);
-    std::vector<T> result(n);
-
-    if (sizeof(std::byte) > sizeof(T)) {
-      throw lorem::Error::BadTypeError("Wrong type given");
-    }
-
-    for (size_t i = 0; i < bytes.size(); i++) {
-      std::memcpy(&result[i], &bytes[i], sizeof(std::byte));
-    }
 
     return result;
   }

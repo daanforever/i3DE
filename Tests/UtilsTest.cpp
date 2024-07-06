@@ -1,8 +1,9 @@
-#include "pch.h"
+#include "tests.h"
 
 import daan.i3de.lorem.base;
 
-namespace lorem {
+namespace lorem::utilsTest {
+  const std::string filename = "../../../../Tests/Samples/file.txt";
   const std::string modFilename = "../../../../Tests/Samples/mod.zip";
   const auto dir_ptr = extractor().ToMemory(modFilename);
   const auto file_ptr = dir_ptr->find("modDesc.xml");
@@ -13,5 +14,9 @@ namespace lorem {
 
   TEST(utils, getXML) {
     ASSERT_NO_THROW(utils::getXML(file_ptr));
+  };
+
+  TEST(utils, load) {
+    ASSERT_NO_THROW(utils::load(filename));
   };
 }

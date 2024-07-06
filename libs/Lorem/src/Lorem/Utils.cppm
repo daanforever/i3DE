@@ -10,7 +10,7 @@ export namespace lorem {
   public:
     static std::string fileWithoutExt(std::string_view filename);
     static t_shared_xml getXML(const t_file_ptr file_ptr);
-    static t_file_ptr loadFile(std::string_view filename);
+    static t_file_ptr load(const std::string& filename);
   };
 
   std::string utils::fileWithoutExt(std::string_view name)
@@ -33,28 +33,23 @@ export namespace lorem {
     return doc;
   }
 
-  t_file_ptr utils::loadFile(std::string_view filename) {
-    auto file_ptr = std::make_shared<t_file>();
-    file_ptr->name = filename;
+  t_file_ptr utils::load(const std::string& filename) {
 
-    if (!std::filesystem::exists(filename)) {
-      throw lorem::Error::NotFoundError("File not found: " + std::string(filename));
-    }
+    auto file_ptr = std::make_shared<t_file>(filename);
 
-    auto length{ std::filesystem::file_size(filename) };
-    std::ifstream file(filename.data(), std::ios::in | std::ios::binary);
+    if (std::filesystem::exists(filename)) {
 
-    if (!file) {
-      throw lorem::Error::FileReadError("Unable to open file: " + std::string(filename));
-    }
+      auto length     = std::filesystem::file_size(filename);
+      auto filestream = std::ifstream(filename, std::ios::in | std::ios::binary);
 
-    // Stop eating new lines in binary mode!!!
-    file.unsetf(std::ios::skipws);
+      if (length > 0 && filestream) {
 
-    file_ptr->content.resize(length);
+        file_ptr->content.resize(length);
+        filestream.unsetf(std::ios::skipws); // Stop eating new lines in binary mode!!!
+        filestream.read(std::bit_cast<char*>(file_ptr->content.data()), length);
 
-    if (!file.read(std::bit_cast<char*>(file_ptr->content.data()), length)) {
-      throw lorem::Error::FileReadError("Error reading file: " + std::string(filename));
+      }
+
     }
 
     return file_ptr;

@@ -1,5 +1,7 @@
-#include "pch.h"
+module;
+#include "tests.h"
 
+export module daan.i3de.tests.lorem.importer.fs.BaseTest;
 import daan.i3de.lorem.base;
 
 namespace lorem::importer::FS {
@@ -8,4 +10,5 @@ namespace lorem::importer::FS {
   TEST(BaseTest, DefaultConstructor) {
     ASSERT_NO_THROW(Base());
   }
+
 }

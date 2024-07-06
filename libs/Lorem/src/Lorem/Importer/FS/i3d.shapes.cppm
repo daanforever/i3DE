@@ -11,7 +11,7 @@ export namespace lorem::importer::FS {
 
     struct Header {
       Header() = default;
-      explicit Header(lorem::reader::Base& reader);
+      explicit Header(reader::Base& reader);
 
       std::uint16_t version = 0;
       std::uint8_t  seed = 0;
@@ -27,13 +27,13 @@ export namespace lorem::importer::FS {
   };
 
   // i3dShapes::Header
-  i3dShapes::Header::Header(lorem::reader::Base& reader)
+  i3dShapes::Header::Header(reader::Base& reader)
   {
     if (!reader) {
       throw lorem::Error::UninitializedReaderError();
     }
 
-    auto head = reader.get<uint8_t>(4);
+    auto head = reader.get<std::uint8_t>(4);
 
     if (head.size() < 4) {
       throw lorem::Error::UnsupportedVersionError("Unknown version");
@@ -64,10 +64,10 @@ export namespace lorem::importer::FS {
 
     auto stream = lorem::reader::Base().open(file_ptr);
     auto header = i3dShapes::Header(stream);
-    /*auto cipher = lorem::reader::i3dCipher(header.seed);
+    auto cipher = lorem::reader::i3dCipher(stream, header.seed);
 
-    auto cipherStream = lorem::reader::Base::Cipher(stream, cipher);
-    auto binaryReader = lorem::reader::Base::Endian(cipherStream, endian);*/
+    //auto cipherStream = lorem::reader::Base::Cipher(stream, cipher);
+    //auto binaryReader = lorem::reader::Base::Endian(cipherStream, endian);
 
     return *this;
   }

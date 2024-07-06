@@ -1,26 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="ConverterTest.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc">
       <Filter>default</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc">
       <Filter>default</Filter>
     </ClCompile>
-    <ClCompile Include="BaseTest.cpp">
-      <Filter>Importer\FS</Filter>
-    </ClCompile>
-    <ClCompile Include="i3dTest.cpp">
-      <Filter>Importer\FS</Filter>
-    </ClCompile>
-    <ClCompile Include="ModDescTest.cpp">
-      <Filter>Importer\FS</Filter>
-    </ClCompile>
+    <ClCompile Include="Reader\i3dCipherTest.cpp" />
+    <ClCompile Include="Importer\FS\BaseTest.cpp" />
+    <ClCompile Include="ConverterTest.cpp" />
     <ClCompile Include="ExtractorTest.cpp" />
     <ClCompile Include="i3dShapesTest.cpp" />
+    <ClCompile Include="i3dTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
-    <ClCompile Include="ReaderTest.cpp" />
+    <ClCompile Include="ModDescTest.cpp" />
+    <ClCompile Include="Reader\BaseTest.cpp" />
+    <ClCompile Include="TypesTest.cpp" />
+    <ClCompile Include="UtilsTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="default">
@@ -39,7 +36,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="tests.h">
       <Filter>default</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,11 +25,10 @@ export namespace lorem::importer::FS {
     lorem::Scene::Base scene = {};
     i3d i3dFile = {};
     i3dShapes i3dShps = {};
+    std::vector<std::string> filenames;
     std::vector<lorem::Scene::Shape> shapes;
 
     const auto& modDesc = ModDesc().load(dir_ptr->find("modDesc.xml"));
-
-    std::vector<std::string> filenames;
 
     for (const auto& filename : modDesc.StoreItems) {
 

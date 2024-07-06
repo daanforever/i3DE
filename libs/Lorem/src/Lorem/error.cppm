@@ -43,7 +43,7 @@ export namespace lorem {
     class UninitializedReaderError : public std::runtime_error {
     public:
       explicit UninitializedReaderError() :
-        std::runtime_error("Use Base().open(file_ptr) first") {}
+        std::runtime_error("Use .open(file_ptr) first") {}
     };
 
     class NullPtrError : public std::runtime_error {

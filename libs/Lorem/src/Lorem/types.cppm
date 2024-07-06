@@ -22,7 +22,7 @@ namespace lorem {
     std::map<std::string, std::shared_ptr<t_file>, std::less<>> index = {};
 
     explicit operator bool() const {
-      return !name.empty();
+      return present();
     }
 
     bool empty() const {
