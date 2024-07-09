@@ -7,17 +7,33 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc">
       <Filter>default</Filter>
     </ClCompile>
-    <ClCompile Include="Reader\i3dCipherTest.cpp" />
-    <ClCompile Include="Importer\FS\BaseTest.cpp" />
-    <ClCompile Include="ConverterTest.cpp" />
-    <ClCompile Include="ExtractorTest.cpp" />
-    <ClCompile Include="i3dShapesTest.cpp" />
-    <ClCompile Include="i3dTest.cpp" />
-    <ClCompile Include="LoggerTest.cpp" />
-    <ClCompile Include="ModDescTest.cpp" />
-    <ClCompile Include="Reader\BaseTest.cpp" />
+    <ClCompile Include="tests.cppm" />
     <ClCompile Include="TypesTest.cpp" />
-    <ClCompile Include="UtilsTest.cpp" />
+    <ClCompile Include="UtilsTest.cppm" />
+    <ClCompile Include="LoggerTest.cpp" />
+    <ClCompile Include="ExtractorTest.cpp" />
+    <ClCompile Include="ConverterTest.cpp" />
+    <ClCompile Include="Importer\FS\BaseTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader\BaseTest.cpp">
+      <Filter>Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="i3dShapesTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="i3dTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="ModDescTest.cpp">
+      <Filter>Importer\FS</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader\i3dCipherTest.cpp">
+      <Filter>Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader\EndianTest.cpp">
+      <Filter>Reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="default">
@@ -29,15 +45,13 @@
     <Filter Include="Importer\FS">
       <UniqueIdentifier>{2a5a1794-8673-4bc9-aa4f-fd63ab48b622}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Reader">
+      <UniqueIdentifier>{61043815-d862-453e-a0b7-a1f2545c3ae6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
       <Filter>default</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="tests.h">
-      <Filter>default</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

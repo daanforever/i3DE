@@ -183,6 +183,7 @@
     <ClCompile Include="Lorem\src\Lorem\logger.cppm" />
     <ClCompile Include="Lorem\src\Lorem\reader.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Reader\Base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Reader\Endian.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Reader\i3dCipher.cppm" />
     <ClCompile Include="Lorem\src\Lorem\scene.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm" />

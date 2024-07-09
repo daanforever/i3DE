@@ -1,4 +1,4 @@
-#include "tests.h"
+#include "tests.cppm"
 
 import daan.i3de.lorem.base;
 

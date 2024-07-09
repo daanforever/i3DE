@@ -22,39 +22,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lorem\src\Lorem\types.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\logger.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\std.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\utils.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\xml.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\error.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\scene.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\base.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\reader.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\converter.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\extractor.cppm">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm">
       <Filter>Source Files\Lorem\Scene</Filter>
     </ClCompile>
@@ -84,6 +51,42 @@
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Reader\i3dCipher.cppm">
       <Filter>Source Files\Lorem\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Reader\Endian.cppm">
+      <Filter>Source Files\Lorem\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\base.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\converter.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\error.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\extractor.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\logger.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\reader.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\scene.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\std.ixx">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\types.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\utils.cppm">
+      <Filter>Source Files\Lorem</Filter>
+    </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\xml.cppm">
+      <Filter>Source Files\Lorem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -63,24 +63,25 @@ export namespace lorem {
       return *this;
     };
 
-    lorem::logger operator<<(std::list<std::string>& strings) const {
-      if (strings.size() > 0) {
+    //lorem::logger operator<<(std::list<std::string>& strings) const {
+    //  if (strings.size() > 0) {
+    //    std::cout << std::endl;
+    //  }
+
+    //  for (const auto& text : strings) {
+    //    std::cout << text << std::endl;
+    //  }
+    //  return *this;
+    //};
+
+    template<typename T>
+    lorem::logger operator<<(std::vector<T> data) const {
+      if (data.size() > 0) {
         std::cout << std::endl;
       }
 
-      for (const auto& text : strings) {
-        std::cout << text << std::endl;
-      }
-      return *this;
-    };
-
-    lorem::logger operator<<(std::vector<std::string> strings) const {
-      if (strings.size() > 0) {
-        std::cout << std::endl;
-      }
-
-      for (const auto& text : strings) {
-        std::cout << text << std::endl;
+      for (const auto& item : data) {
+        std::cout << item << std::endl;
       }
       return *this;
     };

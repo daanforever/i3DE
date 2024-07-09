@@ -32,7 +32,7 @@ export namespace lorem::reader {
     virtual Base& reset();
 
 
-    template<typename T>
+    template<typename T = std::byte>
     std::vector<T> get(std::size_t n);
 
     // Get n bytes from file

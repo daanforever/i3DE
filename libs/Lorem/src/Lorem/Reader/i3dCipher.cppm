@@ -7,17 +7,15 @@ export namespace lorem::reader {
   class i3dCipher : public Base {
     std::uint8_t seed = 0;
   public:
-    i3dCipher() = default;
-    i3dCipher(Base& instance, const std::uint8_t seed);
+    i3dCipher() : Base() {};
+    i3dCipher(const std::uint8_t new_seed) : Base(), seed(new_seed) {};
+    i3dCipher(Base& instance, const std::uint8_t new_seed) : Base(instance), seed(new_seed) {};
 
     virtual i3dCipher& open(const t_file_ptr ptr) override;
 
-    template<typename T>
+    template<typename T = std::byte>
     std::vector<T> get(size_t n);
   };
-
-  i3dCipher::i3dCipher(Base& instance, const std::uint8_t new_seed) : 
-    Base(instance), seed(new_seed) {};
 
   i3dCipher& i3dCipher::open(const t_file_ptr ptr)
   {

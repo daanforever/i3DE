@@ -41,6 +41,7 @@
     <IncludePath>$(ProjectDir);$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <PublicIncludeDirectories>$(SolutionDir)\libs\zip\src</PublicIncludeDirectories>
     <SourcePath>$(SourcePath)</SourcePath>
+    <PublicModuleDirectories>$(ProjectDir);$(PublicModuleDirectories)</PublicModuleDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -79,6 +80,7 @@
       <ModuleOutputFile>$(IntDir)%(Directory)</ModuleOutputFile>
       <ModuleDependenciesFile>$(IntDir)%(Directory)</ModuleDependenciesFile>
       <ObjectFileName>$(IntDir)%(Directory)</ObjectFileName>
+      <AdditionalBMIDirectories>D:\Projects\CPP\STLModules\Debug;%(AdditionalBMIDirectories)</AdditionalBMIDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -121,9 +123,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="tests.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\i3DE.vcxproj">
       <Project>{1e4feb76-7764-42f9-a6a6-1e728bcc5d65}</Project>
     </ProjectReference>
@@ -135,17 +134,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Importer\FS\BaseTest.cpp" />
     <ClCompile Include="ConverterTest.cpp" />
     <ClCompile Include="ExtractorTest.cpp" />
     <ClCompile Include="i3dShapesTest.cpp" />
     <ClCompile Include="i3dTest.cpp" />
+    <ClCompile Include="Importer\FS\BaseTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
     <ClCompile Include="ModDescTest.cpp" />
     <ClCompile Include="Reader\BaseTest.cpp" />
+    <ClCompile Include="Reader\EndianTest.cpp" />
     <ClCompile Include="Reader\i3dCipherTest.cpp" />
+    <ClCompile Include="tests.cppm" />
     <ClCompile Include="TypesTest.cpp" />
-    <ClCompile Include="UtilsTest.cpp" />
+    <ClCompile Include="UtilsTest.cppm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

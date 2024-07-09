@@ -1,7 +1,5 @@
-module;
-#include "tests.h"
+#include "tests.cppm"
 
-export module daan.i3de.tests.lorem.reader.BaseTest;
 import daan.i3de.lorem.base;
 
 namespace lorem::reader::BaseTests {
@@ -38,10 +36,10 @@ namespace lorem::reader::BaseTests {
 
     ASSERT_NO_THROW(
       auto reader = Base().open(file_ptr);
-    reader.reset();
-    reader.get<std::byte>(0);
-    reader.get<std::byte>(10).size();
-      );
+      reader.reset();
+      reader.get<std::byte>(0);
+      (void)reader.get<std::byte>(10).size();
+    );
 
     // default get
     auto result = Base().open(file_ptr).get<std::byte>(10);
@@ -67,7 +65,7 @@ namespace lorem::reader::BaseTests {
       auto reader = Base().open(file_ptr);
       reader.reset();
       reader.get<int>(0);
-      reader.get<int>(10).size();
+      (void)reader.get<int>(10).size();
     );
 
     auto& reader = Base().open(file_ptr);

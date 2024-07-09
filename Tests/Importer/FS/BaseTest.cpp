@@ -1,7 +1,5 @@
-module;
-#include "tests.h"
+#include "tests.cppm"
 
-export module daan.i3de.tests.lorem.importer.fs.BaseTest;
 import daan.i3de.lorem.base;
 
 namespace lorem::importer::FS {
