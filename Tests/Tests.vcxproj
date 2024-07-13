@@ -42,6 +42,8 @@
     <PublicIncludeDirectories>$(SolutionDir)\libs\zip\src</PublicIncludeDirectories>
     <SourcePath>$(SourcePath)</SourcePath>
     <PublicModuleDirectories>$(ProjectDir);$(PublicModuleDirectories)</PublicModuleDirectories>
+    <Microsoft-GoogleTest-Disable-gtest_main>
+    </Microsoft-GoogleTest-Disable-gtest_main>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -81,6 +83,7 @@
       <ModuleDependenciesFile>$(IntDir)%(Directory)</ModuleDependenciesFile>
       <ObjectFileName>$(IntDir)%(Directory)</ObjectFileName>
       <AdditionalBMIDirectories>D:\Projects\CPP\STLModules\Debug;%(AdditionalBMIDirectories)</AdditionalBMIDirectories>
+      <EnableModules>true</EnableModules>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -140,6 +143,7 @@
     <ClCompile Include="i3dTest.cpp" />
     <ClCompile Include="Importer\FS\BaseTest.cpp" />
     <ClCompile Include="LoggerTest.cpp" />
+    <ClCompile Include="main.cppm" />
     <ClCompile Include="ModDescTest.cpp" />
     <ClCompile Include="Reader\BaseTest.cpp" />
     <ClCompile Include="Reader\EndianTest.cpp" />

@@ -69,13 +69,19 @@ export namespace lorem::reader {
       throw lorem::Error::BadTypeError("Wrong type given");
     }
 
+    std::vector<T> result = {};
+
+    if (n < 1) {
+      return result;
+    }
+
     auto type_size = sizeof(T);
     auto bytes = read(n * type_size);
     auto result_size = bytes.size() / type_size;
 
-    std::vector<T> result(result_size);
-
     if (result_size > 0) {
+      result.resize(result_size);
+
       for (auto i = 0; i < result_size; ++i) {
         std::memcpy(&result[i], &bytes[i * type_size], type_size);
       }

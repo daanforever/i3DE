@@ -4,10 +4,10 @@ export import std;
 export import daan.i3de.lorem.error;
 export import daan.i3de.lorem.logger;
 
-namespace lorem {
+export namespace lorem {
 
   // Structure representing a file in memory
-  export struct t_file {
+  struct t_file {
     t_file() = default;
     explicit t_file(std::string_view new_name) : name(new_name) {};
 
@@ -72,6 +72,8 @@ namespace lorem {
     }
   };
 
-  export using t_file_ptr = std::shared_ptr<t_file>;
-  export using t_map_ss = std::map<std::string, std::string, std::less<>>;
+  using t_file_ptr = std::shared_ptr<t_file>;
+  using t_map_ss = std::map<std::string, std::string, std::less<>>;
+
+  enum Endianness { Little, Big };
 }

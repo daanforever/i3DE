@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
   //const auto dir_ptr = lorem::extractor().ToMemory(filename);
   const auto simple_file_ptr = lorem::utils::load("./Tests/Samples/file2.txt");
 
-  auto endianStream = lorem::reader::Endian(lorem::reader::Endian::Endianness::Big);
+  auto endianStream = lorem::reader::Endian(lorem::Endianness::Big);
   endianStream.open(simple_file_ptr);
   auto result = endianStream.get(1);
 
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     LDEBUG << "Not empty" << std::endl;
     LDEBUG << std::hex << result << std::endl;
 
-    lorem::reader::Endian().open(simple_file_ptr).get(1);
+    LDEBUG << lorem::reader::Endian().open(simple_file_ptr).get(0).size() << std::endl;
   }
   else {
     LDEBUG << "Empty array" << std::endl;

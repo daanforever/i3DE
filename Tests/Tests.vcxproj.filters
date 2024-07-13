@@ -34,6 +34,7 @@
     <ClCompile Include="Reader\EndianTest.cpp">
       <Filter>Reader</Filter>
     </ClCompile>
+    <ClCompile Include="main.cppm" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="default">

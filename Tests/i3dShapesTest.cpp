@@ -26,5 +26,6 @@ namespace lorem::importer::FS {
     auto header = i3dShapes::Header(reader.reset());
 
     EXPECT_EQ(5, header.version);
+    EXPECT_EQ(Endianness::Little, header.endian);
   }
 }

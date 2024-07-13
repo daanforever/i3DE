@@ -122,10 +122,10 @@
       <AdditionalIncludeDirectories>$(SolutionDir)\libs\Lorem\src;$(SolutionDir)\libs\zip\src;$(SolutionDir)\libs\pugixml\src;$(SolutionDir)\libs\tinygltf\src;$(SolutionDir)\libs\endian\src</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ScanSourceForModuleDependencies>true</ScanSourceForModuleDependencies>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <AdditionalBMIDirectories>D:\Projects\CPP\STLModules\Debug;%(AdditionalBMIDirectories)</AdditionalBMIDirectories>
       <BuildStlModules>true</BuildStlModules>
-      <EnableModules>true</EnableModules>
+      <EnableModules>false</EnableModules>
       <CompileAs>Default</CompileAs>
       <ModuleOutputFile>$(IntDir)%(RelativeDir)</ModuleOutputFile>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>

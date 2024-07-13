@@ -15,6 +15,7 @@ export namespace lorem::importer::FS {
 
       std::uint16_t version = 0;
       std::uint8_t  seed = 0;
+      Endianness    endian{Little};
     };
 
     i3dShapes() = default;
@@ -29,6 +30,10 @@ export namespace lorem::importer::FS {
   // i3dShapes::Header
   i3dShapes::Header::Header(reader::Base& reader)
   {
+    constexpr std::uint8_t VERSION_2 = 2;
+    constexpr std::uint8_t VERSION_3 = 3;
+    constexpr std::uint8_t VERSION_4 = 4;
+
     if (!reader) {
       throw lorem::Error::UninitializedReaderError();
     }
@@ -39,17 +44,23 @@ export namespace lorem::importer::FS {
       throw lorem::Error::UnsupportedVersionError("Unknown version");
     }
 
-    if (head[0] >= 4) {
+    if (head[0] >= VERSION_4) {
+
       version = head[0];
       seed = head[2];
+
     }
-    else if (head[3] == 2 || head[3] == 3) {
+    else if (head[3] == VERSION_2 || head[3] == VERSION_3) {
+
       version = head[3];
       seed = head[1];
+
     }
     else {
-      throw lorem::Error::UnsupportedVersionError("Unknown version");
+      throw lorem::Error::UnsupportedVersionError("Unknown version: " + std::to_string(head[0]));
     }
+
+    endian = version >= VERSION_4 ? Endianness::Little : Endianness::Big;
   }
 
   // i3dShapes
@@ -62,12 +73,10 @@ export namespace lorem::importer::FS {
       throw lorem::Error::NullPtrError();
     }
 
-    auto stream = lorem::reader::Base().open(file_ptr);
-    auto header = i3dShapes::Header(stream);
-    auto cipher = lorem::reader::i3dCipher(stream, header.seed);
-
-    //auto cipherStream = lorem::reader::Base::Cipher(stream, cipher);
-    //auto binaryReader = lorem::reader::Base::Endian(cipherStream, endian);
+    auto& sample = lorem::reader::Base().open(file_ptr);
+    auto  header = i3dShapes::Header(sample);
+    auto  cipher = lorem::reader::i3dCipher(sample, header.seed);
+    auto  stream = lorem::reader::Endian(cipher, header.endian);
 
     return *this;
   }
