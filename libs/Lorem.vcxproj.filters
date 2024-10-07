@@ -20,6 +20,9 @@
     <Filter Include="Source Files\Lorem\Reader">
       <UniqueIdentifier>{3a539f23-76dd-4fc9-a1b3-dfd1ef3b3134}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Lorem\Cipher">
+      <UniqueIdentifier>{ff41be65-d13a-4ea6-afeb-86435122bc0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm">
@@ -49,7 +52,7 @@
     <ClCompile Include="Lorem\src\Lorem\Scene\Shape.cppm">
       <Filter>Source Files\Lorem\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Lorem\src\Lorem\Reader\i3dCipher.cppm">
+    <ClCompile Include="Lorem\src\Lorem\Reader\Cipher.cppm">
       <Filter>Source Files\Lorem\Reader</Filter>
     </ClCompile>
     <ClCompile Include="Lorem\src\Lorem\Reader\Endian.cppm">
@@ -88,5 +91,11 @@
     <ClCompile Include="Lorem\src\Lorem\xml.cppm">
       <Filter>Source Files\Lorem</Filter>
     </ClCompile>
+    <ClCompile Include="Lorem\src\Lorem\Cipher\i3d.cppm">
+      <Filter>Source Files\Lorem\Cipher</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="I3DCipher.h" />
   </ItemGroup>
 </Project>

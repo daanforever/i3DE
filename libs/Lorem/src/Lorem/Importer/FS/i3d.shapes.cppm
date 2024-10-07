@@ -75,7 +75,7 @@ export namespace lorem::importer::FS {
 
     auto& sample = lorem::reader::Base().open(file_ptr);
     auto  header = i3dShapes::Header(sample);
-    auto  cipher = lorem::reader::i3dCipher(sample, header.seed);
+    auto  cipher = lorem::reader::Cipher(sample, header.seed);
     auto  stream = lorem::reader::Endian(cipher, header.endian);
 
     return *this;

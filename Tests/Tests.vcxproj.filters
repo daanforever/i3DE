@@ -28,13 +28,13 @@
     <ClCompile Include="ModDescTest.cpp">
       <Filter>Importer\FS</Filter>
     </ClCompile>
-    <ClCompile Include="Reader\i3dCipherTest.cpp">
-      <Filter>Reader</Filter>
-    </ClCompile>
     <ClCompile Include="Reader\EndianTest.cpp">
       <Filter>Reader</Filter>
     </ClCompile>
     <ClCompile Include="main.cppm" />
+    <ClCompile Include="Reader\CipherTest.cpp">
+      <Filter>Reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="default">

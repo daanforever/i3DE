@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lorem\src\Lorem\base.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Cipher\i3d.cppm" />
     <ClCompile Include="Lorem\src\Lorem\converter.cppm" />
     <ClCompile Include="Lorem\src\Lorem\error.cppm" />
     <ClCompile Include="Lorem\src\Lorem\extractor.cppm" />
@@ -184,7 +185,7 @@
     <ClCompile Include="Lorem\src\Lorem\reader.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Reader\Base.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Reader\Endian.cppm" />
-    <ClCompile Include="Lorem\src\Lorem\Reader\i3dCipher.cppm" />
+    <ClCompile Include="Lorem\src\Lorem\Reader\Cipher.cppm" />
     <ClCompile Include="Lorem\src\Lorem\scene.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Base.cppm" />
     <ClCompile Include="Lorem\src\Lorem\Scene\Material.cppm" />
@@ -194,6 +195,9 @@
     <ClCompile Include="Lorem\src\Lorem\utils.cppm" />
     <ClCompile Include="Lorem\src\Lorem\xml.cppm" />
     <ClCompile Include="Lorem\src\std.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="I3DCipher.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -146,8 +146,8 @@
     <ClCompile Include="main.cppm" />
     <ClCompile Include="ModDescTest.cpp" />
     <ClCompile Include="Reader\BaseTest.cpp" />
+    <ClCompile Include="Reader\CipherTest.cpp" />
     <ClCompile Include="Reader\EndianTest.cpp" />
-    <ClCompile Include="Reader\i3dCipherTest.cpp" />
     <ClCompile Include="tests.cppm" />
     <ClCompile Include="TypesTest.cpp" />
     <ClCompile Include="UtilsTest.cppm" />

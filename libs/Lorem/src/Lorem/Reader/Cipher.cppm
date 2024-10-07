@@ -1,23 +1,23 @@
-export module daan.i3de.lorem.reader:i3dCipher;
+export module daan.i3de.lorem.reader:Cipher;
 
 import daan.i3de.lorem.types;
 import :Base;
 
 export namespace lorem::reader {
-  class i3dCipher : public Base {
+  class Cipher : public Base {
     std::uint8_t seed = 0;
   public:
-    i3dCipher() : Base() {};
-    i3dCipher(const std::uint8_t new_seed) : Base(), seed(new_seed) {};
-    i3dCipher(Base& instance, const std::uint8_t new_seed) : Base(instance), seed(new_seed) {};
+    Cipher() : Base() {};
+    Cipher(const std::uint8_t new_seed) : Base(), seed(new_seed) {};
+    Cipher(Base& instance, const std::uint8_t new_seed) : Base(instance), seed(new_seed) {};
 
-    virtual i3dCipher& open(const t_file_ptr ptr) override;
+    virtual Cipher& open(const t_file_ptr ptr) override;
 
     template<typename T = std::byte>
     std::vector<T> get(size_t n);
   };
 
-  i3dCipher& i3dCipher::open(const t_file_ptr ptr)
+  Cipher& Cipher::open(const t_file_ptr ptr)
   {
     if (parent) {
       parent->open(ptr);
@@ -30,7 +30,7 @@ export namespace lorem::reader {
   }
 
   template<typename T>
-  std::vector<T> i3dCipher::get(size_t n)
+  std::vector<T> Cipher::get(size_t n)
   {
     std::vector<T> result = {};
 
